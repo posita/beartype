@@ -135,8 +135,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="./.." title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
@@ -254,8 +253,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <label class="md-nav__title" for="__drawer">
     <a href="./.." title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     Beartype
@@ -1423,6 +1421,22 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   
 
 
+<!-- FIXME: Split this overly large and increasingly unreadable document into
+the following two documents:
+* "api_decor.md", containing *EVERYTHING* in this document up to but not
+  including the "Beartype Configuration API" subsection.
+* "api_conf.md", containing *EVERYTHING* in this document at and after the
+  "Beartype Configuration API" subsection.
+
+This was infeasible under Sphinx, which does *NOT* permit "py:module::"
+directives to be distributed across multiple documents. Zensical has no such
+directive, so this split should now be feasible. Note that cross-references to
+"api_decor.md#beartype-configuration-api" in "_links.md" will need updating. -->
+
+<!-- FIXME: Revise all hard-coded references to this decorator (e.g.,
+"`@beartype`", "`@beartype.beartype`") into actual "beartype.beartype"
+interlinks, please. -->
+
 <h1 id="beartype-decoration">Beartype Decoration<a class="headerlink" href="#beartype-decoration" title="Permanent link">&para;</a></h1>
 <div class="highlight"><pre><span></span><code>wrap anything with runtime type-checking
     ...except that, of course.
@@ -1432,6 +1446,25 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
 <div id="beartype.beartype"></div>
 
 <h2 id="beartype-decorator-api">Beartype Decorator API<a class="headerlink" href="#beartype-decorator-api" title="Permanent link">&para;</a></h2>
+<p><code>@beartype.beartype( cls: type | None = None, func:</code><a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable"><code>collections.abc.Callable</code></a><code>| None = None, conf:</code><a href="../api_decor/#beartype-configuration-api"><code>BeartypeConf</code></a><code>= BeartypeConf() ) -&gt; object</code></p>
+<ul>
+<li><strong><code>cls</code></strong> (<code>type | None</code>): Pure-Python class to be decorated.</li>
+<li><strong><code>func</code></strong> (<a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable"><code>collections.abc.Callable</code></a><code>| None</code>): Pure-Python function or method to be decorated.</li>
+<li><strong><code>conf</code></strong> (<a href="../api_decor/#beartype-configuration-api"><code>beartype.BeartypeConf</code></a>): Beartype configuration. Defaults to the default configuration performing <span class="arithmatex">\(O(1)\)</span> type-checking.</li>
+<li><em>Returns</em>: Passed class or callable wrapped with runtime type-checking.</li>
+</ul>
+<p>Augment the passed object with performant runtime type-checking. Unlike most decorators, <code>@beartype</code> has three orthogonal modes of operation:</p>
+<ul>
+<li><a href="#class-mode">Class mode</a> – in which you decorate a class with <code>@beartype</code>, which then iteratively decorates all methods declared by that class with <code>@beartype</code>. This is the recommended mode for <strong>object-oriented logic.</strong></li>
+<li><a href="#callable-mode">Callable mode</a> – in which you decorate a function or method with <code>@beartype</code>, which then dynamically generates a new function or method wrapping the original function or method with performant runtime type-checking. This is the recommended mode for <strong>procedural logic.</strong></li>
+<li><a href="#configuration-mode">Configuration mode</a> – in which you create your own app-specific <code>@beartype</code> decorator <strong>configured</strong> for your exact use case.</li>
+</ul>
+<p>When chaining multiple decorators, order of decoration is significant but conditionally depends on the mode of operation. Specifically, in:</p>
+<ul>
+<li><a href="#class-mode">Class mode</a>, <code>@beartype</code> should usually be listed <em>first</em>.</li>
+<li><a href="#callable-mode">Callable mode</a>, <code>@beartype</code> should usually be listed <em>last</em>.</li>
+</ul>
+<p>It's not our fault. Surely documentation would never deceive you.</p>
 <h3 id="callable-mode">Callable Mode<a class="headerlink" href="#callable-mode" title="Permanent link">&para;</a></h3>
 <p><code>def beartype.beartype(func:</code><a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable"><code>collections.abc.Callable</code></a><code>) -&gt;</code><a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable"><code>collections.abc.Callable</code></a></p>
 <p>In callable mode, <code>beartype</code> dynamically generates a new <strong>callable</strong> (i.e., pure-Python function or method) runtime type-checking the passed callable.</p>

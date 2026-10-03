@@ -135,8 +135,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="./.." title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
@@ -254,8 +253,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <label class="md-nav__title" for="__drawer">
     <a href="./.." title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     Beartype
@@ -1202,7 +1200,7 @@ timeit<span class="w"> </span>undecorated<span class="w"> </span>time:<span clas
 <p><code>@beartype</code> (and every other runtime type-checker) will <em>always</em> be negligibly slower than hard-coded inlined runtime type-checking, thanks to the negligible (but surprisingly high) cost of Python function calls. Where this is unacceptable, <a href="https://www.pypy.org">PyPy</a> is your code's new BFFL.</p>
 <h2 id="nobody-expects-the-linearithmic-time">Nobody Expects the Linearithmic Time<a class="headerlink" href="#nobody-expects-the-linearithmic-time" title="Permanent link">&para;</a></h2>
 <p>Most runtime type-checkers exhibit <span class="arithmatex">\(O(n)\)</span> time complexity (where <span class="arithmatex">\(n\)</span> is the total number of items recursively contained in a container to be checked) by recursively and repeatedly checking <em>all</em> items of <em>all</em> containers passed to or returned from <em>all</em> calls of decorated callables.</p>
-<p>Beartype guarantees <span class="arithmatex">\(O(1)\)</span> time complexity by non-recursively but repeatedly checking <em>one</em> random item at <em>all</em> nesting levels of <em>all</em> containers passed to or returned from <em>all</em> calls of decorated callables, thus amortizing the cost of deeply checking containers across calls.</p>
+<p>Beartype guarantees <span class="arithmatex">\(O(1)\)</span> time complexity by non-recursively but repeatedly checking <em>one</em> random item at <em>all</em> nesting levels of <em>all</em> containers passed to or returned from <em>all</em> calls of decorated callables, thus amortizing the cost of deeply checking containers across calls. (See the subsection on <a href="../code/#constant-nested-deep-sequence-decoration">@beartype-generated code deeply type-checking arbitrarily nested containers in constant time</a> for what this means in practice.)</p>
 <p>Beartype exploits the <a href="https://en.wikipedia.org/wiki/Coupon_collector%27s_problem">well-known coupon collector's problem</a> applied to abstract trees of nested type hints, enabling us to statistically predict the number of calls required to fully type-check all items of an arbitrary container on average. Formally, let:</p>
 <ul>
 <li><span class="arithmatex">\(E(T)\)</span> be the expected number of calls needed to check all items of a container containing only non-container items (i.e., containing <em>no</em> nested subcontainers) either passed to or returned from a <code>@beartype</code>-decorated callable.</li>

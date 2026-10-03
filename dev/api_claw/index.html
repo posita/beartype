@@ -135,8 +135,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="./.." title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
@@ -254,8 +253,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <label class="md-nav__title" for="__drawer">
     <a href="./.." title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     Beartype
@@ -1106,6 +1104,16 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
 <span class="kn">from</span><span class="w"> </span><span class="nn">beartype.claw</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype_packages</span>      <span class="c1"># &lt;-- boring intensifies</span>
 <span class="n">beartype_packages</span><span class="p">((</span><span class="s1">'</span><span class="si">{your_package}</span><span class="s1">'</span><span class="p">,))</span>           <span class="c1"># &lt;-- the more slow way</span>
 </code></pre></div>
+<!-- FIXME: Uncomment *AFTER* we actually build out a reasonable first iteration
+of our local import hook API. *sigh*
+
+    # ....................{ THE WAY OF THE BEAR NINJA       }....................
+    from beartype.claw import beartyping             # <-- getting weird here
+    with beartyping():                               # <-- weird context manager
+        from {your_package} import {your_thing}      # <-- import some stuff
+        from {some_package} import {some_thing}      # <-- import more stuff
+-->
+
 <p>Beartype import hooks extend the surprisingly sharp claws of <code>beartype</code> to your full app stack, whether anyone else wanted you to do that or not. Claw your way to the top of the bug heap; then sit on that heap with a smug expression. Do it for the new guy sobbing quietly in his cubicle.</p>
 <h2 id="import-hooks-overview">Import Hooks Overview<a class="headerlink" href="#import-hooks-overview" title="Permanent link">&para;</a></h2>
 <p>Beartype import hooks implicitly perform both:</p>
@@ -1317,6 +1325,7 @@ third-generation type-checker</a>. That's right.</p>
 <div class="admonition note">
 <p class="admonition-title">Added in 0.15.0</p>
 </div>
+<p><img alt="it's the end of the road as we know it, and i feel fine" src="https://user-images.githubusercontent.com/217028/272775529-42b85874-56b7-40b4-b9d8-19b603df1657.png" /></p>
 <p><sup>It’s almost as if we know what “penultimate” means.</sup></p>
 <div id="beartype.claw.beartype_all"></div>
 
@@ -1351,7 +1360,14 @@ third-generation type-checker</a>. That's right.</p>
 <div class="admonition note">
 <p class="admonition-title">Added in 0.15.0</p>
 </div>
+<p><img alt="quiet, safe life" src="https://github.com/beartype/beartype-assets/assets/217028/cf43dca7-1852-4fec-bcbc-6d4aeca23230" /></p>
 <p><sup>The beartype_all() lifestyle. Short but sweet.</sup></p>
+<!-- FIXME: Uncomment *AFTER* we actually build out a reasonable first iteration
+of our local import hook API. *sigh*
+
+### Local Import Hooks
+-->
+
 <h2 id="import-hook-configuration">Import Hook Configuration<a class="headerlink" href="#import-hook-configuration" title="Permanent link">&para;</a></h2>
 <p>Beartype import hooks accept an optional keyword-only <code>conf</code> parameter whose value is a <strong>beartype configuration</strong> (i.e., <code>beartype.BeartypeConf</code> instance), defaulting to the default beartype configuration <code>BeartypeConf()</code>. Unsurprisingly, that configuration configures the behaviour of its hook: e.g.,</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># In your "{your_package}.__init__" submodule, enable @beartype's support for</span>
@@ -1362,6 +1378,8 @@ third-generation type-checker</a>. That's right.</p>
 <span class="n">beartype_package</span><span class="p">(</span><span class="s1">'your_package'</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">BeartypeConf</span><span class="p">(</span><span class="n">is_pep484_tower</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># &lt;-- *UGH.*</span>
 </code></pre></div>
 <p>Equally unsurprisingly, <code>beartype.BeartypeConf</code> has been equipped with import hook-aware super powers. Fine-tune the behaviour of our import hooks for your exact needs, including:</p>
+<!-- FIXME: Document these options in "api_decor" as well, please. *sigh* -->
+
 <ul>
 <li><code>BeartypeConf(claw_is_pep526: bool = True)</code>. By default, <code>beartype.claw</code> type-checks annotated variable assignments like <code>muh_int: int = 'Pretty sure this isn't an integer.'</code>. Although this is <em>usually</em> what everyone wants, this may not be what someone suspicious wearing aviator goggles, a red velvet cape, and too-tight black leather wants. Nobody knows what those people want. If you are such a person, consider disabling this option to reduce type safety and destroy your code like Neo-Tokyo vs. Mecha-Baby-Godzilla: <sup>...who will win!?!?</sup></li>
 </ul>

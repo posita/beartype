@@ -135,8 +135,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="./.." title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
@@ -254,8 +253,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <label class="md-nav__title" for="__drawer">
     <a href="./.." title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     Beartype
@@ -1958,6 +1956,11 @@ beartype.roar.BeartypeCallHintPepReturnException:<span class="w"> </span>@bearty
 <li>Suboptimal type-checking code for both forward references and postponed type hints, deferring the lookup of the referenced class to call time. Although <code>beartype</code> caches that class after doing so, all of that incurs space and time costs you'd rather not pay at any space or time.</li>
 </ul>
 <p><code>typing.Self</code>: it saved our issue tracker from certain doom. Now, it will save your codebase from our issues.</p>
+<!-- FIXME: Mildly funny, but inappropriate here. Save for another rainy day.
+The future begins either today or tomorrow – depending on your Lorentzian frame
+of reference. It's a story as familiar as the Mario twins on a toadstool bender
+through the rubbish-filled back alleys of the Mushroom Kingdom. -->
+
 <h3 id="under-vscode">...under VSCode?<a class="headerlink" href="#under-vscode" title="Permanent link">&para;</a></h3>
 <p><strong>Beartype fully supports VSCode out-of-the-box</strong> – especially via <a href="https://github.com/microsoft/pylance-release">Pylance</a>, Microsoft's bleeding-edge Python extension for VSCode. Chortle in your joy, corporate subscribers and academic sponsors! All the intellisense you can tab-complete and more is now within your honey-slathered paws. Why? Because...</p>
 <p>Beartype laboriously complies with <a href="https://github.com/Microsoft/pyright">pyright</a>, Microsoft's in-house static type-checker for Python. <a href="https://github.com/microsoft/pylance-release">Pylance</a> enables <a href="https://github.com/Microsoft/pyright">pyright</a> as its default static type-checker. Beartype thus complies with <a href="https://github.com/microsoft/pylance-release">Pylance</a>, too.</p>

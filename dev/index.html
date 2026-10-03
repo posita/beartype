@@ -133,8 +133,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="" title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="./assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
@@ -252,8 +251,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <label class="md-nav__title" for="__drawer">
     <a href="" title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="./assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     Beartype
@@ -992,6 +990,23 @@ still listing this title in the site-wide navigation block to the left.
 <p><a href="https://github.com/beartype/beartype"><img alt="beartype —[ the bare-metal type-checker ]—" src="https://raw.githubusercontent.com/beartype/beartype-assets/main/banner/logo.svg" /></a></p>
 <!-- -------------( BADGES                                   )-------------- -->
 <!-- FIXME: Let's add these badges to our new "_links.md" database, too! *sigh* -->
+<!-- FIXME: Replace and/or supplement badges shown below with third-party badges
+published by "https://shields.io"; the look-and-feel of shields.io badges is
+the flat design favoured by modern apps and thus ostensibly superior to
+anything else I've seen. Relevant HTML resembles:
+    <a href="https://github.com/beartype/beartype/stargazers">
+    <img src="https://img.shields.io/github/stars/beartype/beartype?style=for-the-badge" alt="@beartype stars"/>
+    </a>
+    <a href="https://github.com/beartype/beartype/fork">
+    <img src="https://img.shields.io/github/forks/beartype/beartype?style=for-the-badge" alt="@beartype forks"/>
+    </a>
+    </a>
+    <a href="https://github.com/beartype/beartype/releases">
+    <img src="https://img.shields.io/github/release/beartype/beartype?&label=Latest&style=for-the-badge"/>
+
+See also this exhaustive list of all GitHub-specific shield.io badges:
+    https://shields.io/category/activity
+-->
 
 <p><a href="https://codecov.io/gh/beartype/beartype"><img alt="beartype test coverage status" src="https://codecov.io/gh/beartype/beartype/branch/main/graph/badge.svg?token=E6F4YSY9ZQ" /></a> <a href="https://github.com/beartype/beartype/actions?workflow=tests"><img alt="beartype continuous integration (CI) status" src="https://github.com/beartype/beartype/actions/workflows/python_test.yml/badge.svg" /></a> <a href="https://github.com/beartype/beartype/actions?workflow=docs"><img alt="beartype documentation build status" src="https://github.com/beartype/beartype/actions/workflows/python_docs.yml/badge.svg" /></a></p>
 <!-- -------------( INTRODUCTION                             )-------------- -->
@@ -1007,6 +1022,22 @@ jargon we just made up, and thrilling puns.</p>
 <p>Beartype enforces <a href="eli5/#standard-hints">type hints</a> across your entire app in
 <a href="api_claw/">two lines of runtime code with no runtime overhead</a>. If seeing is
 believing, prepare to do both those things.</p>
+<!-- FIXME: Once we actually receive a sponsor at this tier, please remove this
+placeholder as well as the icon links below. kthx
+The [Bear Team][beartype organization] gratefully thanks [our family of
+breathtaking GitHub Sponsors][beartype sponsorship]:
+
+* **Your iconic URL here.** [Let us bestow you with eyeballs][beartype
+  sponsorship].
+-->
+
+<!-- FIXME: Replace most or all of the following code blocks with a
+Javascript-animated terminal widget implemented as an MkDocs plugin named
+"termynal.py". Extensive research suggests this to be the *ONLY* modern
+actively maintained Javascript-animated terminal widget, interestingly:
+    https://github.com/termynal/termynal.py
+Note that Zensical support for this third-party MkDocs plugin is unverified. -->
+
 <div class="highlight"><pre><span></span><code><span class="c1"># Install beartype.</span>
 $<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>beartype
 

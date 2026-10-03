@@ -135,8 +135,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="./.." title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
@@ -254,8 +253,7 @@ Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
   <label class="md-nav__title" for="__drawer">
     <a href="./.." title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/beartype_logo.svg" alt="Beartype">
 
     </a>
     Beartype
@@ -1517,6 +1515,16 @@ pypy36: commands succeeded
 pypy37: commands succeeded
 congratulations :)
 </code></pre>
+</li>
+<li>
+<p>(<em>Optional</em>) <strong>Preview documentation changes.</strong> If you changed anything under <code>docs/</code>, preview the site before you commit. First, install the <code>docs</code> dependency group. This group contains <a href="https://zensical.org">Zensical</a>, our documentation generator. The <code>--group</code> option needs <code>pip</code> 25.1 or later.</p>
+<div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>--group<span class="w"> </span>docs
+zensical<span class="w"> </span>serve<span class="w"> </span>--open
+</code></pre></div>
+<p>This builds the site, opens <a href="http://localhost:8000/beartype/">http://localhost:8000/beartype/</a> in your browser, and rebuilds when you save a file. Press <code>Ctrl-C</code> to stop the server.</p>
+<p>Before you commit, build the site once in strict mode. Strict mode stops on the first warning (e.g., a broken link). The site builds into the <code>_site/</code> subdirectory, which <code>git</code> ignores.</p>
+<div class="highlight"><pre><span></span><code>zensical<span class="w"> </span>build<span class="w"> </span>--strict
+</code></pre></div>
 </li>
 <li>
 <p><strong>Stage these changes.</strong></p>
