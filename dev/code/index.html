@@ -1,0 +1,1798 @@
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+MkDocs Material theme override injecting a site-wide announcement banner.
+Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
+-->
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unbearably fast near-real-time hybrid runtime-static type-checking in pure Python.">
+      
+      
+        <meta name="author" content="Beartype">
+      
+      
+        <link rel="canonical" href="https://beartype.github.io/beartype/latest/code/">
+      
+      
+        <link rel="prev" href="../pep/">
+      
+      
+        <link rel="next" href="../math/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="https://raw.githubusercontent.com/beartype/beartype-assets/main/favicon.svg">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Code - Beartype</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#code" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  🐻 <strong>Upbear us</strong> at
+  <a href="https://github.com/sponsors/leycec">GitHub Sponsors</a> and
+  <a href="https://www.sonarsource.com/products/sonarqube/advanced-security">SonarQube Advanced Security (Tidelift)</a>.
+  <strong>Follow us</strong> <a href="https://leycec.bsky.social">on Bluesky</a>.
+  <strong>Friendzone us</strong> <a href="https://beartype.zulipchat.com">at Zulip</a>. 🐻
+  <br>
+  💗 Financially fueled by
+  <strong><a href="https://trymirai.com">ml (Mirai Labs)</a></strong> —
+  <em><a href="https://trymirai.com">On-device AI for Apple Silicon</a>, powered by bears.</em> 💗
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Beartype
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Code
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Beartype
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Welcome
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Install
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tldr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  tl;dr
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eli5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  ELI5
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  API
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  API
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_decor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Decorators
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_vale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Validators
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_claw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Claws
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  DOOR
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_roar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exceptions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Features
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beartype-code-generation-its-all-for-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Beartype Code Generation: It's All for You
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beartype Code Generation: It&#x27;s All for You">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identity-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identity Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unconditional-identity-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Unconditional Identity Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shallow-identity-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Shallow Identity Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-identity-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Deep Identity Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Decoration
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constant Decoration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constant-builtin-type-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Builtin Type Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-non-builtin-type-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Non-Builtin Type Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-shallow-sequence-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Shallow Sequence Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-deep-sequence-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Deep Sequence Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-nested-deep-sequence-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Nested Deep Sequence Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Math
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  FAQ
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  See Also
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beartype-code-generation-its-all-for-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Beartype Code Generation: It's All for You
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beartype Code Generation: It&#x27;s All for You">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identity-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identity Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unconditional-identity-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Unconditional Identity Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shallow-identity-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Shallow Identity Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-identity-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Deep Identity Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Decoration
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constant Decoration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constant-builtin-type-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Builtin Type Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-non-builtin-type-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Non-Builtin Type Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-shallow-sequence-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Shallow Sequence Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-deep-sequence-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Deep Sequence Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-nested-deep-sequence-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constant Nested Deep Sequence Decoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+Child Markdown document exhibiting real-world type-checking code generated by
+beartype.
+-->
+
+<h1 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h1>
+<p>Let's take a deep dive into the deep end of runtime type-checking – the beartype way.</p>
+<h2 id="beartype-code-generation-its-all-for-you">Beartype Code Generation: It's All for You<a class="headerlink" href="#beartype-code-generation-its-all-for-you" title="Permanent link">&para;</a></h2>
+<p>Beartype dynamically generates type-checking code unique to each class and callable decorated by the <code>beartype.beartype</code> decorator. Let's bearsplain why the code <code>beartype.beartype</code> generates for real-world use cases is the fastest possible code type-checking those cases.</p>
+<h3 id="identity-decoration">Identity Decoration<a class="headerlink" href="#identity-decoration" title="Permanent link">&para;</a></h3>
+<p>We begin by wading into the torpid waters of the many ways beartype avoids doing any work whatsoever, because laziness is the virtue we live by. The reader may recall that the fastest decorator at decoration- <em>and</em> call-time is the <strong>identity decorator</strong> returning its decorated callable unmodified: e.g.,</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">identity_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">func</span>
+</code></pre></div>
+<p>Beartype silently reduces to the identity decorator whenever it can, which is surprisingly often. Our three weapons are laziness, surprise, ruthless efficiency, and an almost fanatical devotion to constant-time type checking.</p>
+<h3 id="unconditional-identity-decoration">Unconditional Identity Decoration<a class="headerlink" href="#unconditional-identity-decoration" title="Permanent link">&para;</a></h3>
+<p>Let's define a trivial function annotated by <em>no</em> type hints:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle</span><span class="p">(</span><span class="n">strike_first_and_then_give_tongue</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">strike_first_and_then_give_tongue</span>
+</code></pre></div>
+<p>Let's decorate that function by <code>beartype.beartype</code> and verify that <code>beartype.beartype</code> reduced to the identity decorator by returning that function unmodified:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">beartype</span><span class="p">(</span><span class="n">law_of_the_jungle</span><span class="p">)</span> <span class="ow">is</span> <span class="n">law_of_the_jungle</span>
+<span class="go">True</span>
+</code></pre></div>
+<p>We've verified that <code>beartype.beartype</code> reduces to the identity decorator when decorating unannotated callables. That's but the tip of the efficiency iceberg, though. <code>beartype.beartype</code> unconditionally reduces to a noop when:</p>
+<ul>
+<li>The decorated callable is itself decorated by the <a href="https://peps.python.org/pep-0484">PEP 484</a>-compliant <code>typing.no_type_check</code> decorator.</li>
+<li>The decorated callable has already been decorated by <code>beartype.beartype</code>.</li>
+<li>Interpreter-wide optimization is enabled: e.g.,</li>
+<li><a href="https://docs.python.org/3/using/cmdline.html#cmdoption-o">CPython is invoked with the "-O" command-line option</a>.</li>
+<li><a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONOPTIMIZE">The "PYTHONOPTIMIZE" environment variable is set</a>.</li>
+</ul>
+<h3 id="shallow-identity-decoration">Shallow Identity Decoration<a class="headerlink" href="#shallow-identity-decoration" title="Permanent link">&para;</a></h3>
+<p>Let's define a trivial function annotated by the <a href="https://peps.python.org/pep-0484">PEP 484</a>-compliant <code>typing.Any</code> type hint:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle_2</span><span class="p">(</span><span class="n">never_order_anything_without_a_reason</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">never_order_anything_without_a_reason</span>
+</code></pre></div>
+<p>Again, let's decorate that function by <code>beartype.beartype</code> and verify that <code>beartype.beartype</code> reduced to the identity decorator by returning that function unmodified:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">beartype</span><span class="p">(</span><span class="n">law_of_the_jungle_2</span><span class="p">)</span> <span class="ow">is</span> <span class="n">law_of_the_jungle_2</span>
+<span class="go">True</span>
+</code></pre></div>
+<p>We've verified that <code>beartype.beartype</code> reduces to the identity decorator when decorating callables annotated by <code>typing.Any</code> – a novel category of type hint we refer to as <strong>shallowly ignorable type hints</strong> (known to be ignorable by constant-time lookup in a predefined frozen set). That's but the snout of the crocodile, though. <code>beartype.beartype</code> conditionally reduces to a noop when <em>all</em> type hints annotating the decorated callable are shallowly ignorable. These include:</p>
+<ul>
+<li><code>object</code>, the root superclass of Python's class hierarchy. Since all objects are instances of <code>object</code>, <code>object</code> conveys no meaningful constraints as a type hint and is thus shallowly ignorable.</li>
+<li><code>typing.Any</code>, equivalent to <code>object</code>.</li>
+<li><code>typing.Generic</code>, equivalent to <code>typing.Generic[typing.Any]</code>, which conveys no meaningful constraints as a type hint and is thus shallowly ignorable.</li>
+<li><code>typing.Protocol</code>, equivalent to <code>typing.Protocol[typing.Any]</code> and shallowly ignorable for similar reasons.</li>
+<li><code>typing.Union</code>, equivalent to <code>typing.Union[typing.Any]</code>, equivalent to <code>typing.Any</code>.</li>
+<li><code>typing.Optional</code>, equivalent to <code>typing.Optional[typing.Any]</code>, equivalent to <code>Union[Any, type(None)]</code>. Since any union subscripted by ignorable type hints is itself ignorable,<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> <a href="https://docs.python.org/3/library/typing.html#typing.Optional">typing.Optional</a> is shallowly ignorable as well.</li>
+</ul>
+<h3 id="deep-identity-decoration">Deep Identity Decoration<a class="headerlink" href="#deep-identity-decoration" title="Permanent link">&para;</a></h3>
+<p>Let's define a trivial function annotated by a non-trivial <a href="https://peps.python.org/pep-0484">PEP 484</a>-, <a href="https://peps.python.org/pep-0585">PEP 585</a>- and <a href="https://peps.python.org/pep-0593">PEP 593</a>-compliant type hint that superficially <em>appears</em> to convey meaningful constraints:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span><span class="p">,</span> <span class="n">NewType</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="n">hint</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">NewType</span><span class="p">(</span><span class="s1">'MetaType'</span><span class="p">,</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="mi">53</span><span class="p">])]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle_3</span><span class="p">(</span><span class="n">bring_them_to_the_pack_council</span><span class="p">:</span> <span class="n">hint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">hint</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">bring_them_to_the_pack_council</span>
+</code></pre></div>
+<p>Despite appearances, it can be shown by exhaustive (and frankly exhausting) reduction that that hint is actually ignorable. Let's decorate that function by <code>beartype.beartype</code> and verify that <code>beartype.beartype</code> reduced to the identity decorator by returning that function unmodified:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">beartype</span><span class="p">(</span><span class="n">law_of_the_jungle_3</span><span class="p">)</span> <span class="ow">is</span> <span class="n">law_of_the_jungle_3</span>
+<span class="go">True</span>
+</code></pre></div>
+<p>We've verified that <code>beartype.beartype</code> reduces to the identity decorator when decorating callables annotated by the above object – a novel category of type hint we refer to as <strong>deeply ignorable type hints</strong> (known to be ignorable only by recursive linear-time inspection of subscripted arguments). That's but the trunk of the elephant, though. <code>beartype.beartype</code> conditionally reduces to a noop when <em>all</em> type hints annotating the decorated callable are deeply ignorable. These include:</p>
+<ul>
+<li>Parametrizations of <code>typing.Generic</code> and <code>typing.Protocol</code> by type variables. Since <code>typing.Generic</code>, <code>typing.Protocol</code>, <em>and</em> type variables all fail to convey any meaningful constraints in and of themselves, these parametrizations are safely ignorable in all contexts.</li>
+<li>Calls to <code>typing.NewType</code> passed an ignorable type hint.</li>
+<li>Subscriptions of <code>typing.Annotated</code> whose first argument is ignorable.</li>
+<li>Subscriptions of <code>typing.Optional</code> and <code>typing.Union</code> by at least one ignorable argument.</li>
+</ul>
+<h3 id="constant-decoration">Constant Decoration<a class="headerlink" href="#constant-decoration" title="Permanent link">&para;</a></h3>
+<p>We continue by trundling into the turbid waters out at sea, where beartype reluctantly performs its minimal amount of work with a heavy sigh.</p>
+<h4 id="constant-builtin-type-decoration">Constant Builtin Type Decoration<a class="headerlink" href="#constant-builtin-type-decoration" title="Permanent link">&para;</a></h4>
+<p>Let's define a trivial function annotated by type hints that are builtin types:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle_4</span><span class="p">(</span><span class="n">he_must_be_spoken_for_by_at_least_two</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">he_must_be_spoken_for_by_at_least_two</span>
+</code></pre></div>
+<p>Let's see the wrapper function <code>beartype.beartype</code> dynamically generated from that:</p>
+<div class="highlight"><pre><span></span><code><span class="go">def law_of_the_jungle_4(</span>
+<span class="go">    *args,</span>
+<span class="go">    __beartype_func=__beartype_func,</span>
+<span class="go">    __beartypistry=__beartypistry,</span>
+<span class="go">    **kwargs</span>
+<span class="go">):</span>
+<span class="go">    # Localize the number of passed positional arguments for efficiency.</span>
+<span class="go">    __beartype_args_len = len(args)</span>
+<span class="go">    # Localize this positional or keyword parameter if passed *OR* to the</span>
+<span class="go">    # sentinel value "__beartypistry" guaranteed to never be passed otherwise.</span>
+<span class="go">    __beartype_pith_0 = (</span>
+<span class="go">        args[0] if __beartype_args_len &gt; 0 else</span>
+<span class="go">        kwargs.get('he_must_be_spoken_for_by_at_least_two', __beartypistry)</span>
+<span class="go">    )</span>
+
+<span class="go">    # If this parameter was passed...</span>
+<span class="go">    if __beartype_pith_0 is not __beartypistry:</span>
+<span class="go">        # Type-check this passed parameter or return value against this</span>
+<span class="go">        # PEP-compliant type hint.</span>
+<span class="go">        if not isinstance(__beartype_pith_0, int):</span>
+<span class="go">            __beartype_get_beartype_violation(</span>
+<span class="go">                func=__beartype_func,</span>
+<span class="go">                pith_name='he_must_be_spoken_for_by_at_least_two',</span>
+<span class="go">                pith_value=__beartype_pith_0,</span>
+<span class="go">            )</span>
+
+<span class="go">    # Call this function with all passed parameters and return the value</span>
+<span class="go">    # returned from this call.</span>
+<span class="go">    return __beartype_func(*args, **kwargs)</span>
+</code></pre></div>
+<p>Let's dismantle this bit by bit:</p>
+<ul>
+<li>The code comments above are verbatim as they appear in the generated code.</li>
+<li><code>law_of_the_jungle_4()</code> is the ad-hoc function name <code>beartype.beartype</code> assigned this wrapper function.</li>
+<li><code>__beartype_func</code> is the original <code>law_of_the_jungle_4()</code> function.</li>
+<li><code>__beartypistry</code> is a thread-safe global registry of all types, tuples of types, and forward references to currently undeclared types visitable from type hints annotating callables decorated by <code>beartype.beartype</code>. We'll see more about the <code>__beartypistry</code> in a moment. For know, just know that <code>__beartypistry</code> is a private singleton of the beartype package. This object is frequently accessed and thus localized to the body of this wrapper rather than accessed as a global variable, which would be mildly slower.</li>
+<li><code>__beartype_pith_0</code> is the value of the first passed parameter, regardless of whether that parameter is passed as a positional or keyword argument. If unpassed, the value defaults to the <code>__beartypistry</code>. Since <em>no</em> caller should access (let alone pass) that object, that object serves as an efficient sentinel value enabling us to discern passed from unpassed parameters. Beartype internally favours the term "pith" (which we absolutely just made up) to transparently refer to the arbitrary object currently being type-checked against its associated type hint.</li>
+<li><code>isinstance(__beartype_pith_0, int)</code> tests whether the value passed for this parameter satisfies the type hint annotating this parameter.</li>
+<li><code>__beartype_get_beartype_violation()</code> raises a human-readable exception if this value fails this type-check.</li>
+</ul>
+<p>So good so far. But that's easy. Let's delve deeper.</p>
+<h4 id="constant-non-builtin-type-decoration">Constant Non-Builtin Type Decoration<a class="headerlink" href="#constant-non-builtin-type-decoration" title="Permanent link">&para;</a></h4>
+<p>Let's define a trivial function annotated by type hints that are pure-Python classes rather than builtin types:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">argparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArgumentParser</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle_5</span><span class="p">(</span><span class="n">a_cub_may_be_bought_at_a_price</span><span class="p">:</span> <span class="n">ArgumentParser</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a_cub_may_be_bought_at_a_price</span>
+</code></pre></div>
+<p>Let's see the wrapper function <code>beartype.beartype</code> dynamically generated from that:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle_5</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="n">__beartype_func</span><span class="o">=</span><span class="n">__beartype_func</span><span class="p">,</span>
+    <span class="n">__beartypistry</span><span class="o">=</span><span class="n">__beartypistry</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+    <span class="c1"># Localize the number of passed positional arguments for efficiency.</span>
+    <span class="n">__beartype_args_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="c1"># Localize this positional or keyword parameter if passed *OR* to the</span>
+    <span class="c1"># sentinel value "__beartypistry" guaranteed to never be passed otherwise.</span>
+    <span class="n">__beartype_pith_0</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">__beartype_args_len</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'a_cub_may_be_bought_at_a_price'</span><span class="p">,</span> <span class="n">__beartypistry</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># If this parameter was passed...</span>
+    <span class="k">if</span> <span class="n">__beartype_pith_0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">__beartypistry</span><span class="p">:</span>
+        <span class="c1"># Type-check this passed parameter or return value against this</span>
+        <span class="c1"># PEP-compliant type hint.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">__beartype_pith_0</span><span class="p">,</span> <span class="n">__beartypistry</span><span class="p">[</span><span class="s1">'argparse.ArgumentParser'</span><span class="p">]):</span>
+            <span class="n">__beartype_get_beartype_violation</span><span class="p">(</span>
+                <span class="n">func</span><span class="o">=</span><span class="n">__beartype_func</span><span class="p">,</span>
+                <span class="n">pith_name</span><span class="o">=</span><span class="s1">'a_cub_may_be_bought_at_a_price'</span><span class="p">,</span>
+                <span class="n">pith_value</span><span class="o">=</span><span class="n">__beartype_pith_0</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Call this function with all passed parameters and return the value</span>
+    <span class="c1"># returned from this call.</span>
+    <span class="k">return</span> <span class="n">__beartype_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+<p>The result is largely the same. The only meaningful difference is the type-check on line 20:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">__beartype_pith_0</span><span class="p">,</span> <span class="n">__beartypistry</span><span class="p">[</span><span class="s1">'argparse.ArgumentParser'</span><span class="p">]):</span>
+</code></pre></div>
+<p>Since we annotated that function with a pure-Python class rather than builtin type, <code>beartype.beartype</code> registered that class with the <code>__beartypistry</code> at decoration time and then subsequently looked that class up with its fully-qualified classname at call time to perform this type-check.</p>
+<p>So good so far... so what! Let's spelunk harder.</p>
+<h4 id="constant-shallow-sequence-decoration">Constant Shallow Sequence Decoration<a class="headerlink" href="#constant-shallow-sequence-decoration" title="Permanent link">&para;</a></h4>
+<p>Let's define a trivial function annotated by type hints that are <a href="https://peps.python.org/pep-0585">PEP 585</a>-compliant builtin types subscripted by ignorable arguments:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle_6</span><span class="p">(</span><span class="n">all_the_jungle_is_thine</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">]):</span>
+    <span class="k">return</span> <span class="n">all_the_jungle_is_thine</span>
+</code></pre></div>
+<p>Let's see the wrapper function <code>beartype.beartype</code> dynamically generated from that:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle_6</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="n">__beartype_func</span><span class="o">=</span><span class="n">__beartype_func</span><span class="p">,</span>
+    <span class="n">__beartypistry</span><span class="o">=</span><span class="n">__beartypistry</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+    <span class="c1"># Localize the number of passed positional arguments for efficiency.</span>
+    <span class="n">__beartype_args_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="c1"># Localize this positional or keyword parameter if passed *OR* to the</span>
+    <span class="c1"># sentinel value "__beartypistry" guaranteed to never be passed otherwise.</span>
+    <span class="n">__beartype_pith_0</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">__beartype_args_len</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'all_the_jungle_is_thine'</span><span class="p">,</span> <span class="n">__beartypistry</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># If this parameter was passed...</span>
+    <span class="k">if</span> <span class="n">__beartype_pith_0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">__beartypistry</span><span class="p">:</span>
+        <span class="c1"># Type-check this passed parameter or return value against this</span>
+        <span class="c1"># PEP-compliant type hint.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">__beartype_pith_0</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">__beartype_get_beartype_violation</span><span class="p">(</span>
+                <span class="n">func</span><span class="o">=</span><span class="n">__beartype_func</span><span class="p">,</span>
+                <span class="n">pith_name</span><span class="o">=</span><span class="s1">'all_the_jungle_is_thine'</span><span class="p">,</span>
+                <span class="n">pith_value</span><span class="o">=</span><span class="n">__beartype_pith_0</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Call this function with all passed parameters and return the value</span>
+    <span class="c1"># returned from this call.</span>
+    <span class="k">return</span> <span class="n">__beartype_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+<p>We are still within the realm of normalcy. Correctly detecting this type hint to be subscripted by an ignorable argument, <code>beartype.beartype</code> only bothered type-checking this parameter to be an instance of this builtin type:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">__beartype_pith_0</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+</code></pre></div>
+<p>It's time to iteratively up the ante.</p>
+<h4 id="constant-deep-sequence-decoration">Constant Deep Sequence Decoration<a class="headerlink" href="#constant-deep-sequence-decoration" title="Permanent link">&para;</a></h4>
+<p>Let's define a trivial function annotated by type hints that are <a href="https://peps.python.org/pep-0585">PEP 585</a>-compliant builtin types subscripted by builtin types:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle_7</span><span class="p">(</span><span class="n">kill_everything_that_thou_canst</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+    <span class="k">return</span> <span class="n">kill_everything_that_thou_canst</span>
+</code></pre></div>
+<p>Let's see the wrapper function <code>beartype.beartype</code> dynamically generated from that:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle_7</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="n">__beartype_func</span><span class="o">=</span><span class="n">__beartype_func</span><span class="p">,</span>
+    <span class="n">__beartypistry</span><span class="o">=</span><span class="n">__beartypistry</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+    <span class="c1"># Generate and localize a sufficiently large pseudo-random integer for</span>
+    <span class="c1"># subsequent indexation in type-checking randomly selected container items.</span>
+    <span class="n">__beartype_random_int</span> <span class="o">=</span> <span class="n">__beartype_getrandbits</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
+    <span class="c1"># Localize the number of passed positional arguments for efficiency.</span>
+    <span class="n">__beartype_args_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="c1"># Localize this positional or keyword parameter if passed *OR* to the</span>
+    <span class="c1"># sentinel value "__beartypistry" guaranteed to never be passed otherwise.</span>
+    <span class="n">__beartype_pith_0</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">__beartype_args_len</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'kill_everything_that_thou_canst'</span><span class="p">,</span> <span class="n">__beartypistry</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># If this parameter was passed...</span>
+    <span class="k">if</span> <span class="n">__beartype_pith_0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">__beartypistry</span><span class="p">:</span>
+        <span class="c1"># Type-check this passed parameter or return value against this</span>
+        <span class="c1"># PEP-compliant type hint.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+            <span class="c1"># True only if this pith shallowly satisfies this hint.</span>
+            <span class="nb">isinstance</span><span class="p">(</span><span class="n">__beartype_pith_0</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span>
+            <span class="c1"># True only if either this pith is empty *OR* this pith is</span>
+            <span class="c1"># both non-empty and deeply satisfies this hint.</span>
+            <span class="p">(</span><span class="ow">not</span> <span class="n">__beartype_pith_0</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">__beartype_pith_0</span><span class="p">[</span><span class="n">__beartype_random_int</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">__beartype_pith_0</span><span class="p">)],</span> <span class="nb">str</span><span class="p">))</span>
+        <span class="p">):</span>
+            <span class="n">__beartype_get_beartype_violation</span><span class="p">(</span>
+                <span class="n">func</span><span class="o">=</span><span class="n">__beartype_func</span><span class="p">,</span>
+                <span class="n">pith_name</span><span class="o">=</span><span class="s1">'kill_everything_that_thou_canst'</span><span class="p">,</span>
+                <span class="n">pith_value</span><span class="o">=</span><span class="n">__beartype_pith_0</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Call this function with all passed parameters and return the value</span>
+    <span class="c1"># returned from this call.</span>
+    <span class="k">return</span> <span class="n">__beartype_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+<p>We have now diverged from normalcy. Let's dismantle this iota by iota:</p>
+<ul>
+<li><code>__beartype_random_int</code> is a pseudo-random unsigned 32-bit integer whose bit length intentionally corresponds to the <a href="https://stackoverflow.com/a/11704178/2809027">number of bits generated by each call to Python's C-based Mersenne Twister</a> internally performed by the <code>random.getrandbits</code> function generating this integer. Exceeding this length would cause that function to internally perform that call multiple times for no gain. Since the cost of generating integers to this length is the same as generating integers of smaller lengths, this length is preferred. Since most sequences are likely to contain fewer items than this integer, pseudo-random sequence items are indexable by taking the modulo of this integer with the sizes of those sequences. For big sequences containing more than this number of items, beartype deeply type-checks leading items with indices in this range while ignoring trailing items. Given the practical infeasibility of storing big sequences in memory, this seems an acceptable real-world tradeoff. Suck it, big sequences!</li>
+<li>As before, <code>beartype.beartype</code> first type-checks this parameter to be a list.</li>
+<li><code>beartype.beartype</code> then type-checks this parameter to either be:</li>
+<li><code>not __beartype_pith_0</code>, an empty list.</li>
+<li><code>isinstance(__beartype_pith_0[__beartype_random_int % len(__beartype_pith_0)], str)</code>, a non-empty list whose pseudo-randomly indexed list item satisfies this nested builtin type.</li>
+</ul>
+<p>Well, that escalated quickly.</p>
+<h4 id="constant-nested-deep-sequence-decoration">Constant Nested Deep Sequence Decoration<a class="headerlink" href="#constant-nested-deep-sequence-decoration" title="Permanent link">&para;</a></h4>
+<p>Let's define a trivial function annotated by type hints that are <a href="https://peps.python.org/pep-0585">PEP 585</a>-compliant builtin types recursively subscripted by instances of themselves, because <em>we are typing masochists</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle_8</span><span class="p">(</span><span class="n">pull_thorns_from_all_wolves_paws</span><span class="p">:</span> <span class="p">(</span>
+    <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]])):</span>
+    <span class="k">return</span> <span class="n">pull_thorns_from_all_wolves_paws</span>
+</code></pre></div>
+<p>Let's see the wrapper function <code>beartype.beartype</code> dynamically generated from that:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">law_of_the_jungle_8</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="n">__beartype_func</span><span class="o">=</span><span class="n">__beartype_func</span><span class="p">,</span>
+    <span class="n">__beartypistry</span><span class="o">=</span><span class="n">__beartypistry</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+    <span class="c1"># Generate and localize a sufficiently large pseudo-random integer for</span>
+    <span class="c1"># subsequent indexation in type-checking randomly selected container items.</span>
+    <span class="n">__beartype_random_int</span> <span class="o">=</span> <span class="n">__beartype_getrandbits</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+    <span class="c1"># Localize the number of passed positional arguments for efficiency.</span>
+    <span class="n">__beartype_args_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="c1"># Localize this positional or keyword parameter if passed *OR* to the</span>
+    <span class="c1"># sentinel value "__beartypistry" guaranteed to never be passed otherwise.</span>
+    <span class="n">__beartype_pith_0</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">__beartype_args_len</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'pull_thorns_from_all_wolves_paws'</span><span class="p">,</span> <span class="n">__beartypistry</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># If this parameter was passed...</span>
+    <span class="k">if</span> <span class="n">__beartype_pith_0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">__beartypistry</span><span class="p">:</span>
+        <span class="c1"># Type-check this passed parameter or return value against this</span>
+        <span class="c1"># PEP-compliant type hint.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+            <span class="c1"># True only if this pith shallowly satisfies this hint.</span>
+            <span class="nb">isinstance</span><span class="p">(</span><span class="n">__beartype_pith_0</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span>
+            <span class="c1"># True only if either this pith is empty *OR* this pith is</span>
+            <span class="c1"># both non-empty and deeply satisfies this hint.</span>
+            <span class="p">(</span><span class="ow">not</span> <span class="n">__beartype_pith_0</span> <span class="ow">or</span> <span class="p">(</span>
+                <span class="c1"># True only if this pith shallowly satisfies this hint.</span>
+                <span class="nb">isinstance</span><span class="p">(</span><span class="n">__beartype_pith_1</span> <span class="o">:=</span> <span class="n">__beartype_pith_0</span><span class="p">[</span><span class="n">__beartype_random_int</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">__beartype_pith_0</span><span class="p">)],</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span>
+                <span class="c1"># True only if either this pith is empty *OR* this pith is</span>
+                <span class="c1"># both non-empty and deeply satisfies this hint.</span>
+                <span class="p">(</span><span class="ow">not</span> <span class="n">__beartype_pith_1</span> <span class="ow">or</span> <span class="p">(</span>
+                    <span class="c1"># True only if this pith shallowly satisfies this hint.</span>
+                    <span class="nb">isinstance</span><span class="p">(</span><span class="n">__beartype_pith_2</span> <span class="o">:=</span> <span class="n">__beartype_pith_1</span><span class="p">[</span><span class="n">__beartype_random_int</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">__beartype_pith_1</span><span class="p">)],</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span>
+                    <span class="c1"># True only if either this pith is empty *OR* this pith is</span>
+                    <span class="c1"># both non-empty and deeply satisfies this hint.</span>
+                    <span class="p">(</span><span class="ow">not</span> <span class="n">__beartype_pith_2</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">__beartype_pith_2</span><span class="p">[</span><span class="n">__beartype_random_int</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">__beartype_pith_2</span><span class="p">)],</span> <span class="nb">str</span><span class="p">))</span>
+                <span class="p">))</span>
+            <span class="p">))</span>
+        <span class="p">):</span>
+            <span class="n">__beartype_get_beartype_violation</span><span class="p">(</span>
+                <span class="n">func</span><span class="o">=</span><span class="n">__beartype_func</span><span class="p">,</span>
+                <span class="n">pith_name</span><span class="o">=</span><span class="s1">'pull_thorns_from_all_wolves_paws'</span><span class="p">,</span>
+                <span class="n">pith_value</span><span class="o">=</span><span class="n">__beartype_pith_0</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Call this function with all passed parameters and return the value</span>
+    <span class="c1"># returned from this call.</span>
+    <span class="k">return</span> <span class="n">__beartype_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+<p>We are now well beyond the deep end, where the benthic zone and the cruel denizens of the fathomless void begins. Let's dismantle this pascal by pascal:</p>
+<ul>
+<li><code>__beartype_pith_1 := __beartype_pith_0[__beartype_random_int % len(__beartype_pith_0)]</code>, a <a href="https://peps.python.org/pep-0572">PEP 572</a>-style assignment expression localizing repeatedly accessed random items of the first nested list for efficiency.</li>
+<li><code>__beartype_pith_2 := __beartype_pith_1[__beartype_random_int % len(__beartype_pith_1)]</code>, a similar expression localizing repeatedly accessed random items of the second nested list.</li>
+<li>The same <code>__beartype_random_int</code> pseudo-randomly indexes all three lists.</li>
+<li>Under older Python interpreters lacking <a href="https://peps.python.org/pep-0572">PEP 572</a> support, <code>beartype.beartype</code> generates equally valid (albeit less efficient) code repeating each nested list item access.</li>
+</ul>
+<p>In the kingdom of the linear-time runtime type checkers, the constant-time runtime type checker really stands out like a sore giant squid, doesn't it?</p>
+<p>See the next section for further commentary on runtime optimization from the higher-level perspective of architecture and internal API design. Surely, it is fun.</p>
+<h1 id="beartype-dev-handbook-its-handy">Beartype Dev Handbook: It's Handy<a class="headerlink" href="#beartype-dev-handbook-its-handy" title="Permanent link">&para;</a></h1>
+<p>Let's contribute <a href="https://github.com/beartype/beartype/pulls">pull requests</a> to beartype for the good of <a href="https://docs.python.org/3/library/typing.html">typing</a>. The <a href="https://github.com/leycec">primary maintainer of this repository is a friendly, bald, and bearded Canadian guy</a> who guarantees that he will <em>always</em> be nice and congenial and promptly merge <em>most</em> requests that pass continuous integration (CI) tests.</p>
+<p>And thanks for merely reading this! Like all open-source software, beartype thrives on community contributions, activity, and interest. <em>This means you, stalwart Python hero.</em></p>
+<p>Beartype has <a href="#moar-depth">two problem spots (listed below in order of decreasing importance and increasing complexity)</a> that could <em>always</em> benefit from a volunteer army of good GitHub Samaritans.</p>
+<h2 id="dev-workflow">Dev Workflow<a class="headerlink" href="#dev-workflow" title="Permanent link">&para;</a></h2>
+<p>Let's take this from the top.</p>
+<ol>
+<li>
+<p>Create a <a href="https://github.com/join">GitHub user account</a>.</p>
+</li>
+<li>
+<p>Login to <a href="https://github.com/login">GitHub with that account</a>.</p>
+</li>
+<li>
+<p><strong>Click the "Fork" button</strong> in the upper right-hand corner of <a href="https://github.com/beartype/beartype">the "beartype/beartype" repository page</a>.</p>
+</li>
+<li>
+<p><strong>Click the "Code" button</strong> in the upper right-hand corner of your fork page that appears.</p>
+</li>
+<li>
+<p><strong>Copy the URL</strong> that appears.</p>
+</li>
+<li>
+<p><strong>Open a terminal.</strong></p>
+</li>
+<li>
+<p><strong>Change to the desired parent directory</strong> of your local fork.</p>
+</li>
+<li>
+<p><strong>Clone your fork,</strong> replacing <code>{URL}</code> with the previously copied URL.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span><span class="o">{</span>URL<span class="o">}</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Add a new remote</strong> referring to this upstream repository.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beartype/beartype.git
+</code></pre></div>
+</li>
+<li>
+<p><strong>Uninstall all previously installed versions</strong> of beartype. For example, if you previously installed beartype with <code>pip</code>, manually uninstall beartype with <code>pip</code>.</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>uninstall<span class="w"> </span>beartype
+</code></pre></div>
+</li>
+<li>
+<p>Install beartype with <code>pip</code> in <strong>editable mode.</strong> This synchronizes changes made to your fork against the beartype package imported in Python. Note the <code>[dev]</code> extra installs developer-specific mandatory dependencies required at test or documentation time.</p>
+<div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev<span class="o">]</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Create a new branch</strong> to isolate changes to, replacing <code>{branch_name}</code> with the desired name.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span><span class="o">{</span>branch_name<span class="o">}</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Make changes to this branch</strong> in your favourite <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">Integrated Development Environment (IDE)</a>. Of course, this means <a href="https://www.vim.org">Vim</a>.</p>
+</li>
+<li>
+<p><strong>Test these changes.</strong> Note this command assumes you have installed <em>all</em> <a href="../pep/">major versions of both CPython and PyPy supported by the next stable release of beartype you are hacking on</a>. If this is <em>not</em> the case, install these versions with <a href="https://operatingops.org/2020/10/24/tox-testing-multiple-python-versions-with-pyenv">pyenv</a>. This is vital, as type hinting support varies significantly between major versions of different Python interpreters.</p>
+<div class="highlight"><pre><span></span><code>./tox
+</code></pre></div>
+<p>The resulting output should ideally be suffixed by a synopsis resembling:</p>
+<pre><code>________________________________ summary _______________________________
+py36: commands succeeded
+py37: commands succeeded
+py38: commands succeeded
+py39: commands succeeded
+pypy36: commands succeeded
+pypy37: commands succeeded
+congratulations :)
+</code></pre>
+</li>
+<li>
+<p><strong>Stage these changes.</strong></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>-A
+</code></pre></div>
+</li>
+<li>
+<p><strong>Commit these changes.</strong></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit
+</code></pre></div>
+</li>
+<li>
+<p><strong>Push these changes</strong> to your remote fork.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push
+</code></pre></div>
+</li>
+<li>
+<p><strong>Click the "Create pull request" button</strong> in the upper right-hand corner of your fork page.</p>
+</li>
+<li>
+<p>Afterward, <strong>routinely pull upstream changes</strong> to avoid desynchronization with <a href="https://github.com/beartype/beartype">the "beartype/beartype" repository</a>.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span>upstream<span class="w"> </span>main
+</code></pre></div>
+</li>
+</ol>
+<h2 id="moar-depth">Moar Depth<a class="headerlink" href="#moar-depth" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>This section is badly outdated.</strong> It's bad. <em>Real</em> bad. If you'd like us to revise this to actually reflect reality, just <a href="https://github.com/beartype/beartype/issues">drop us a line at our issue tracker</a>. <a href="https://github.com/leycec">@leycec</a> promises satisfaction.</p>
+</div>
+<p>So, you want to help beartype deeply type-check even <em>more</em> type hints than she already does? Let us help you help us, because you are awesome.</p>
+<p>First, an egregious lore dump. It's commonly assumed that beartype only internally implements a single type-checker. After all, every <em>other</em> static and runtime type-checker only internally implements a single type-checker. Why would a type-checker internally implement several divergent overlapping type-checkers and... what would that even mean? Who would be so vile, cruel, and sadistic as to do something like that?</p>
+<p><em>We would.</em> Beartype often violates assumptions. This is no exception. Externally, of course, beartype presents itself as a single type-checker. Internally, beartype is implemented as a two-phase series of orthogonal type-checkers. Why? Because efficiency, which is the reason we are all here. These type-checkers are (in the order that callables decorated by beartype perform them at runtime):</p>
+<ol>
+<li><strong>Testing phase.</strong> In this fast first pass, each callable decorated by <code>beartype.beartype</code> only <em>tests</em> whether all parameters passed to and values returned from the current call to that callable satisfy all type hints annotating that callable. This phase does <em>not</em> raise human-readable exceptions (in the event that one or more parameters or return values fails to satisfy these hints). <code>beartype.beartype</code> highly optimizes this phase by dynamically generating one wrapper function wrapping each decorated callable with unique pure-Python performing these tests in O(1) constant-time. This phase is <em>always</em> unconditionally performed by code dynamically generated and returned by:<ul>
+<li>The fast-as-lightning <code>pep_code_check_hint()</code> function declared in the <a href="https://github.com/beartype/beartype/blob/main/beartype/_decor/_code/_pep/_pephint.py">"beartype._decor._code._pep._pephint" submodule</a>, which generates memoized O(1) code type-checking an arbitrary object against an arbitrary PEP-compliant type hint by iterating over all child hints nested in that hint with a highly optimized breadth-first search (BFS) leveraging extreme caching, fragile cleverness, and other salacious micro-optimizations.</li>
+</ul>
+</li>
+<li><strong>Error phase.</strong> In this slow second pass, each call to a callable decorated by <code>beartype.beartype</code> that fails the fast first pass (due to one or more parameters or return values failing to satisfy these hints) recursively discovers the exact underlying cause of that failure and raises a human-readable exception precisely detailing that cause. <code>beartype.beartype</code> does <em>not</em> optimize this phase whatsoever. Whereas the implementation of the first phase is uniquely specific to each decorated callable and constrained to O(1) constant-time non-recursive operation, the implementation of the second phase is generically shared between all decorated callables and generalized to O(n) linear-time recursive operation. Efficiency no longer matters when you're raising exceptions. Exception handling is slow in any language and doubly slow in <a href="https://en.wikipedia.org/wiki/Type_system">dynamically-typed</a> (and mostly interpreted) languages like Python, which means that performance is mostly a non-concern in "cold" code paths guaranteed to raise exceptions. This phase is only <em>conditionally</em> performed when the first phase fails by:<ul>
+<li>The slow-as-molasses <code>get_beartype_violation()</code> function declared in the <a href="https://github.com/beartype/beartype/blob/main/beartype/_decor/_code/_pep/_error/errormain.py">"beartype._decor._error.errormain" submodule</a>, which generates human-readable exceptions after performing unmemoized O(n) type-checking of an arbitrary object against a PEP-compliant type hint by recursing over all child hints nested in that hint with an unoptimized recursive algorithm prioritizing debuggability, readability, and maintainability.</li>
+</ul>
+</li>
+</ol>
+<p>This separation of concerns between performant <span class="arithmatex">\(O(1)\)</span> <em>testing</em> on the one hand and perfect <span class="arithmatex">\(O(n)\)</span> <em>error handling</em> on the other preserves both runtime performance and readable errors at a cost of developer pain. This is good! <sup>...what?</sup></p>
+<p>Secondly, the same separation of concerns also complicates the development of <code>beartype.beartype</code>. This is bad. Since <code>beartype.beartype</code> internally implements two divergent type-checkers, deeply type-checking a new category of type hint requires adding that support to (wait for it) two divergent type-checkers – which, being fundamentally distinct codebases sharing little code in common, requires violating the <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">Don't Repeat Yourself (DRY) principle</a> by reinventing the wheel in the second type-checker. Such is the high price of high-octane performance. You probably thought this would be easier and funner. So did we.</p>
+<p>Thirdly, this needs to be tested. After surmounting the above roadblocks by deeply type-checking that new category of type hint in <em>both</em> type-checkers, you'll now add one or more unit tests exhaustively exercising that checking. Thankfully, we already did all of the swole lifting for you. All <em>you</em> need to do is add at least one PEP-compliant type hint, one object satisfying that hint, and one object <em>not</em> satisfying that hint to:</p>
+<ul>
+<li>A new <code>PepHintMetadata</code> object in the existing tuple passed to the <code>data_module.HINTS_PEP_META.extend(...)</code> call in the existing test data submodule for this PEP residing under the <a href="https://github.com/beartype/beartype/blob/main/beartype_test/unit/data/hint/pep/proposal/">"beartype_test.unit.data.hint.pep.proposal" subpackage</a>. For example, if this is a <a href="https://peps.python.org/pep-0484">PEP 484</a>-compliant type hint, add that hint and associated metadata to the <a href="https://github.com/beartype/beartype/blob/main/beartype_test/unit/data/hint/pep/proposal/data_hintpep484.py">"beartype_test.unit.data.hint.pep.proposal.data_hintpep484" submodule</a>.</li>
+</ul>
+<p>You're done! <em>Praise Guido.</em></p>
+<h2 id="moar-compliance">Moar Compliance<a class="headerlink" href="#moar-compliance" title="Permanent link">&para;</a></h2>
+<p>So, you want to help beartype comply with even <em>more</em> <a href="https://peps.python.org/pep-0000">Python Enhancement Proposals (PEPs)</a> than she already complies with? Let us help you help us, because you are young and idealistic and you mean well.</p>
+<p>You will need a spare life to squander. A clone would be most handy. In short, you will want to at least:</p>
+<ul>
+<li>Define a new utility submodule for this PEP residing under the <a href="https://github.com/beartype/beartype/blob/main/beartype/_util/hint/pep/proposal">"beartype._util.hint.pep.proposal" subpackage</a> implementing general-purpose validators, testers, getters, and other ancillary utility functions required to detect and handle <em>all</em> type hints compliant with this PEP. For efficiency, utility functions performing iteration or other expensive operations should be memoized via our internal <a href="https://github.com/beartype/beartype/blob/main/beartype/_util/cache/utilcachecall.py">@callable_cached</a> decorator.</li>
+<li>Define a new data utility submodule for this PEP residing under the <a href="https://github.com/beartype/beartype/blob/main/beartype/_util/hint/data/pep/proposal/">"beartype._util.data.hint.pep.proposal" subpackage</a> adding various signs (i.e., arbitrary objects uniquely identifying type hints compliant with this PEP) to various global variables defined by the parent <a href="https://github.com/beartype/beartype/blob/main/beartype/_util/hint/data/pep/utilhintdatapep.py">"beartype._util.data.hint.pep.utilhintdatapep" submodule</a>.</li>
+<li>Define a new test data submodule for this PEP residing under the <a href="https://github.com/beartype/beartype/blob/main/beartype_test/unit/data/hint/pep/proposal/">"beartype_test.unit.data.hint.pep.proposal" subpackage</a>.</li>
+</ul>
+<p>You're probably not done by a long shot! But the above should at least get you fitfully started, though long will you curse our names. <em>Praise Cleese.</em></p>
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+URI repository (i.e., hidden Markdown document centralizing common URI links as
+Markdown reference-style link definitions, automatically appended to all other
+Markdown documents in this project via the "auto_append" option of the
+"pymdownx.snippets" extension in "zensical.toml").
+-->
+
+<!-- -------------( IMAGES ~ badge                           )-------------- -->
+
+<!-- -------------( IMAGES ~ downstream                      )-------------- -->
+<!-- Insert links to GitHub Sponsors funding at the icon level here, please! -->
+
+<!-- -------------( LINKS ~ beartype : maintainer            )-------------- -->
+<!-- -------------( LINKS ~ beartype : funding               )-------------- -->
+<!-- -------------( LINKS ~ beartype : github                )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : security     )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : time         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : user         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local        )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local : mod  )-------------- -->
+<!-- -------------( LINKS ~ beartype : api                   )-------------- -->
+<!-- -------------( LINKS ~ beartype : package               )-------------- -->
+<!-- -------------( LINKS ~ beartype : package : meta        )-------------- -->
+<!-- -------------( LINKS ~ beartype : plugin                )-------------- -->
+<!-- -------------( LINKS ~ beartype : social                )-------------- -->
+<!-- -------------( LINKS ~ author : kipling                 )-------------- -->
+<!-- -------------( LINKS ~ github                           )-------------- -->
+<!-- -------------( LINKS ~ concept                          )-------------- -->
+<!-- -------------( LINKS ~ math                             )-------------- -->
+<!-- -------------( LINKS ~ math : set                       )-------------- -->
+<!-- -------------( LINKS ~ math : type                      )-------------- -->
+<!-- -------------( LINKS ~ meme                             )-------------- -->
+<!-- -------------( LINKS ~ os : linux                       )-------------- -->
+<!-- -------------( LINKS ~ os : linux : arch                )-------------- -->
+<!-- -------------( LINKS ~ os : macos                       )-------------- -->
+<!-- -------------( LINKS ~ other                            )-------------- -->
+<!-- -------------( LINKS ~ py                               )-------------- -->
+<!-- -------------( LINKS ~ py : cli                         )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter                 )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter : cpython       )-------------- -->
+<!-- -------------( LINKS ~ py : lang                        )-------------- -->
+<!-- -------------( LINKS ~ py : misc                        )-------------- -->
+<!-- -------------( LINKS ~ py : package                     )-------------- -->
+<!-- -------------( LINKS ~ py : package : boto3             )-------------- -->
+<!-- -------------( LINKS ~ py : package : click             )-------------- -->
+<!-- -------------( LINKS ~ py : package : equinox           )-------------- -->
+<!-- -------------( LINKS ~ py : package : ipython           )-------------- -->
+<!-- -------------( LINKS ~ py : package : jax               )-------------- -->
+<!-- -------------( LINKS ~ py : package : numba             )-------------- -->
+<!-- -------------( LINKS ~ py : package : numpy             )-------------- -->
+<!-- -------------( LINKS ~ py : package : pandas            )-------------- -->
+<!-- Note that "pandas" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pandera           )-------------- -->
+<!-- Note that "pandera" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pydantic          )-------------- -->
+<!-- -------------( LINKS ~ py : package : redis             )-------------- -->
+<!-- ------------------( LINKS ~ py : package : redis        )------------------ -->
+<!-- -------------( LINKS ~ py : package : sphinx            )-------------- -->
+<!-- -------------( LINKS ~ py : package : test              )-------------- -->
+<!-- -------------( LINKS ~ py : package : zensical          )-------------- -->
+<!-- -------------( LINKS ~ py : pep                         )-------------- -->
+<!-- -------------( LINKS ~ py : 3119                        )-------------- -->
+<!-- -------------( LINKS ~ py : 484                         )-------------- -->
+<!-- -------------( LINKS ~ py : 560                         )-------------- -->
+<!-- -------------( LINKS ~ py : service                     )-------------- -->
+<!-- -------------( LINKS ~ py : service : pypi              )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib                      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : builtins           )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections        )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections.abc    )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : contextlib         )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : enum               )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : functools          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : inspect            )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : io                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : os                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : random             )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : re                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : threading          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : typing : attr      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : warnings           )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime              )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : dataclass  )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : typeguard  )-------------- -->
+<!-- -------------( LINKS ~ py : type : static               )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : pyright     )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : mypy        )-------------- -->
+<!-- -------------( LINKS ~ soft : ide                       )-------------- -->
+<!-- -------------( LINKS ~ soft : ide : vscode              )-------------- -->
+<!-- -------------( LINKS ~ soft : lang                      )-------------- -->
+<!-- -------------( LINKS ~ soft : license                   )-------------- -->
+<!-- -------------( LINKS ~ soft : web                       )-------------- -->
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Unions are only as narrow as their widest subscripted argument. However, ignorable type hints are ignorable <em>because</em> they are maximally wide. Unions subscripted by ignorable arguments are thus the widest possible unions, conveying no meaningful constraints and thus themselves ignorable.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../pep/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Features">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Features
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../math/" class="md-footer__link md-footer__link--next" aria-label="Next: Math">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Math
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2014-2026 Beartype authors.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.expand","navigation.instant","navigation.instant.progress","navigation.footer","search.highlight","search.suggest"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../docs/js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

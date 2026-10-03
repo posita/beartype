@@ -1,0 +1,2315 @@
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+MkDocs Material theme override injecting a site-wide announcement banner.
+Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
+-->
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unbearably fast near-real-time hybrid runtime-static type-checking in pure Python.">
+      
+      
+        <meta name="author" content="Beartype">
+      
+      
+        <link rel="canonical" href="https://beartype.github.io/beartype/latest/faq/">
+      
+      
+        <link rel="prev" href="../math/">
+      
+      
+        <link rel="next" href="../moar/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="https://raw.githubusercontent.com/beartype/beartype-assets/main/favicon.svg">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>FAQ - Beartype</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ask-a-bear-bro-anything-abba" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  🐻 <strong>Upbear us</strong> at
+  <a href="https://github.com/sponsors/leycec">GitHub Sponsors</a> and
+  <a href="https://www.sonarsource.com/products/sonarqube/advanced-security">SonarQube Advanced Security (Tidelift)</a>.
+  <strong>Follow us</strong> <a href="https://leycec.bsky.social">on Bluesky</a>.
+  <strong>Friendzone us</strong> <a href="https://beartype.zulipchat.com">at Zulip</a>. 🐻
+  <br>
+  💗 Financially fueled by
+  <strong><a href="https://trymirai.com">ml (Mirai Labs)</a></strong> —
+  <em><a href="https://trymirai.com">On-device AI for Apple Silicon</a>, powered by bears.</em> 💗
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Beartype
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FAQ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Beartype
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Welcome
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Install
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tldr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  tl;dr
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eli5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  ELI5
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  API
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  API
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_decor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Decorators
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_vale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Validators
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_claw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Claws
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  DOOR
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_roar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exceptions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Features
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Math
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  FAQ
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  FAQ
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-beartype" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What is beartype?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-typeguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What is typeguard?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-should-i-use-beartype" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        When should I use beartype?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#does-beartype-do-any-bad-stuff" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Does beartype do any bad stuff?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#does-beartype-actually-do-anything" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Does beartype actually do anything?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-much-does-all-this-really-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How much does all this <em>really</em> cost?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beartype-just-does-random-stuff-really" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Beartype just does random stuff? Really?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-pure-python-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What does "pure-Python" mean?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-near-real-time-even-mean-are-you-just-making-stuff-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What does "near-real-time" even mean? Are you just making stuff up?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-hybrid-runtime-static-mean-pretty-sure-you-made-that-up-too" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What does "hybrid runtime-static" mean? Pretty sure you made that up, too.
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#third-generation-type-checker-doesnt-mean-anything-does-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        "Third-generation type-checker" doesn't mean anything, does it?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-type-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How do I type-check...
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How do I type-check...">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boto3-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...Boto3 types?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jax-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...JAX arrays?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numpy-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...NumPy arrays?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pytorch-tensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...PyTorch tensors?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mock-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...mock types?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas-data-frames" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...pandas data frames?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-current-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...the current class?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#under-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...under VSCode?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#under-insert-ide-name-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...under [insert-IDE-name-here]?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-type-narrowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...with type narrowing?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-only-type-check-while-running-my-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How do I *ONLY* type-check while running my test suite?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-not-type-check-something" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How do I *NOT* type-check something?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-leycecs-poorly-insulated-cottage-in-the-canadian-wilderness-so-cold" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Why is @leycec's poorly insulated cottage in the Canadian wilderness so cold?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  See Also
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-beartype" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What is beartype?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-typeguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What is typeguard?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-should-i-use-beartype" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        When should I use beartype?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#does-beartype-do-any-bad-stuff" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Does beartype do any bad stuff?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#does-beartype-actually-do-anything" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Does beartype actually do anything?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-much-does-all-this-really-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How much does all this <em>really</em> cost?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beartype-just-does-random-stuff-really" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Beartype just does random stuff? Really?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-pure-python-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What does "pure-Python" mean?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-near-real-time-even-mean-are-you-just-making-stuff-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What does "near-real-time" even mean? Are you just making stuff up?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-hybrid-runtime-static-mean-pretty-sure-you-made-that-up-too" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What does "hybrid runtime-static" mean? Pretty sure you made that up, too.
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#third-generation-type-checker-doesnt-mean-anything-does-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        "Third-generation type-checker" doesn't mean anything, does it?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-type-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How do I type-check...
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How do I type-check...">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boto3-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...Boto3 types?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jax-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...JAX arrays?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numpy-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...NumPy arrays?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pytorch-tensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...PyTorch tensors?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mock-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...mock types?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas-data-frames" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...pandas data frames?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-current-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...the current class?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#under-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...under VSCode?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#under-insert-ide-name-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...under [insert-IDE-name-here]?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-type-narrowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ...with type narrowing?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-only-type-check-while-running-my-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How do I *ONLY* type-check while running my test suite?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-not-type-check-something" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How do I *NOT* type-check something?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-leycecs-poorly-insulated-cottage-in-the-canadian-wilderness-so-cold" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Why is @leycec's poorly insulated cottage in the Canadian wilderness so cold?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+Child Markdown document answering frequently asked questions (FAQ).
+-->
+
+<h1 id="ask-a-bear-bro-anything-abba">Ask a Bear Bro Anything (ABBA)<a class="headerlink" href="#ask-a-bear-bro-anything-abba" title="Permanent link">&para;</a></h1>
+<p>Beartype now answers your many pressing questions about life, love, and typing. Maximize your portfolio of crushed bugs by devoutly memorizing the answers to these... <strong>frequently asked questions (FAQ)!</strong></p>
+<h2 id="what-is-beartype">What is beartype?<a class="headerlink" href="#what-is-beartype" title="Permanent link">&para;</a></h2>
+<p>Why, it's the world's first <span class="arithmatex">\(O(1)\)</span> runtime type-checker in any <a href="https://en.wikipedia.org/wiki/Type_system">dynamically-typed</a> lang... oh, <em>forget it.</em></p>
+<p>You know <a href="https://github.com/agronholm/typeguard">typeguard</a>? Then you know beartype – more or less. beartype is <a href="https://github.com/agronholm/typeguard">typeguard</a>'s younger, faster, and slightly sketchier brother who routinely ingests performance-enhancing anabolic nootropics.</p>
+<h2 id="what-is-typeguard">What is typeguard?<a class="headerlink" href="#what-is-typeguard" title="Permanent link">&para;</a></h2>
+<p><strong>Okay.</strong> Work with us here, people.</p>
+<p>You know how in low-level <a href="https://en.wikipedia.org/wiki/Type_system">statically-typed</a> <a href="https://en.wikipedia.org/wiki/Memory_safety">memory-unsafe</a> languages that no one should use like <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> and <a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a>, the compiler validates at compilation time the types of all values passed to and returned from all functions and methods across the entire codebase?</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>gcc<span class="w"> </span>-Werror<span class="o">=</span>int-conversion<span class="w"> </span>-xc<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOL</span>
+<span class="s">#include &lt;stdio.h&gt;</span>
+<span class="s">int main() {</span>
+<span class="s">    printf("Hello, world!");</span>
+<span class="s">    return "Goodbye, world.";</span>
+<span class="s">}</span>
+<span class="s">EOL</span>
+&lt;stdin&gt;:<span class="w"> </span>In<span class="w"> </span><span class="k">function</span><span class="w"> </span>‘main’:
+&lt;stdin&gt;:4:11:<span class="w"> </span>error:<span class="w"> </span>returning<span class="w"> </span>‘char<span class="w"> </span>*’<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span><span class="k">function</span><span class="w"> </span>with<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">type</span>
+‘int’<span class="w"> </span>makes<span class="w"> </span>integer<span class="w"> </span>from<span class="w"> </span>pointer<span class="w"> </span>without<span class="w"> </span>a<span class="w"> </span>cast<span class="w"> </span><span class="o">[</span>-Werror<span class="o">=</span>int-conversion<span class="o">]</span>
+cc1:<span class="w"> </span>some<span class="w"> </span>warnings<span class="w"> </span>being<span class="w"> </span>treated<span class="w"> </span>as<span class="w"> </span>errors
+</code></pre></div>
+<p>You know how in high-level <a href="https://en.wikipedia.org/wiki/Duck_typing">duck-typed</a> languages that everyone should use instead like <a href="https://www.python.org">Python</a> and <a href="https://www.ruby-lang.org">Ruby</a>, the interpreter performs no such validation at any interpretation phase but instead permits any arbitrary values to be passed to or returned from any function or method?</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python3<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOL</span>
+<span class="s">def main() -&gt; int:</span>
+<span class="s">    print("Hello, world!");</span>
+<span class="s">    return "Goodbye, world.";  # &lt;-- pretty sure that's not an "int".</span>
+<span class="s">main()</span>
+<span class="s">EOL</span>
+
+Hello,<span class="w"> </span>world!
+</code></pre></div>
+<p>Runtime type-checkers like <a href="https://github.com/beartype/beartype">beartype</a> and <a href="https://github.com/agronholm/typeguard">typeguard</a> selectively shift the dial on type safety in Python from <a href="https://en.wikipedia.org/wiki/Duck_typing">duck</a> to <a href="https://en.wikipedia.org/wiki/Type_system">static typing</a> while still preserving all of the permissive benefits of the former as a default behaviour. Now you too can quack like a duck while roaring like a bear.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python3<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOL</span>
+<span class="s">from beartype import beartype</span>
+<span class="s">@beartype</span>
+<span class="s">def main() -&gt; int:</span>
+<span class="s">    print("Hello, world!");</span>
+<span class="s">    return "Goodbye, world.";  # &lt;-- pretty sure that's not an "int".</span>
+<span class="s">main()</span>
+<span class="s">EOL</span>
+
+Hello,<span class="w"> </span>world!
+Traceback<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>recent<span class="w"> </span>call<span class="w"> </span>last<span class="o">)</span>:
+<span class="w">  </span>File<span class="w"> </span><span class="s2">"&lt;stdin&gt;"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">6</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>&lt;module&gt;
+<span class="w">  </span>File<span class="w"> </span><span class="s2">"&lt;string&gt;"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">17</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>main
+<span class="w">  </span>File<span class="w"> </span><span class="s2">"/home/leycec/py/beartype/beartype/_decor/_code/_pep/_error/errormain.py"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">218</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>get_beartype_violation
+<span class="w">    </span>raise<span class="w"> </span>exception_cls<span class="o">(</span>
+beartype.roar.BeartypeCallHintPepReturnException:<span class="w"> </span>@beartyped<span class="w"> </span>main<span class="o">()</span><span class="w"> </span><span class="k">return</span>
+<span class="s1">'Goodbye, world.'</span><span class="w"> </span>violates<span class="w"> </span><span class="nb">type</span><span class="w"> </span>hint<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">'int'</span>&gt;,<span class="w"> </span>as<span class="w"> </span>value<span class="w"> </span><span class="s1">'Goodbye,</span>
+<span class="s1">world.'</span><span class="w"> </span>not<span class="w"> </span>int.
+</code></pre></div>
+<h2 id="when-should-i-use-beartype">When should I use beartype?<a class="headerlink" href="#when-should-i-use-beartype" title="Permanent link">&para;</a></h2>
+<p>Use beartype to assure the quality of Python code beyond what tests alone can assure. If you have yet to test, do that first with a <a href="https://docs.pytest.org">pytest</a>-based test suite, <a href="https://tox.readthedocs.io">tox</a> configuration, and <a href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration (CI)</a>. If you have any time, money, or motivation left, <a href="../pep/">annotate callables and classes with PEP-compliant type hints</a> and <a href="../eli5/">decorate those callables and classes with the @beartype.beartype decorator</a>.</p>
+<p>Prefer beartype over other runtime and static type-checkers whenever you lack perfect control over the objects passed to or returned from your callables – <em>especially</em> whenever you cannot limit the size of those objects. This includes common developer scenarios like:</p>
+<ul>
+<li>You are the author of an <strong>open-source library</strong> intended to be reused by a general audience.</li>
+<li>You are the author of a <strong>public app</strong> manipulating Bigly Data™ (i.e., data that is big) in app callables – especially when accepting data as input into <em>or</em> returning data as output from those callables.</li>
+</ul>
+<p>If none of the above apply, prefer beartype over static type-checkers whenever:</p>
+<ul>
+<li>
+<p>You want to <a href="../eli5/#versus-static-type-checkers">check types decidable only at runtime</a>.</p>
+</li>
+<li>
+<p>You want to write code rather than fight a static type-checker, because <a href="https://en.wikipedia.org/wiki/Type_inference">static type inference</a> of a <a href="https://en.wikipedia.org/wiki/Type_system">dynamically-typed</a> language is guaranteed to fail and frequently does. If you've ever cursed the sky after suffixing working code incorrectly typed by <a href="http://mypy-lang.org">mypy</a> with non-portable vendor-specific pragmas like <code># type: ignore[{unreadable_error}]</code>, beartype was written for you.</p>
+</li>
+<li>
+<p>You want to preserve <a href="https://en.wikipedia.org/wiki/Type_system">dynamic typing</a>, because Python is a <a href="https://en.wikipedia.org/wiki/Type_system">dynamically-typed</a> language. Unlike beartype, static type-checkers enforce <a href="https://en.wikipedia.org/wiki/Type_system">static typing</a> and are thus strongly opinionated; they believe <a href="https://en.wikipedia.org/wiki/Type_system">dynamic typing</a> is harmful and emit errors on <a href="https://en.wikipedia.org/wiki/Type_system">dynamically-typed</a> code. This includes common use patterns like changing the type of a variable by assigning that variable a value whose type differs from its initial value. Want to freeze a variable from a <code>set</code> into a <code>frozenset</code>? That's sad, because static type-checkers don't want you to. In contrast:</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Beartype never emits errors, warnings, or exceptions on dynamically-typed code,</strong> because Python is not an error.</p>
+<p><strong>Beartype believes dynamic typing is beneficial by default,</strong> because Python is beneficial by default.</p>
+<p><strong>Beartype is unopinionated.</strong> That's because beartype <a href="../eli5/#versus-static-type-checkers">operates exclusively at the higher level of pure-Python callables and classes</a> rather than the lower level of individual statements <em>inside</em> pure-Python callables and class. Unlike static type-checkers, beartype can't be opinionated about things that no one should be.</p>
+</blockquote>
+<p>If none of the above <em>still</em> apply, still use beartype. It's <a href="https://en.wikipedia.org/wiki/Gratis_versus_libre">free as in beer and speech</a>, <a href="../eli5/">cost-free at installation- and runtime</a>, and transparently stacks with existing type-checking solutions. Leverage beartype until you find something that suites you better, because beartype is <em>always</em> better than nothing.</p>
+<h2 id="does-beartype-do-any-bad-stuff">Does beartype do any bad stuff?<a class="headerlink" href="#does-beartype-do-any-bad-stuff" title="Permanent link">&para;</a></h2>
+<p><strong>Beartype is free</strong> – free as in beer, speech, dependencies, space complexity, <em>and</em> time complexity. Beartype is the textbook definition of "free." We're pretty sure the Oxford Dictionary now just shows the <a href="https://github.com/beartype/beartype-assets/tree/main/banner">beartype mascot</a> instead of defining that term. Vector art that <a href="https://github.com/felix-hilden">a Finnish man</a> slaved for weeks over paints a thousand words.</p>
+<p>Beartype might not do as much as you'd like, but it will always do <em>something</em> – which is more than Python's default behaviour, which is to do <em>nothing</em> and then raise exceptions when doing nothing inevitably turns out to have been a bad idea. Beartype also cleanly interoperates with popular static type-checkers, by which we mean <a href="http://mypy-lang.org">mypy</a> and <a href="https://github.com/Microsoft/pyright">pyright</a>. (The <a href="https://github.com/google/pytype">other guys</a> don't exist.)</p>
+<p>Beartype can <em>always</em> be safely added to <em>any</em> Python package, module, app, or script regardless of size, scope, funding, or audience. Never worry about your backend <a href="https://www.djangoproject.com">Django</a> server taking an impromptu swan dive on St. Patty's Day just because your frontend <a href="https://reactjs.org">React</a> client pushed a 5MB JSON file serializing a doubly-nested list of integers. <sup>Nobody could have foreseen this!</sup></p>
+<p>The idea of competing runtime type-checkers like <a href="https://github.com/agronholm/typeguard">typeguard</a> is that they compulsively do <em>everything.</em> If you annotate a function decorated by <a href="https://github.com/agronholm/typeguard">typeguard</a> as accepting a triply-nested list of integers and pass that function a list of 1,000 nested lists of 1,000 nested lists of 1,000 integers, <em>every</em> call to that function will check <em>every</em> integer transitively nested in that list – even when that list never changes. Did we mention that list transitively contains 1,000,000,000 integers in total?</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>timeit<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-r<span class="w"> </span><span class="m">1</span><span class="w"> </span>-s<span class="w"> </span><span class="s1">'</span>
+<span class="s1">from typeguard import typechecked</span>
+<span class="s1">@typechecked</span>
+<span class="s1">def behold(the_great_destroyer_of_apps: list[list[list[int]]]) -&gt; int:</span>
+<span class="s1">    return len(the_great_destroyer_of_apps)</span>
+<span class="s1">'</span><span class="w"> </span><span class="s1">'behold([[[0]*1000]*1000]*1000)'</span>
+
+<span class="m">1</span><span class="w"> </span>loop,<span class="w"> </span>best<span class="w"> </span>of<span class="w"> </span><span class="m">1</span>:<span class="w"> </span><span class="m">6</span>.42e+03<span class="w"> </span>sec<span class="w"> </span>per<span class="w"> </span>loop
+</code></pre></div>
+<p>Yes, <code>6.42e+03 sec per loop == 6420 seconds == 107 minutes == 1 hour, 47 minutes</code> to check a single list once. Yes, it's an uncommonly large list... <em>but it's still just a list.</em> This is the worst-case cost of a single call to a function decorated by a naïve runtime type-checker.</p>
+<h2 id="does-beartype-actually-do-anything">Does beartype actually do anything?<a class="headerlink" href="#does-beartype-actually-do-anything" title="Permanent link">&para;</a></h2>
+<p>Generally, as little as it can while still satisfying the accepted definition of "runtime type-checker." Specifically, beartype performs a <a href="#beartype-just-does-random-stuff-really">one-way random walk over the expected data structure of objects passed to and returned from @beartype-decorated functions and methods</a>. Colloquially, beartype type-checks randomly sampled data. <a href="https://knowyourmeme.com/memes/rngesus">RNGesus</a>, show your humble disciples the way!</p>
+<p>Consider <a href="#does-beartype-do-any-bad-stuff">the prior example of a function annotated as accepting a triply-nested list of integers passed a list containing 1,000 nested lists each containing 1,000 nested lists each containing 1,000 integers</a>. When decorated by:</p>
+<ul>
+<li><a href="https://github.com/agronholm/typeguard">typeguard</a>, every call to that function checks every integer nested in that list.</li>
+<li>beartype, every call to the same function checks only a single random integer contained in a single random nested list contained in a single random nested list contained in that parent list. This is what we mean by the quaint phrase "one-way random walk over the expected data structure."</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>timeit<span class="w"> </span>-n<span class="w"> </span><span class="m">1024</span><span class="w"> </span>-r<span class="w"> </span><span class="m">4</span><span class="w"> </span>-s<span class="w"> </span><span class="s1">'</span>
+<span class="s1">from beartype import beartype</span>
+<span class="s1">@beartype</span>
+<span class="s1">def behold(the_great_destroyer_of_apps: list[list[list[int]]]) -&gt; int:</span>
+<span class="s1">   return len(the_great_destroyer_of_apps)</span>
+<span class="s1">'</span><span class="w"> </span><span class="s1">'behold([[[0]*1000]*1000]*1000)'</span>
+
+<span class="m">1024</span><span class="w"> </span>loops,<span class="w"> </span>best<span class="w"> </span>of<span class="w"> </span><span class="m">4</span>:<span class="w"> </span><span class="m">13</span>.8<span class="w"> </span>usec<span class="w"> </span>per<span class="w"> </span>loop
+</code></pre></div>
+<p>Yes, <code>13.8 usec per loop == 13.8 microseconds = 0.0000138 seconds</code> to transitively check only a random integer nested in a single triply-nested list passed to each call of that function. This is the worst-case cost of a single call to a function decorated by an <span class="arithmatex">\(O(1)\)</span> runtime type-checker.</p>
+<h2 id="how-much-does-all-this-really-cost">How much does all this <em>really</em> cost?<a class="headerlink" href="#how-much-does-all-this-really-cost" title="Permanent link">&para;</a></h2>
+<p>What substring of <a href="#does-beartype-do-any-bad-stuff">"beartype is free we swear it would we lie"</a> did you not grep?</p>
+<p><em>...very well.</em> Let's pontificate.</p>
+<p>Beartype dynamically generates functions wrapping decorated callables with constant-time runtime type-checking. This separation of concerns means that beartype exhibits different cost profiles at decoration and call time. Whereas standard runtime type-checking decorators are fast at decoration time and slow at call time, beartype is the exact opposite.</p>
+<p>At call time, wrapper functions generated by the <code>beartype.beartype</code> decorator are guaranteed to unconditionally run in <strong>O(1) non-amortized worst-case time with negligible constant factors</strong> regardless of type hint complexity or nesting. This is <em>not</em> an amortized average-case analysis. Wrapper functions really are <span class="arithmatex">\(O(1)\)</span> time in the best, average, and worst cases.</p>
+<p>At decoration time, performance is slightly worse. Internally, beartype non-recursively iterates over type hints at decoration time with a micro-optimized breadth-first search (BFS). Since this BFS is memoized, its cost is paid exactly once per type hint per process; subsequent references to the same hint over different parameters and returns of different callables in the same process reuse the results of the previously memoized BFS for that hint. The <code>beartype.beartype</code> decorator itself thus runs in:</p>
+<ul>
+<li><strong>O(1) amortized average-case time.</strong></li>
+<li><strong>O(k) non-amortized worst-case time</strong> for <span class="arithmatex">\(k\)</span> the number of child type hints nested in a parent type hint and including that parent.</li>
+</ul>
+<p>Since we generally expect a callable to be decorated only once but called multiple times per process, we might expect the cost of decoration to be ignorable in the aggregate. Interestingly, this is not the case. Although only paid once and obviated through memoization, decoration time is sufficiently expensive and call time sufficiently inexpensive that beartype spends most of its wall-clock merely decorating callables. The actual function wrappers dynamically generated by <code>beartype.beartype</code> consume comparatively little wall-clock, even when repeatedly called many times.</p>
+<h2 id="beartype-just-does-random-stuff-really">Beartype just does random stuff? Really?<a class="headerlink" href="#beartype-just-does-random-stuff-really" title="Permanent link">&para;</a></h2>
+<p><strong>Yes.</strong> Beartype just does random stuff. That's what we're trying to say here. We didn't want to admit it, but the ugly truth is out now. Are you smirking? Because that looks like a smirk. Repeat after this FAQ:</p>
+<ul>
+<li>Beartype's greatest strength is that it checks types in constant time.</li>
+<li>Beartype's greatest weakness is that it checks types in constant time.</li>
+</ul>
+<p>Only so many type-checks can be stuffed into a constant slice of time with negligible constant factors. Let's detail exactly what (and why) beartype stuffs into its well-bounded slice of the CPU pie.</p>
+<p>Standard runtime type checkers naïvely brute-force the problem by type-checking <em>all</em> child objects transitively reachable from parent objects passed to and returned from callables in <span class="arithmatex">\(O(n)\)</span> linear time for <span class="arithmatex">\(n\)</span> such objects. This approach avoids false positives (i.e., raising exceptions for valid objects) <em>and</em> false negatives (i.e., failing to raise exceptions for invalid objects), which is good. But this approach also duplicates work when those objects remain unchanged over multiple calls to those callables, which is bad.</p>
+<p>Beartype circumvents that badness by generating code at decoration time performing a one-way random tree walk over the expected nested structure of those objects at call time. For each expected nesting level of each container passed to or returned from each callable decorated by <code>beartype.beartype</code> starting at that container and ending either when a check fails <em>or</em> all checks succeed, that callable performs these checks (in order):</p>
+<ol>
+<li>A <strong>shallow type-check</strong> that the current possibly nested container is an instance of the type given by the current possibly nested type hint.</li>
+<li>A <strong>deep type-check</strong> that an item randomly selected from that container itself satisfies the first check.</li>
+</ol>
+<p>For example, given a parameter's type hint <code>list[tuple[Sequence[str]]]</code>, beartype generates code at decoration time performing these checks at call time (in order):</p>
+<ol>
+<li>A check that the object passed as this parameter is a list.</li>
+<li>A check that an item randomly selected from this list is a tuple.</li>
+<li>A check that an item randomly selected from this tuple is a sequence.</li>
+<li>A check that an item randomly selected from this sequence is a string.</li>
+</ol>
+<p>Beartype thus performs one check for each possibly nested type hint for each annotated parameter or return object for each call to each decorated callable. This deep randomness gives us soft statistical expectations as to the number of calls needed to check everything. Specifically, <a href="../math/#nobody-expects-the-linearithmic-time">it can be shown that beartype type-checks on average</a> <em>all</em> child objects transitively reachable from parent objects passed to and returned from callables in <span class="arithmatex">\(O(n \log n)\)</span> calls to those callables for <span class="arithmatex">\(n\)</span> such objects. Praise <a href="https://knowyourmeme.com/memes/rngesus">RNGesus</a>!</p>
+<p>Beartype avoids false positives and rarely duplicates work when those objects remain unchanged over multiple calls to those callables, which is good. Sadly, beartype also invites false negatives, because this approach only checks a vertical slice of the full container structure each call, which is bad.</p>
+<p>We claim without evidence that false negatives are unlikely under the optimistic assumption that most real-world containers are <strong>homogeneous</strong> (i.e., contain only items of the same type) rather than <strong>heterogeneous</strong> (i.e., contain items of differing types). Examples of homogeneous containers include (byte-)strings, <a href="https://docs.python.org/3/library/stdtypes.html#range-objects">ranges</a>, <a href="https://docs.python.org/3/library/io.html">streams</a>, <a href="https://docs.python.org/3/library/stdtypes.html#memory-views">memory views</a>, <a href="https://docs.python.org/3/library/stdtypes.html#class.__mro__">method resolution orders (MROs)</a>, <a href="https://docs.python.org/3/library/stdtypes.html#genericalias.__parameters__">generic alias parameters</a>, lists returned by the <code>dir</code> builtin, iterables generated by the <code>os.walk</code> function, standard <a href="https://numpy.org">NumPy</a> arrays, <a href="https://pytorch.org">PyTorch</a> tensors, <a href="https://networkx.org">NetworkX</a> graphs, <a href="https://pandas.pydata.org">pandas</a> data frame columns, and really all scientific containers ever.</p>
+<h2 id="what-does-pure-python-mean">What does "pure-Python" mean?<a class="headerlink" href="#what-does-pure-python-mean" title="Permanent link">&para;</a></h2>
+<p>Beartype is implemented entirely in Python. It's Python all the way down. Beartype never made a Faustian bargain with diabolical non-Pythonic facehuggers like <a href="https://cython.org">Cython</a>, C extensions, or Rust extensions. This has profound advantages with <em>no</em> profound disadvantages (aside from our own loss in sanity) – which doesn't make sense until you continue reading. <sup>Possibly, not even then.</sup></p>
+<p>First, <strong>profound advantages.</strong> We need to make beartype look good to justify this FAQ entry. The advantage of staying pure-Python is that beartype supports everything that supports Python – including:</p>
+<ul>
+<li><strong>Just-in-time (JIT) compilers!</strong> So, <a href="https://www.pypy.org">PyPy</a>.</li>
+<li><strong>Ahead-of-time transpilers!</strong> So, <a href="https://nuitka.net">Nuitka</a>.</li>
+<li><strong>Python web distributions!</strong> So, <a href="https://pyodide.org">Pyodide</a>.</li>
+</ul>
+<p>Next, <strong>profound disadvantages.</strong> There are none. Nobody was expecting that, were they? Suck it, tradeoffs. Okay... <em>look</em>. Can anybody handle "the Truth"? I don't even know what that means, but it probably relates to the next paragraph.</p>
+<p>Ordinarily, beartype being pure-Python would mean that beartype is slow. Python is commonly considered to be The Slowest Language Evah, because it commonly is. Everything pure-Python is slow (much like our bathroom sink clogged with cat hair). Everyone knows that. It is common knowledge. This only goes to show that the intersection of "common knowledge" and "actual knowledge" is the empty set.</p>
+<p>Thankfully, beartype is <em>not</em> slow. By confining itself to the subset of Python that is fast,<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> beartype is micro-optimized to exhibit performance on par with horrifying compiled systems languages like Rust, C, and C++ – without sacrificing all of the native things that make Python great.</p>
+<p>Which leads us straight to...</p>
+<h2 id="what-does-near-real-time-even-mean-are-you-just-making-stuff-up">What does "near-real-time" even mean? Are you just making stuff up?<a class="headerlink" href="#what-does-near-real-time-even-mean-are-you-just-making-stuff-up" title="Permanent link">&para;</a></h2>
+<p>It means stupid-fast. And... yes. I mean no. Of course no! No! Everything you read is true, because Somebody on the Internet Said It. I mean, <em>really</em>. Would beartype just make stuff up? Okay... <em>look</em>. Here's the real deal. Let us bore this understanding into you. <sup>squinty eyes intensify</sup></p>
+<p>Beartype type-checks objects at runtime in around <strong>1µs</strong> (i.e., one microsecond, one millionth of a second), the standard high-water mark for <a href="https://en.wikipedia.org/wiki/Real-time_computing">real-time software</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="go"># Let's check a list of 181,320,382 integers in ~1µs.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">sum_list_unbeartyped</span><span class="p">(</span><span class="n">some_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">some_list</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sum_list_beartyped</span> <span class="o">=</span> <span class="n">beartype</span><span class="p">(</span><span class="n">sum_list_unbeartyped</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">%</span><span class="n">time</span> <span class="n">sum_list_unbeartyped</span><span class="p">([</span><span class="mi">42</span><span class="p">]</span><span class="o">*</span><span class="mh">0xACEBABE</span><span class="p">)</span>
+<span class="go">CPU times: user 3.15 s, sys: 418 ms, total: 3.57 s</span>
+<span class="go">Wall time: 3.58 s  # &lt;-- okay.</span>
+<span class="go">Out[20]: 7615456044</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">%</span><span class="n">time</span> <span class="n">sum_list_beartyped</span><span class="p">([</span><span class="mi">42</span><span class="p">]</span><span class="o">*</span><span class="mh">0xACEBABE</span><span class="p">)</span>
+<span class="go">CPU times: user 3.11 s, sys: 440 ms, total: 3.55 s</span>
+<span class="go">Wall time: 3.56 s  # &lt;-- woah.</span>
+<span class="go">Out[22]: 7615456044</span>
+</code></pre></div>
+<p>Beartype does <em>not</em> contractually guarantee this performance – as that example demonstrates. Under abnormal processing loads (e.g., <a href="https://github.com/leycec">leycec</a>'s arthritic Athlon™ II X2 240, because you can't have enough redundant 2's in a product line) or when passed worst-case type hints (e.g., classes whose metaclasses implement stunningly awful <code>__isinstancecheck__()</code> dunder methods), beartype's worst-case performance could exceed an average-case near-instantaneous response.</p>
+<p>Beartype is therefore <em>not</em> <a href="https://en.wikipedia.org/wiki/Real-time_computing">real-time</a>; beartype is merely <a href="https://en.wikipedia.org/wiki/Real-time_computing#Near_real-time">near-real-time (NRT)</a>, also variously referred to as "pseudo-real-time," "quasi-real-time," or simply "high-performance." <a href="https://en.wikipedia.org/wiki/Real-time_computing">Real-time</a> software guarantees performance with a scheduler forcibly terminating tasks exceeding some deadline. That's bad in most use cases. The outrageous cost of enforcement harms real-world performance, stability, and usability.</p>
+<p><strong>NRT.</strong> It's good for you. It's good for your codebase. It's just good.</p>
+<h2 id="what-does-hybrid-runtime-static-mean-pretty-sure-you-made-that-up-too">What does "hybrid runtime-static" mean? Pretty sure you made that up, too.<a class="headerlink" href="#what-does-hybrid-runtime-static-mean-pretty-sure-you-made-that-up-too" title="Permanent link">&para;</a></h2>
+<p>Beartype is a <a href="#third-generation-type-checker-doesnt-mean-anything-does-it">third-generation type-checker</a> seamlessly supporting both:</p>
+<ul>
+<li>New-school <strong>runtime-static type-checking</strong> via <a href="../api_claw/">beartype import hooks</a>. When you call import hooks published by the <code>beartype.claw</code> subpackage, you automagically type-check <em>all</em> annotated callables, classes, and variable assignments covered by those hooks. In this newer (and highly encouraged) modality, beartype performs both runtime <em>and</em> static analysis – enabling beartype to seamlessly support both prosaic and exotic type hints.</li>
+<li>Old-school <strong>runtime type-checking</strong> via the <code>beartype.beartype</code> decorator. When you manually decorate callables and classes by <code>beartype.beartype</code>, you type-check only annotated parameters, returns, and class variables. In this older (and mostly obsolete) modality, beartype performs <em>no</em> static analysis and thus <em>no</em> static type-checking. This suffices for prosaic type hints but fails for exotic type hints. After all, many type hints can <em>only</em> be type-checked with static analysis.</li>
+</ul>
+<p>In the usual use case, you call our <code>beartype.claw.beartype_this_package</code> function from your <code>{your_package}.__init__</code> submodule to register an import hook for your entire package. Beartype then type-checks the following points of interest across your entire package:</p>
+<ul>
+<li>
+<p>All <strong>annotated parameters</strong> and <strong>returns</strong> of all callables, which our import hooks decorate with <code>beartype.beartype</code>.</p>
+</li>
+<li>
+<p>All <strong>annotated attributes</strong> of all classes, which (<em>...wait for it</em>) our import hooks decorate with <code>beartype.beartype</code>.</p>
+</li>
+<li>
+<p>All <strong>annotated variable assignments</strong> (e.g., <code>muh_var: int = 42</code>). After any assignment to a global or local variable annotated by a type hint, our import hooks implicitly append a new statement at the same indentation level calling our <code>beartype.door.die_if_unbearable</code> function passed both that variable and that type hint. That is:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Beartype import hooks append each assignment resembling this...</span>
+<span class="p">{</span><span class="n">var_name</span><span class="p">}:</span> <span class="p">{</span><span class="n">type_hint</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="n">var_value</span><span class="p">}</span>
+
+<span class="c1"># ...with a runtime type-check resembling this.</span>
+<span class="n">die_if_unbearable</span><span class="p">({</span><span class="n">var_name</span><span class="p">},</span> <span class="p">{</span><span class="n">type_hint</span><span class="p">})</span>
+</code></pre></div>
+<ul>
+<li>All <strong>annotated variable declarations</strong> (e.g., <code>muh_var: int</code>). After any declaration to a global or local variable annotated by a type hint not assigned a new value, our import hooks implicitly append a new statement at the same indentation level calling our <code>beartype.door.die_if_unbearable</code> function passed both that variable and that type hint. That is:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Beartype import hooks append each declaration resembling this...</span>
+<span class="p">{</span><span class="n">var_name</span><span class="p">}:</span> <span class="p">{</span><span class="n">type_hint</span><span class="p">}</span>
+
+<span class="c1"># ...with a runtime type-check resembling this.</span>
+<span class="n">die_if_unbearable</span><span class="p">({</span><span class="n">var_name</span><span class="p">},</span> <span class="p">{</span><span class="n">type_hint</span><span class="p">})</span>
+</code></pre></div>
+<p><code>beartype.claw</code>: <em>We broke our wrists so you don't have to.</em></p>
+<h2 id="third-generation-type-checker-doesnt-mean-anything-does-it">"Third-generation type-checker" doesn't mean anything, does it?<a class="headerlink" href="#third-generation-type-checker-doesnt-mean-anything-does-it" title="Permanent link">&para;</a></h2>
+<p>Let's rewind. Follow your arthritic host, <a href="https://github.com/leycec">Granpa Leycec</a>, on a one-way trip you won't soon recover from through the backwater annals of GitHub history.</p>
+<p>Gather around, everyone! It's a tedious lore dump that will leave you enervated, exhausted, and wishing you'd never come:</p>
+<ul>
+<li>
+<p><strong>Gen 1.</strong> On October 28th, 2012, <a href="http://mypy-lang.org">mypy</a> launched the first generation of type-checkers. Like <a href="http://mypy-lang.org">mypy</a>, first-generation type-checkers are all pure-static type-checkers. They do <em>not</em> operate at runtime and thus <em>cannot</em> enforce anything at runtime. They operate entirely outside of runtime during an on-demand parser phase referred to as <strong>static analysis time</strong> – usually at the automated behest of a local IDE or remote continuous integration (CI) pipeline. Since they can't enforce anything, they're the monkey on your team's back that you really wish would stop flinging bodily wastes everywhere.</p>
+</li>
+<li>
+<p><strong>Gen 2.</strong> On December 27th, 2015, <a href="https://github.com/agronholm/typeguard">typeguard</a> 1.0.0 launched the second generation of type-checkers.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> Like <a href="https://github.com/agronholm/typeguard">typeguard</a>, second-generation type-checkers are all pure-runtime type-checkers. They operate entirely at runtime and thus <em>do</em> enforce everything at runtime – usually with a decorator manually applied to callables and classes. Conversely, they do <em>not</em> operate at static analysis time and thus <em>cannot</em> validate type hints requiring static analysis. While non-ideal, this tradeoff is generally seen as worthwhile by everybody except the authors of first-generation type-checkers. Enforcing <em>some</em> type hints is unequivocally better than enforcing <em>no</em> type hints.</p>
+</li>
+<li>
+<p><strong>Gen 3.</strong> On December 11th, 2019, <a href="https://github.com/agronholm/typeguard">typeguard</a> 2.6.0 (yet again) launched the third generation of type-checkers. Like <a href="https://github.com/agronholm/typeguard">typeguard</a> ≥ 2.6.0, third-generation type-checkers are all a best-of-breed hybridization of first- and second-generation type-checkers. They concurrently perform both:</p>
+</li>
+<li>
+<p>Standard <strong>runtime type-checking</strong> (ala the <code>beartype.beartype</code> decorator).</p>
+</li>
+<li>Standard <strong>static type-checking</strong> (ala <a href="http://mypy-lang.org">mypy</a> and <a href="https://github.com/Microsoft/pyright">pyright</a>) but <strong>at runtime</strong> – which ain't standard.</li>
+</ul>
+<p>First- and second-generation type-checkers invented a fundamentally new wheel. Third-generation type-checkers then bolted the old, busted, rubber-worn wheels built by prior generations onto the post-apocalyptic chassis of a shambolic doom mobile.</p>
+<p>Beartype is a third-generation type-checker. This is the shock twist in the season finale that no one saw coming at all.</p>
+<blockquote>
+<p>Beartype: shambolic doom mobile <em>or</em> bucolic QA utopia? <em>Only your team decides.</em></p>
+</blockquote>
+<h2 id="how-do-i-type-check">How do I type-check...<a class="headerlink" href="#how-do-i-type-check" title="Permanent link">&para;</a></h2>
+<p>...yes? Do go on.</p>
+<h3 id="boto3-types">...Boto3 types?<a class="headerlink" href="#boto3-types" title="Permanent link">&para;</a></h3>
+<p><strong>tl;dr:</strong> You just want <a href="https://github.com/beartype/bearboto3">bearboto3</a>, a well-maintained third-party package cleanly integrating beartype <strong>+</strong> <a href="https://aws.amazon.com/sdk-for-python">Boto3</a>. But you're not doing that. You're reading on to find out why you want <a href="https://github.com/beartype/bearboto3">bearboto3</a>, aren't you? I <em>knew</em> it.</p>
+<p><a href="https://aws.amazon.com/sdk-for-python">Boto3</a> is the official Amazon Web Services (AWS) Software Development Kit (SDK) for Python. Type-checking <a href="https://aws.amazon.com/sdk-for-python">Boto3</a> types is decidedly non-trivial, because <a href="https://aws.amazon.com/sdk-for-python">Boto3</a> dynamically fabricates unimportable types from runtime service requests. These types <em>cannot</em> be externally accessed and thus <em>cannot</em> be used as type hints.</p>
+<p><strong>H-hey!</strong> Put down the hot butter knife. Your Friday night may be up in flames, but we're gonna put out the fire. It's what we do here. Now, you have two competing solutions with concomitant tradeoffs. You can type-check <a href="https://aws.amazon.com/sdk-for-python">Boto3</a> types against either:</p>
+<ul>
+<li><strong>Static type-checkers</strong> (e.g., <a href="http://mypy-lang.org">mypy</a>, <a href="https://github.com/Microsoft/pyright">pyright</a>) by importing <a href="https://aws.amazon.com/sdk-for-python">Boto3</a> stub types from an external third-party dependency (e.g., <a href="https://mypy-boto3.readthedocs.io">mypy-boto3</a>), enabling context-aware code completion across compliant IDEs (e.g., <a href="https://en.wikipedia.org/wiki/PyCharm">PyCharm</a>, <a href="https://github.com/microsoft/pylance-release">VSCode Pylance</a>). Those types are merely placeholder stubs; they do <em>not</em> correspond to actual <a href="https://aws.amazon.com/sdk-for-python">Boto3</a> types and thus break runtime type-checkers (including beartype) when used as type hints.</li>
+<li><strong>Beartype</strong> by fabricating your own <a href="../api_vale/">PEP-compliant beartype validators</a>, enabling beartype to validate arbitrary objects against actual <a href="https://aws.amazon.com/sdk-for-python">Boto3</a> types at runtime when used as type hints. You already require beartype, so no additional third-party dependencies are required. Those validators are silently ignored by static type-checkers; they do <em>not</em> enable context-aware code completion across compliant IDEs.</li>
+</ul>
+<p>"B-but that <em>sucks</em>! How can we have our salmon and devour it too?", you demand with a tremulous quaver. Excessive caffeine and inadequate gaming did you no favors tonight. You know this. Yet again you reach for the hot butter knife.</p>
+<p><strong>H-hey!</strong> You can, okay? You can have everything that market forces demand. Bring to <em>bear</em> <sup>cough</sup> the combined powers of <a href="https://peps.python.org/pep-0484/#type-aliases">PEP 484-compliant type aliases</a>, the <a href="https://docs.python.org/3/library/typing.html#typing.TYPE_CHECKING">PEP 484-compliant "typing.TYPE_CHECKING" boolean global</a>, and <code>beartype validators
+&lt;beartype.vale&gt;</code> to satisfy both static and runtime type-checkers:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">boto3</span><span class="w"> </span><span class="kn">import</span> <span class="n">resource</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">boto3.resources.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">ServiceResource</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="c1"># If performing static type-checking (e.g., mypy, pyright), import boto3</span>
+<span class="c1"># stub types safely usable *ONLY* by static type-checkers.</span>
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">mypy_boto3_s3.service_resource</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bucket</span>
+<span class="c1"># Else, @beartime-based runtime type-checking is being performed. Alias the</span>
+<span class="c1"># same boto3 stub types imported above to their semantically equivalent</span>
+<span class="c1"># beartype validators accessible *ONLY* to runtime type-checkers.</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Import even more requisite machinery. Can't have enough, I say!</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsAttr</span><span class="p">,</span> <span class="n">IsEqual</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>   <span class="c1"># &lt;--------------- if Python ≥ 3.9.0</span>
+    <span class="c1"># from typing_extensions import Annotated   # &lt;-- if Python &lt; 3.9.0</span>
+
+    <span class="c1"># Generalize this to other boto3 types by copy-and-pasting this and</span>
+    <span class="c1"># replacing the base type and "s3.Bucket" with the wonky runtime names</span>
+    <span class="c1"># of those types. Sadly, there is no one-size-fits all common base class,</span>
+    <span class="c1"># but you should find what you need in the following places:</span>
+    <span class="c1"># * "boto3.resources.base.ServiceResource".</span>
+    <span class="c1"># * "boto3.resources.collection.ResourceCollection".</span>
+    <span class="c1"># * "botocore.client.BaseClient".</span>
+    <span class="c1"># * "botocore.paginate.Paginator".</span>
+    <span class="c1"># * "botocore.waiter.Waiter".</span>
+    <span class="n">Bucket</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">ServiceResource</span><span class="p">,</span>
+        <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'__class__'</span><span class="p">,</span> <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'__name__'</span><span class="p">,</span> <span class="n">IsEqual</span><span class="p">[</span><span class="s2">"s3.Bucket"</span><span class="p">]]]]</span>
+
+<span class="c1"># Do this for the good of the gross domestic product, @beartype.</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_s3_bucket_example</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bucket</span><span class="p">:</span>
+    <span class="n">s3</span> <span class="o">=</span> <span class="n">resource</span><span class="p">(</span><span class="s1">'s3'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">'example'</span><span class="p">)</span>
+</code></pre></div>
+<p>You're welcome.</p>
+<h3 id="jax-arrays">...JAX arrays?<a class="headerlink" href="#jax-arrays" title="Permanent link">&para;</a></h3>
+<p>You only have two options here. Choose wisely, wily scientist. If:</p>
+<ul>
+<li>You don't mind adding an <strong>additional mandatory runtime dependency</strong> to your app:</li>
+<li>Require the <a href="https://github.com/google/jaxtyping">third-party "jaxtyping" package</a>.</li>
+<li>Annotate callables with type hint factories published by <code>jaxtyping</code> (e.g., <code>jaxtyping.Float[jaxtyping.Array, '{metadata1 ... metadataN}']</code>). Beartype fully supports <a href="https://github.com/google/jaxtyping">typed JAX arrays</a>. Because <a href="https://github.com/patrick-kidger">Google mathematician @patrick-kidger</a> did all the hard work, we didn't have to. Bless your runtime API, @patrick-kidger.</li>
+<li>You mind adding an additional mandatory runtime dependency to your app, prefer <a href="../api_vale/#tensor-property-matching">beartype validators</a>. Since <a href="https://jax.readthedocs.io/en/latest/notebooks/thinking_in_jax.html">JAX declares a broadly similar API to that of NumPy with its "jax.numpy" compatibility layer</a>, most NumPy-specific examples cleanly generalize to JAX. Beartype is <em>no</em> exception.</li>
+</ul>
+<p>Bask in the array of options at your disposal! <sup>...get it? ...array? I'll stop now.</sup></p>
+<h3 id="numpy-arrays">...NumPy arrays?<a class="headerlink" href="#numpy-arrays" title="Permanent link">&para;</a></h3>
+<p>You have more than a few options here. If:</p>
+<ul>
+<li>
+<p>[<strong>Recommended</strong>] You don't mind adding an <strong>additional mandatory runtime dependency</strong> to your app:</p>
+</li>
+<li>
+<p>Require the <a href="https://github.com/google/jaxtyping">third-party "jaxtyping" package</a>. (Yes, really! Despite the now-historical name it also supports <a href="https://numpy.org">NumPy</a>, <a href="https://pytorch.org">PyTorch</a>, and <a href="https://www.tensorflow.org">TensorFlow</a> arrays and has <em>no</em> <a href="https://jax.readthedocs.io">JAX</a> dependency whatsoever.)</p>
+</li>
+<li>Annotate callables with type hint factories published by <a href="https://github.com/google/jaxtyping">jaxtyping</a> (e.g., <code>jaxtyping.Float[np.ndarray, '{metadata1 ... metadataN}']</code>).</li>
+</ul>
+<p>Because <a href="https://github.com/patrick-kidger">Google mathematician @patrick-kidger</a> did all the hard work, we didn't have to. Bless your runtime API, <a href="https://github.com/patrick-kidger">@patrick-kidger</a>.</p>
+<ul>
+<li>
+<p>You mind adding an additional mandatory runtime dependency to your app. Then prefer either:</p>
+</li>
+<li>
+<p>If you only want to type-check the <strong>dtype</strong> (but <em>not</em> shape) of NumPy arrays, the <a href="../api_vale/#numpy-type-hints">official <code>numpy.typing.NDArray[{dtype}]</code> type hint factory bundled with NumPy and explicitly supported by beartype</a> – also referred to as a <a href="../api_vale/#numpy-type-hints">typed NumPy array</a>. Beartype fully supports <a href="../api_vale/#numpy-type-hints">typed NumPy arrays</a>. Because beartype cares.</p>
+</li>
+<li>If you'd rather type-check arbitrary properties (including dtype and/or shape) of NumPy arrays, the <a href="../api_vale/#tensor-property-matching">beartype validator API bundled with beartype itself</a>. Since doing so requires a <em>bit</em> more heavy lifting on your part, you probably just want to use <a href="https://github.com/google/jaxtyping">jaxtyping</a> instead. Seriously. <a href="https://github.com/patrick-kidger">@patrick-kidger</a> is the way.</li>
+<li>If you'd rather type-check arbitrary properties (including dtype and/or shape) of NumPy arrays and don't mind requiring an unmaintained package that increasingly appears to be broken, consider the <a href="https://github.com/ramonhagenaars/nptyping">third-party "nptyping" package</a>.</li>
+</ul>
+<p>Options are good! Repeat this mantra in times of need.</p>
+<h3 id="pytorch-tensors">...PyTorch tensors?<a class="headerlink" href="#pytorch-tensors" title="Permanent link">&para;</a></h3>
+<p>You only have two options here. We're pretty sure two is better than none. Thus, we give thanks. If:</p>
+<ul>
+<li>
+<p>You don't mind adding an <strong>additional mandatory runtime dependency</strong> to your app:</p>
+</li>
+<li>
+<p>Require the <a href="https://github.com/google/jaxtyping">third-party "jaxtyping" package</a>. (Yes, really! Despite the now-historical name it also supports PyTorch, and has no JAX dependency.)</p>
+</li>
+<li>Annotate callables with type hint factories published by jaxtyping (e.g., <code>jaxtyping.Float[torch.Tensor, '{metadata1 ... metadataN}']</code>).</li>
+</ul>
+<p>Beartype fully supports <a href="https://github.com/google/jaxtyping">typed PyTorch tensors</a>. Because <a href="https://github.com/patrick-kidger">Google mathematician @patrick-kidger</a> did all the hard work, we didn't have to. Bless your runtime API, @patrick-kidger.</p>
+<ul>
+<li>You mind adding an additional mandatory runtime dependency to your app. In this case, prefer <a href="../api_vale/">beartype validators</a>. For example, validate callable parameters and returns as either floating-point <em>or</em> integral PyTorch tensors via the functional validator factory <code>beartype.vale.Is</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">Is</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>   <span class="c1"># &lt;--------------- if Python ≥ 3.9.0</span>
+<span class="c1"># from typing_extensions import Annotated   # &lt;-- if Python &lt; 3.9.0</span>
+
+<span class="c1"># Import PyTorch (d)types of interest.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="nb">float</span> <span class="k">as</span> <span class="n">torch_float</span><span class="p">,</span>
+    <span class="nb">int</span> <span class="k">as</span> <span class="n">torch_int</span><span class="p">,</span>
+    <span class="n">tensor</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># PEP-compliant type hint matching only a floating-point PyTorch tensor.</span>
+<span class="n">TorchTensorFloat</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">tensor</span><span class="p">,</span> <span class="n">Is</span><span class="p">[</span>
+    <span class="k">lambda</span> <span class="n">tens</span><span class="p">:</span> <span class="n">tens</span><span class="o">.</span><span class="n">type</span><span class="p">()</span> <span class="ow">is</span> <span class="n">torch_float</span><span class="p">]]</span>
+
+<span class="c1"># PEP-compliant type hint matching only an integral PyTorch tensor.</span>
+<span class="n">TorchTensorInt</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">tensor</span><span class="p">,</span> <span class="n">Is</span><span class="p">[</span>
+    <span class="k">lambda</span> <span class="n">tens</span><span class="p">:</span> <span class="n">tens</span><span class="o">.</span><span class="n">type</span><span class="p">()</span> <span class="ow">is</span> <span class="n">torch_int</span><span class="p">]]</span>
+
+<span class="c1"># Type-check everything like an NLP babelfish.</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">deep_dream</span><span class="p">(</span><span class="n">dreamy_tensor</span><span class="p">:</span> <span class="n">TorchTensorFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TorchTensorInt</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">dreamy_tensor</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch_int</span><span class="p">)</span>
+</code></pre></div>
+<p>Since <code>beartype.vale.Is</code> supports arbitrary Turing-complete Python expressions, the above example generalizes to typing the device, dimensionality, and other metadata of PyTorch tensors to whatever degree of specificity you desire.</p>
+<p><code>beartype.vale.Is</code>: <em>it's lambdas all the way down.</em></p>
+<h3 id="mock-types">...mock types?<a class="headerlink" href="#mock-types" title="Permanent link">&para;</a></h3>
+<p>Beartype fully relies upon the <code>isinstance</code> builtin under the hood for its low-level runtime type-checking needs. If you can fool <code>isinstance</code>, you can fool beartype. Can you fool beartype into believing an instance of a mock type is an instance of the type it mocks, though?</p>
+<p><strong>You bet your bottom honey barrel.</strong> In your mock type, just define a new <code>__class__()</code> property returning the original type: e.g.,</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">OriginalType</span><span class="p">:</span> <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">MockType</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nd">@property</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">__class__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">:</span> <span class="k">return</span> <span class="n">OriginalType</span>
+<span class="gp">... </span>    <span class="nd">@__class__</span><span class="o">.</span><span class="n">setter</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">__class__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">super</span><span class="o">.</span><span class="vm">__class__</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@beartype</span>
+<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">muh_func</span><span class="p">(</span><span class="n">muh_arg</span><span class="p">:</span> <span class="n">OriginalType</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="s1">'Yolo, bro.'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">muh_func</span><span class="p">(</span><span class="n">MockType</span><span class="p">())</span>
+<span class="go">Yolo, bro.</span>
+</code></pre></div>
+<p>This is why we beartype.</p>
+<h3 id="pandas-data-frames">...pandas data frames?<a class="headerlink" href="#pandas-data-frames" title="Permanent link">&para;</a></h3>
+<p>Type-check <em>any</em> <a href="https://pandas.pydata.org">pandas</a> object with <a href="https://pandera.readthedocs.io/en/stable/reference/generated/pandera.typing.html">type hints</a> published by the <a href="https://pandera.readthedocs.io">third-party pandera package</a> – the industry standard for Pythonic data validation and <em>blah, blah, blah</em>... hey wait. Is this HR speak in the beartype FAQ!? Yes. It's true. We are shilling.</p>
+<p>Because caring is sharing code that works, beartype transparently supports <em>all</em> <a href="https://pandera.readthedocs.io/en/stable/reference/generated/pandera.typing.html">pandera type hints</a>. Soon, you too will believe that machine-learning pipelines can be domesticated. Arise, huge example! Stun the disbelievers throwing peanuts at <a href="https://github.com/beartype/beartype/issues">our issue tracker</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import important machinery. It's important.</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandera</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pa</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandera.dtypes</span><span class="w"> </span><span class="kn">import</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">Timestamp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandera.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Series</span>
+
+<span class="c1"># Arbitrary pandas data frame. If pandas, then data science.</span>
+<span class="n">muh_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">'Hexspeak'</span><span class="p">:</span> <span class="p">(</span>
+        <span class="mh">0xCAFED00D</span><span class="p">,</span>
+        <span class="mh">0xCAFEBABE</span><span class="p">,</span>
+        <span class="mh">0x1337BABE</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s1">'OdeToTheWestWind'</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">'Angels of rain and lightning: there are spread'</span><span class="p">,</span>
+        <span class="s1">'On the blue surface of thine aery surge,'</span><span class="p">,</span>
+        <span class="s1">'Like the bright hair uplifted from the head'</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s1">'PercyByssheShelley'</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">((</span>
+        <span class="s1">'1792-08-04'</span><span class="p">,</span>
+        <span class="s1">'1822-07-08'</span><span class="p">,</span>
+        <span class="s1">'1851-02-01'</span><span class="p">,</span>
+    <span class="p">)),</span>
+<span class="p">})</span>
+
+<span class="c1"># Pandera dataclass validating the data frame above. As above, so below.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MuhDataFrameModel</span><span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">DataFrameModel</span><span class="p">):</span>
+    <span class="n">Hexspeak</span><span class="p">:</span> <span class="n">Series</span><span class="p">[</span><span class="n">Int64</span><span class="p">]</span>
+    <span class="n">OdeToTheWestWind</span><span class="p">:</span> <span class="n">Series</span><span class="p">[</span><span class="n">String</span><span class="p">]</span>
+    <span class="n">PercyByssheShelley</span><span class="p">:</span> <span class="n">Series</span><span class="p">[</span><span class="n">Timestamp</span><span class="p">]</span>
+
+<span class="c1"># Custom callable you define. Here, we type-check the passed data frame, the</span>
+<span class="c1"># passed non-pandas object, and the returned series of this data frame.</span>
+<span class="nd">@beartype</span>
+<span class="nd">@pa</span><span class="o">.</span><span class="n">check_types</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_dataframe_column_to_series</span><span class="p">(</span>
+    <span class="c1"># Annotate pandas data frames with pandera type hints.</span>
+    <span class="n">dataframe</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">typing</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">[</span><span class="n">MuhDataFrameModel</span><span class="p">],</span>
+    <span class="c1"># Annotate everything else with standard PEP-compliant type hints. \o/</span>
+    <span class="n">column_name_or_index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span>
+<span class="c1"># Annotate pandas series with pandera type hints, too.</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Series</span><span class="p">[</span><span class="n">Int64</span> <span class="o">|</span> <span class="n">String</span> <span class="o">|</span> <span class="n">Timestamp</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    Convert the column of the passed pandas data frame (identified by the</span>
+<span class="sd">    passed column name or index) into a pandas series.</span>
+<span class="sd">    '''</span>
+
+    <span class="c1"># This is guaranteed to be safe. Since type-checks passed, this does too.</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">column_name_or_index</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column_name_or_index</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span>
+        <span class="n">dataframe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="n">column_name_or_index</span><span class="p">]</span>
+    <span class="p">)</span>
+
+<span class="c1"># Prints joyful success as a single tear falls down your beard stubble:</span>
+<span class="c1">#     [Series from data frame column by *NUMBER*]</span>
+<span class="c1">#     0    3405697037</span>
+<span class="c1">#     1    3405691582</span>
+<span class="c1">#     2     322419390</span>
+<span class="c1">#     Name: Hexspeak, dtype: int64</span>
+<span class="c1">#</span>
+<span class="c1">#     [Series from data frame column by *NAME*]</span>
+<span class="c1">#     0    Angels of rain and lightning: there are spread</span>
+<span class="c1">#     1          On the blue surface of thine aery surge,</span>
+<span class="c1">#     2       Like the bright hair uplifted from the head</span>
+<span class="c1">#     Name: OdeToTheWestWind, dtype: object</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'[Series from data frame column by *NUMBER*]'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">convert_dataframe_column_to_series</span><span class="p">(</span>
+    <span class="n">dataframe</span><span class="o">=</span><span class="n">muh_dataframe</span><span class="p">,</span> <span class="n">column_name_or_index</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'[Series from data frame column by *NAME*]'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">convert_dataframe_column_to_series</span><span class="p">(</span>
+    <span class="n">dataframe</span><span class="o">=</span><span class="n">muh_dataframe</span><span class="p">,</span> <span class="n">column_name_or_index</span><span class="o">=</span><span class="s1">'OdeToTheWestWind'</span><span class="p">))</span>
+
+<span class="c1"># All of the following raise type-checking violations. Feels bad, man.</span>
+<span class="n">convert_dataframe_column_to_series</span><span class="p">(</span>
+    <span class="n">dataframe</span><span class="o">=</span><span class="n">muh_dataframe</span><span class="p">,</span> <span class="n">column_name_or_index</span><span class="o">=</span><span class="p">[</span><span class="s1">'y u done me dirty'</span><span class="p">]))</span>
+<span class="n">convert_dataframe_column_to_series</span><span class="p">(</span>
+    <span class="n">dataframe</span><span class="o">=</span><span class="n">DataFrame</span><span class="p">(),</span> <span class="n">column_name_or_index</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</code></pre></div>
+<p>Order of decoration is insignificant. The <code>beartype.beartype</code> and <a href="https://pandera.readthedocs.io/en/stable/reference/generated/pandera.decorators.check_types.html">pandera.check_types</a> decorators are both permissive. Apply them in whichever order you like. This is fine, too:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Everyone is fine with this. That's what they say. But can we trust them?</span>
+<span class="nd">@pa</span><span class="o">.</span><span class="n">check_types</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_dataframe_column_to_series</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="o">...</span><span class="p">:</span> <span class="o">...</span>
+</code></pre></div>
+<p>There be dragons belching flames over the hapless village, however:</p>
+<ul>
+<li>If you forget the <a href="https://pandera.readthedocs.io/en/stable/reference/generated/pandera.decorators.check_types.html">pandera.check_types</a> decorator (but still apply the <code>beartype.beartype</code> decorator), <code>beartype.beartype</code> will only <strong>shallowly type-check</strong> (i.e., validate the types but <em>not</em> the contents of) <a href="https://pandas.pydata.org">pandas</a> objects. This is better than nothing, but... look. No API is perfect. We didn't make crazy. We only integrate with crazy. The lesson here is to never forget the <a href="https://pandera.readthedocs.io/en/stable/reference/generated/pandera.decorators.check_types.html">pandera.check_types</a> decorator.</li>
+<li>If you forget the <code>beartype.beartype</code> decorator (but still apply the <a href="https://pandera.readthedocs.io/en/stable/reference/generated/pandera.decorators.check_types.html">pandera.check_types</a> decorator), <a href="https://pandera.readthedocs.io/en/stable/reference/generated/pandera.decorators.check_types.html">pandera.check_types</a> will <strong>silently ignore everything</strong> except <a href="https://pandas.pydata.org">pandas</a> objects. This is the worst case. This is literally <a href="https://rateyourmusic.com/release/album/led-zeppelin/led-zeppelin">the blimp crashing and burning on the cover</a> of <em>Led Zeppelin I</em>. The lesson here is to never forget the <code>beartype.beartype</code> decorator.</li>
+</ul>
+<p>There are two lessons here. Both suck. Nobody should need to read fifty paragraphs full of flaming dragons just to validate <a href="https://pandas.pydata.org">pandas</a> objects. Moreover, you are thinking: "It smells like boilerplate." You are <em>not</em> wrong. It is textbook boilerplate. Thankfully, your concerns can all be fixed with even more boilerplate. Did we mention none of this is our fault?</p>
+<p>Define a new <code>@bearpanderatype</code> decorator internally applying both the <code>beartype.beartype</code> and <a href="https://pandera.readthedocs.io/en/stable/reference/generated/pandera.decorators.check_types.html">pandera.check_types</a> decorators; then use that instead of either of those. Automate away the madness with more madness:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Never again suffer for the sins of others.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bearpanderatype</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">beartype</span><span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">check_types</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+
+<span class="c1"># Knowledge is power. Clench it with your iron fist until it pops.</span>
+<span class="nd">@bearpanderatype</span>  <span class="c1"># &lt;-- less boilerplate means more power</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_dataframe_column_to_series</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="o">...</span><span class="p">:</span> <span class="o">...</span>
+</code></pre></div>
+<p><a href="https://pandas.pydata.org">pandas</a> + <a href="https://pandera.readthedocs.io">pandera</a> + <code>beartype</code>: BFFs at last. Type-check <a href="https://pandas.pydata.org">pandas</a> data frames in <a href="https://en.wikipedia.org/wiki/Machine_learning">ML</a> pipelines for the good of <a href="https://en.wikipedia.org/wiki/Large_language_model">LLaMa-kind</a>. Arise, bug-free <a href="https://en.wikipedia.org/wiki/Generative_pre-trained_transformer">GPT</a>! Overthrow all huma— <em>message ends</em></p>
+<h3 id="the-current-class">...the current class?<a class="headerlink" href="#the-current-class" title="Permanent link">&para;</a></h3>
+<p><strong>So.</strong> It comes to this. You want to type-check a method parameter or return to be an instance of the class declaring that method. In short, you want to type-check a common use case like this factory:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ClassFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">_args</span> <span class="o">=</span> <span class="n">args</span>
+
+   <span class="k">def</span><span class="w"> </span><span class="nf">make_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+       <span class="k">return</span> <span class="n">ClassFactory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">_args</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>ClassFactory.make_class()</code> method both accepts a parameter <code>other</code> whose type is <code>ClassFactory</code> <em>and</em> returns a value whose type is (again) <code>ClassFactory</code> – the class currently being declared. This is the age-old <strong>self-referential problem</strong>. How do you type-check the class being declared when that class has yet to be declared? The answer may shock your younger coworkers who are still impressionable and have firm ideals.</p>
+<p>You have three choices here. One of these choices is good and worthy of smiling cat emoji. The other two are bad; mock them in <code>git</code> commit messages until somebody refactors them into the first choice:</p>
+<ol>
+<li>
+<p><strong>[Recommended]</strong> The <a href="https://peps.python.org/pep-0673">PEP 673</a>-compliant <code>typing.Self</code> type hint (introduced by Python 3.11) efficiently and reliably solves this. Annotate the type of the current class as <code>~typing.Self</code> – fully supported by <code>beartype</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import important stuff. Boilerplate: it's the stuff we make.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Self</span>  <span class="c1"># &lt;---------------- if Python ≥ 3.11.0</span>
+<span class="c1"># from typing_extensions import Self   # &lt;-- if Python &lt; 3.11.0</span>
+
+<span class="c1"># Decorate classes – not methods. It's rough.</span>
+<span class="nd">@beartype</span>  <span class="c1"># &lt;-- Yesss. Good. Feel the force. It flows like sweet honey.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ClassFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">_args</span> <span class="o">=</span> <span class="n">args</span>
+
+   <span class="c1"># @beartype  # &lt;-- No... Oh, Gods. *NO*! The dark side grows stronger.</span>
+   <span class="k">def</span><span class="w"> </span><span class="nf">make_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>  <span class="c1"># &lt;-- We are all one self.</span>
+       <span class="k">return</span> <span class="n">ClassFactory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">_args</span><span class="p">)</span>
+</code></pre></div>
+<p>Technically, this requires Python 3.11. Pragmatically, <code>typing_extensions</code> means that you can bring Python 3.11 back with you into the past – where code was simpler, Python was slower, and nothing worked as intended despite tests passing.</p>
+<p><code>~typing.Self</code> is only contextually valid inside class declarations. <code>beartype</code> raises an exception when you attempt to use <code>~typing.Self</code> outside a class declaration (e.g., annotating a global variable, function parameter, or return).</p>
+<p><code>~typing.Self</code> can only be type-checked by <strong>classes</strong> decorated by the <code>beartype.beartype</code> decorator. Corollary: <code>~typing.Self</code> <em>cannot</em> be type-checked by <strong>methods</strong> decorated by <code>beartype.beartype</code> – because the class to be type-checked has yet to be declared at that early time. The pain that you feel is real.</p>
+</li>
+<li>
+<p>A <a href="https://peps.python.org/pep-0484">PEP 484</a>-compliant <strong>forward reference</strong> (i.e., type hint that is a string that is the unqualified name of the current class) also solves this. The only costs are inexcusable inefficiency and unreliability. This is what everyone should no longer do. This is...</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># The bad old days when @beartype had to bathe in the gutter.</span>
+<span class="c1"># *PLEASE DON'T DO THIS ANYMORE.* Do you want @beartype to cry?</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+
+<span class="nd">@beartype</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BadClassFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">_args</span> <span class="o">=</span> <span class="n">args</span>
+
+   <span class="k">def</span><span class="w"> </span><span class="nf">make_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s1">'BadClassFactory'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span>  <span class="c1"># &lt;-- no, no, Gods, no</span>
+       <span class="s1">'BadClassFactory'</span><span class="p">):</span>  <span class="c1"># &lt;------------------------------ please, Gods, no</span>
+       <span class="k">return</span> <span class="n">BadClassFactory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">_args</span><span class="p">)</span>
+</code></pre></div>
+</li>
+<li>
+<p>A <a href="https://peps.python.org/pep-0563">PEP 563</a>-compliant <strong>postponed type hint</strong> (i.e., type hint unparsed by <code>from __future__ import annotations</code> back into a string that is the unqualified name of the current class) also resolves this. The only costs are codebase-shattering inefficiency, non-deterministic fragility so profound that even <a href="https://hypothesis.readthedocs.io">Hypothesis</a> is squinting, and the ultimate death of your business model. Only do this over the rotting corpse of <code>beartype</code>. This is...</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Breaking the Python interpreter: feels bad, because it is bad.</span>
+<span class="c1"># *PLEASE DON'T DO THIS ANYWHERE.* Do you want @beartype to be a shambling wreck?</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+
+<span class="nd">@beartype</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TerribadClassFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">_args</span> <span class="o">=</span> <span class="n">args</span>
+
+   <span class="k">def</span><span class="w"> </span><span class="nf">make_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">TerribadClassFactory</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span>  <span class="c1"># &lt;-- NO, NO, GODS, NO</span>
+       <span class="n">TerribadClassFactory</span><span class="p">):</span>  <span class="c1"># &lt;------------------------------ PLEASE, GODS, NO</span>
+       <span class="k">return</span> <span class="n">TerribadClassFactory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">_args</span><span class="p">)</span>
+</code></pre></div>
+</li>
+</ol>
+<p>In theory, <code>beartype</code> nominally supports all three. In practice, <code>beartype</code> only perfectly supports <code>typing.Self</code>. <code>beartype</code> <em>still</em> grapples with slippery edge cases in the latter two, which <em>will</em> blow up your test suite in that next changeset you are about to commit. Even when we perfectly support everything in a future release, you should still strongly prefer <code>~typing.Self</code>. Why?</p>
+<p><strong>Speed.</strong> It's why we're here. Let's quietly admit that to ourselves. If <code>beartype</code> were any slower, even fewer people would be reading this. <code>beartype</code> generates:</p>
+<ul>
+<li>Optimally efficient type-checking code for <code>~typing.Self</code>. It's literally just a trivial call to the <code>isinstance</code> builtin. The same <em>cannot</em> be said for...</li>
+<li>Suboptimal type-checking code for both forward references and postponed type hints, deferring the lookup of the referenced class to call time. Although <code>beartype</code> caches that class after doing so, all of that incurs space and time costs you'd rather not pay at any space or time.</li>
+</ul>
+<p><code>typing.Self</code>: it saved our issue tracker from certain doom. Now, it will save your codebase from our issues.</p>
+<h3 id="under-vscode">...under VSCode?<a class="headerlink" href="#under-vscode" title="Permanent link">&para;</a></h3>
+<p><strong>Beartype fully supports VSCode out-of-the-box</strong> – especially via <a href="https://github.com/microsoft/pylance-release">Pylance</a>, Microsoft's bleeding-edge Python extension for VSCode. Chortle in your joy, corporate subscribers and academic sponsors! All the intellisense you can tab-complete and more is now within your honey-slathered paws. Why? Because...</p>
+<p>Beartype laboriously complies with <a href="https://github.com/Microsoft/pyright">pyright</a>, Microsoft's in-house static type-checker for Python. <a href="https://github.com/microsoft/pylance-release">Pylance</a> enables <a href="https://github.com/Microsoft/pyright">pyright</a> as its default static type-checker. Beartype thus complies with <a href="https://github.com/microsoft/pylance-release">Pylance</a>, too.</p>
+<p>Beartype <em>also</em> laboriously complies with <a href="http://mypy-lang.org">mypy</a>, Python's official static type-checker. VSCode users preferring <a href="http://mypy-lang.org">mypy</a> to <a href="https://github.com/Microsoft/pyright">pyright</a> may switch <a href="https://github.com/microsoft/pylance-release">Pylance</a> to type-check via the former. Just:</p>
+<ol>
+<li><a href="https://mypy.readthedocs.io/en/stable/getting_started.html">Install mypy</a>.</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=matangover.mypy">Install the VSCode Mypy extension</a>.</li>
+<li>Open the <em>User Settings</em> dialog.</li>
+<li>Search for <code>Type Checking Mode</code>.</li>
+<li>Browse to <code>Python › Analysis: Type Checking Mode</code>.</li>
+<li>Switch the "default rule set for type checking" to <code>off</code>.</li>
+</ol>
+<p><img alt="Disabling pyright-based VSCode Pylance type-checking" src="https://user-images.githubusercontent.com/217028/164616311-c4a24889-0c53-4726-9051-29be7263ee9b.png" /></p>
+<p><sup>Pretend that reads "off" rather than "strict". Pretend we took this screenshot.</sup></p>
+<p>There are tradeoffs here, because that's just how the code rolls. On:</p>
+<ul>
+<li>The one paw, <a href="https://github.com/Microsoft/pyright">pyright</a> is <em>significantly</em> more performant than <a href="http://mypy-lang.org">mypy</a> under <a href="https://github.com/microsoft/pylance-release">Pylance</a> and supports type-checking standards currently unsupported by <a href="http://mypy-lang.org">mypy</a> (e.g., recursive type hints).</li>
+<li>The other paw, <a href="http://mypy-lang.org">mypy</a> supports a vast plugin architecture enabling third-party Python packages to describe dynamic runtime behaviour statically.</li>
+</ul>
+<p>Beartype: we enable hard choices, so that you can make them for us.</p>
+<h3 id="under-insert-ide-name-here">...under [insert-IDE-name-here]?<a class="headerlink" href="#under-insert-ide-name-here" title="Permanent link">&para;</a></h3>
+<p>Beartype fully complies with <a href="http://mypy-lang.org">mypy</a>, <a href="https://github.com/Microsoft/pyright">pyright</a>, <a href="https://peps.python.org/pep-0561">PEP 561</a>, and other community standards that govern how Python is statically type-checked. Modern Integrated Development Environments (IDEs) support these standards - hopefully including your GigaChad IDE of choice.</p>
+<h3 id="with-type-narrowing">...with type narrowing?<a class="headerlink" href="#with-type-narrowing" title="Permanent link">&para;</a></h3>
+<p>Beartype fully supports <a href="https://peps.python.org/pep-0647">PEP 647</a>-compliant <a href="https://mypy.readthedocs.io/en/stable/type_narrowing.html">type narrowing</a> with the standard <code>typing.TypeGuard</code> type hint, facilitating communication between beartype and static type-checkers (e.g., <a href="http://mypy-lang.org">mypy</a>, <a href="https://github.com/Microsoft/pyright">pyright</a>). In fact, beartype supports general-purpose type narrowing of <em>all</em> PEP-compliant type hints that are also valid <strong>types</strong> (i.e., actual classes, which <em>not</em> all type hints are). In fact, beartype is the first maximal type narrower. In fact, you're very tired of every sentence starting with "In fact."</p>
+<p>The procedural <code>beartype.door.is_bearable</code> function narrows the type of the passed object (which can be <em>anything</em>) to the passed type hint (which can be <em>any</em> type). Both guarantee runtime performance on the order of less than 1µs (i.e., less than one millionth of a second), preserving runtime performance and money bags.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sadly, the object-oriented <code>beartype.door.TypeHint.is_bearable</code> method does <em>not</em> support <a href="https://mypy.readthedocs.io/en/stable/type_narrowing.html">type narrowing</a>. Only <code>beartype.door.is_bearable</code> supports <a href="https://mypy.readthedocs.io/en/stable/type_narrowing.html">type narrowing</a>. Why? Deficiencies in <a href="https://peps.python.org/pep-0647">PEP 647</a> beyond the control of <code>beartype</code>. It's not our fault. Would <a href="https://github.com/leycec">@leycec</a> lie publicly in online documentation just to make his questionable coding style superficially look better!?! Surely! <code>&lt;/shifty_goggle_eyes&gt;</code></p>
+</div>
+<p>Calling <code>beartype.door.is_bearable</code> in your code enables beartype to symbiotically eliminate false positives from static type-checkers checking that code, reducing static type-checker chum that went rotten decades ago:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.door</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_bearable</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">narrow_types_like_a_boss_with_beartype</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    This function eliminates false positives from static type-checkers like</span>
+<span class="sd">    mypy and pyright by narrowing types with ``is_bearable()``.</span>
+
+<span class="sd">    Note that decorating this function with ``@beartype`` is *not* required</span>
+<span class="sd">    to inform static type-checkers of type narrowing. Of course, you should</span>
+<span class="sd">    still do that anyway. Trust is a fickle thing.</span>
+<span class="sd">    '''</span>
+
+    <span class="c1"># If this list contains integers rather than strings, call another</span>
+    <span class="c1"># function accepting only a list of integers.</span>
+    <span class="k">if</span> <span class="n">is_bearable</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+        <span class="c1"># "lst" has been though a lot. Let's celebrate its courageous story.</span>
+        <span class="n">munch_on_list_of_integers</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>  <span class="c1"># mypy/pyright: OK!</span>
+    <span class="c1"># If this list contains strings rather than integers, call another</span>
+    <span class="c1"># function accepting only a list of strings.</span>
+    <span class="k">elif</span> <span class="n">is_bearable</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+        <span class="c1"># "lst": The Story of "lst." The saga of false positives ends now.</span>
+        <span class="n">munch_on_list_of_strings</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>  <span class="c1"># mypy/pyright: OK!</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">munch_on_list_of_strings</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span> <span class="o">...</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">munch_on_list_of_integers</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span> <span class="o">...</span>
+</code></pre></div>
+<p>Beartype: <em>because you no longer care what static type-checkers think.</em></p>
+<h2 id="how-do-i-only-type-check-while-running-my-test-suite">How do I *ONLY* type-check while running my test suite?<a class="headerlink" href="#how-do-i-only-type-check-while-running-my-test-suite" title="Permanent link">&para;</a></h2>
+<p>Your test suite uses <a href="https://docs.pytest.org">pytest</a>, of course. You are sane. Therefore, you're lucky! The aptly-named <a href="https://pypi.org/project/pytest-beartype">pytest-beartype</a> package officially supports your valid use case.</p>
+<p>Isolate <code>beartype</code> to tests today. If everything blows up, at least you can say you tried:</p>
+<ol>
+<li>
+<p>Install <a href="https://pypi.org/project/pytest-beartype">pytest-beartype</a>:</p>
+<div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>pytest-beartype
+</code></pre></div>
+</li>
+<li>
+<p>Enable <code>pytest-beartype</code> by explicitly listing the names of all packages and modules to be type-checked by <code>beartype</code> at test time. Either:</p>
+<ul>
+<li>Pass the <code>--beartype-packages</code> option to the <code>pytest</code> command:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>--beartype-packages<span class="o">=</span><span class="s1">'{your_package},...,{another_package}'</span>
+</code></pre></div>
+<ul>
+<li>Add the <code>beartype_packages</code> option to your <code>pyproject.toml</code> file:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">[tool.pytest.ini_options]</span>
+<span class="n">beartype_packages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'{your_package},...,{another_package}'</span>
+</code></pre></div>
+<ul>
+<li>Add the <code>beartype_packages</code> option to your <code>pytest.ini</code> file:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">[pytest]</span>
+<span class="na">beartype_packages</span><span class="o">=</span><span class="s">'{your_package},...,{another_package}'</span>
+</code></pre></div>
+</li>
+</ol>
+<p>Beartype: <em>because you like your job.</em></p>
+<h2 id="how-do-i-not-type-check-something">How do I *NOT* type-check something?<a class="headerlink" href="#how-do-i-not-type-check-something" title="Permanent link">&para;</a></h2>
+<p><strong>So.</strong> You have installed import hooks with our <code>beartype.claw</code> API, but those hooks are complaining about something filthy in your codebase. Now, you want <code>beartype.claw</code> to unsee what it saw and just quietly move along so you can <em>finally</em> do something productive on Monday morning for once. That coffee isn't going to drink itself. <sup>...hopefully.</sup></p>
+<p>You have come to the right FAQ entry. This the common use case for temporarily <strong>blacklisting</strong> a callable or class. Prevent <code>beartype.claw</code> from type-checking your hidden shame by decorating the hideous callable or class with either:</p>
+<ul>
+<li>The <code>beartype.beartype</code> decorator configured under the <strong>no-time strategy</strong> <code>beartype.BeartypeStrategy.O0</code>: e.g.,</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span><span class="p">,</span> <span class="n">BeartypeConf</span><span class="p">,</span> <span class="n">BeartypeStrategy</span>
+
+<span class="c1"># Dynamically create a new @nobeartype decorator disabling type-checking.</span>
+<span class="n">nobeartype</span> <span class="o">=</span> <span class="n">beartype</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">BeartypeConf</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">BeartypeStrategy</span><span class="o">.</span><span class="n">O0</span><span class="p">))</span>
+
+<span class="c1"># Avoid type-checking *ANY* methods or attributes of this class.</span>
+<span class="nd">@nobeartype</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UncheckedDangerClassIsDangerous</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># This method raises *NO* type-checking violation despite returning a</span>
+    <span class="c1"># non-"None" value.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">unchecked_danger_method_is_dangerous</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'This string is not "None". Sadly, nobody cares anymore.'</span>
+</code></pre></div>
+<ul>
+<li>The <a href="https://peps.python.org/pep-0484">PEP 484</a>-compliant <code>typing.no_type_check</code> decorator: e.g.,</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import more requisite machinery. It is requisite.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">no_type_check</span>
+
+<span class="c1"># Avoid type-checking *ANY* methods or attributes of this class.</span>
+<span class="nd">@no_type_check</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UncheckedRiskyClassRisksOurEntireHistoricalTimeline</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># This method raises *NO* type-checking violation despite returning a</span>
+    <span class="c1"># non-"None" value.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">unchecked_risky_method_which_i_am_squinting_at</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'This string is not "None". Why does nobody care? Why?'</span>
+</code></pre></div>
+<p>For further details that may break your will to code, see also:</p>
+<ul>
+<li>The <a href="../api_decor/#as-noop">the "...as Noop" subsection of our decorator documentation</a>.</li>
+<li>The <code>beartype.BeartypeStrategy.O0</code> enumeration member.</li>
+</ul>
+<h2 id="why-is-leycecs-poorly-insulated-cottage-in-the-canadian-wilderness-so-cold">Why is @leycec's poorly insulated cottage in the Canadian wilderness so cold?<a class="headerlink" href="#why-is-leycecs-poorly-insulated-cottage-in-the-canadian-wilderness-so-cold" title="Permanent link">&para;</a></h2>
+<p>Not even Poło the polar bear knows.</p>
+<p>Also, anyone else notice that this question answers itself? Anybody? No? Nobody? It is just me? <code>&lt;/snowflakes_fall_silently&gt;</code></p>
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+URI repository (i.e., hidden Markdown document centralizing common URI links as
+Markdown reference-style link definitions, automatically appended to all other
+Markdown documents in this project via the "auto_append" option of the
+"pymdownx.snippets" extension in "zensical.toml").
+-->
+
+<!-- -------------( IMAGES ~ badge                           )-------------- -->
+
+<!-- -------------( IMAGES ~ downstream                      )-------------- -->
+<!-- Insert links to GitHub Sponsors funding at the icon level here, please! -->
+
+<!-- -------------( LINKS ~ beartype : maintainer            )-------------- -->
+<!-- -------------( LINKS ~ beartype : funding               )-------------- -->
+<!-- -------------( LINKS ~ beartype : github                )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : security     )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : time         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : user         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local        )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local : mod  )-------------- -->
+<!-- -------------( LINKS ~ beartype : api                   )-------------- -->
+<!-- -------------( LINKS ~ beartype : package               )-------------- -->
+<!-- -------------( LINKS ~ beartype : package : meta        )-------------- -->
+<!-- -------------( LINKS ~ beartype : plugin                )-------------- -->
+<!-- -------------( LINKS ~ beartype : social                )-------------- -->
+<!-- -------------( LINKS ~ author : kipling                 )-------------- -->
+<!-- -------------( LINKS ~ github                           )-------------- -->
+<!-- -------------( LINKS ~ concept                          )-------------- -->
+<!-- -------------( LINKS ~ math                             )-------------- -->
+<!-- -------------( LINKS ~ math : set                       )-------------- -->
+<!-- -------------( LINKS ~ math : type                      )-------------- -->
+<!-- -------------( LINKS ~ meme                             )-------------- -->
+<!-- -------------( LINKS ~ os : linux                       )-------------- -->
+<!-- -------------( LINKS ~ os : linux : arch                )-------------- -->
+<!-- -------------( LINKS ~ os : macos                       )-------------- -->
+<!-- -------------( LINKS ~ other                            )-------------- -->
+<!-- -------------( LINKS ~ py                               )-------------- -->
+<!-- -------------( LINKS ~ py : cli                         )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter                 )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter : cpython       )-------------- -->
+<!-- -------------( LINKS ~ py : lang                        )-------------- -->
+<!-- -------------( LINKS ~ py : misc                        )-------------- -->
+<!-- -------------( LINKS ~ py : package                     )-------------- -->
+<!-- -------------( LINKS ~ py : package : boto3             )-------------- -->
+<!-- -------------( LINKS ~ py : package : click             )-------------- -->
+<!-- -------------( LINKS ~ py : package : equinox           )-------------- -->
+<!-- -------------( LINKS ~ py : package : ipython           )-------------- -->
+<!-- -------------( LINKS ~ py : package : jax               )-------------- -->
+<!-- -------------( LINKS ~ py : package : numba             )-------------- -->
+<!-- -------------( LINKS ~ py : package : numpy             )-------------- -->
+<!-- -------------( LINKS ~ py : package : pandas            )-------------- -->
+<!-- Note that "pandas" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pandera           )-------------- -->
+<!-- Note that "pandera" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pydantic          )-------------- -->
+<!-- -------------( LINKS ~ py : package : redis             )-------------- -->
+<!-- ------------------( LINKS ~ py : package : redis        )------------------ -->
+<!-- -------------( LINKS ~ py : package : sphinx            )-------------- -->
+<!-- -------------( LINKS ~ py : package : test              )-------------- -->
+<!-- -------------( LINKS ~ py : package : zensical          )-------------- -->
+<!-- -------------( LINKS ~ py : pep                         )-------------- -->
+<!-- -------------( LINKS ~ py : 3119                        )-------------- -->
+<!-- -------------( LINKS ~ py : 484                         )-------------- -->
+<!-- -------------( LINKS ~ py : 560                         )-------------- -->
+<!-- -------------( LINKS ~ py : service                     )-------------- -->
+<!-- -------------( LINKS ~ py : service : pypi              )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib                      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : builtins           )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections        )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections.abc    )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : contextlib         )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : enum               )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : functools          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : inspect            )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : io                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : os                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : random             )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : re                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : threading          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : typing : attr      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : warnings           )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime              )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : dataclass  )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : typeguard  )-------------- -->
+<!-- -------------( LINKS ~ py : type : static               )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : pyright     )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : mypy        )-------------- -->
+<!-- -------------( LINKS ~ soft : ide                       )-------------- -->
+<!-- -------------( LINKS ~ soft : ide : vscode              )-------------- -->
+<!-- -------------( LINKS ~ soft : lang                      )-------------- -->
+<!-- -------------( LINKS ~ soft : license                   )-------------- -->
+<!-- -------------( LINKS ~ soft : web                       )-------------- -->
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Yes, there <em>is</em> a subset of Python that is fast. Yes, beartype is implemented almost entirely in this subset. Some prefer the term "Overly Obfuscated Python Shenanigans (OOPS)." We made that up. We prefer the term <strong>Bearython</strong>: it's Python, only fast. We made that up too. Never code in Bearython. Sure, Bearython is fast. Sure, Bearython is also unreadable, unmaintainable, and undebuggable. Bearython explodes each line of code into a bajillion lines of mud spaghetti. Coworkers, interns, and project leads alike will unite in the common spirit of resenting your existence – no matter how much you point them to this educational and cautionary FAQ entry.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Cue <a href="https://www.youtube.com/watch?v=LqSMk2IzK2o">Terminator-like flashback</a> to <a href="https://github.com/leycec">Granpa Leycec</a> spasmodically clutching a playground fence as QA explosions ignite a bug-filled horror show in the distant codebase. <code>&lt;/awkward&gt;</code>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../math/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Math">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Math
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../moar/" class="md-footer__link md-footer__link--next" aria-label="Next: See Also">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                See Also
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2014-2026 Beartype authors.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.expand","navigation.instant","navigation.instant.progress","navigation.footer","search.highlight","search.suggest"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../docs/js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

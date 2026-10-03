@@ -1,0 +1,1385 @@
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+MkDocs Material theme override injecting a site-wide announcement banner.
+Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
+-->
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unbearably fast near-real-time hybrid runtime-static type-checking in pure Python.">
+      
+      
+        <meta name="author" content="Beartype">
+      
+      
+        <link rel="canonical" href="https://beartype.github.io/beartype/latest/tldr/">
+      
+      
+        <link rel="prev" href="../install/">
+      
+      
+        <link rel="next" href="../eli5/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="https://raw.githubusercontent.com/beartype/beartype-assets/main/favicon.svg">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>tl;dr - Beartype</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#too-long-didnt-read-tldr" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  🐻 <strong>Upbear us</strong> at
+  <a href="https://github.com/sponsors/leycec">GitHub Sponsors</a> and
+  <a href="https://www.sonarsource.com/products/sonarqube/advanced-security">SonarQube Advanced Security (Tidelift)</a>.
+  <strong>Follow us</strong> <a href="https://leycec.bsky.social">on Bluesky</a>.
+  <strong>Friendzone us</strong> <a href="https://beartype.zulipchat.com">at Zulip</a>. 🐻
+  <br>
+  💗 Financially fueled by
+  <strong><a href="https://trymirai.com">ml (Mirai Labs)</a></strong> —
+  <em><a href="https://trymirai.com">On-device AI for Apple Silicon</a>, powered by bears.</em> 💗
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Beartype
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              tl;dr
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Beartype
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Welcome
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Install
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  tl;dr
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eli5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  ELI5
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  API
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  API
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_decor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Decorators
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_vale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Validators
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_claw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Claws
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  DOOR
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_roar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exceptions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Features
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Math
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  FAQ
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  See Also
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+Child Markdown document presenting a beartype cheatsheet.
+-->
+
+<h1 id="too-long-didnt-read-tldr">Too Long; Didn't Read (tl;dr)<a class="headerlink" href="#too-long-didnt-read-tldr" title="Permanent link">&para;</a></h1>
+<p>Let's type-check like <a href="https://www.youtube.com/watch?v=H-kL8A4RNQ8">greased lightning</a>! Thanks to cheatsheets like this, you no longer have to know how to use software to use software. <code>\o/</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ..................{              IMPORTS                }..................</span>
+<span class="c1"># Import the core @beartype decorator.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+
+<span class="c1"># Import type hint factories from "beartype.typing", a stand-in replacement</span>
+<span class="c1"># for the standard "typing" module providing improved forward compatibility</span>
+<span class="c1"># with future Python releases. For example:</span>
+<span class="c1"># * "beartype.typing.Set is set" under Python ≥ 3.9 to satisfy PEP 585.</span>
+<span class="c1"># * "beartype.typing.Set is typing.Set" under Python &lt; 3.9 to satisfy PEP 484.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">typing</span>
+
+<span class="c1"># Or, directly import these factories from the standard "typing" module. Note</span>
+<span class="c1"># that PEP 585 deprecated many of these under Python ≥ 3.9, where @beartype</span>
+<span class="c1"># now emits non-fatal deprecation warnings at decoration time. See also:</span>
+<span class="c1">#     https://docs.python.org/3/library/typing.html</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing</span>
+
+<span class="c1"># Or, directly import PEP 585 type hints. Note this requires Python ≥ 3.9.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">abc</span>
+
+<span class="c1"># Import backported type hint factories from "typing_extensions", improving</span>
+<span class="c1"># portability across Python versions (e.g., "typing.Literal" needs Python ≥</span>
+<span class="c1"># 3.9, but "typing_extensions.Literal" only needs Python ≥ 3.6).</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing_extensions</span>
+
+<span class="c1"># Import beartype-specific types to annotate callables with.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.cave</span><span class="w"> </span><span class="kn">import</span> <span class="n">NoneType</span><span class="p">,</span> <span class="n">NoneTypeOr</span><span class="p">,</span> <span class="n">RegexTypes</span><span class="p">,</span> <span class="n">ScalarTypes</span>
+
+<span class="c1"># Import official abstract base classes (ABCs), too.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numbers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Integral</span><span class="p">,</span> <span class="n">Real</span>
+
+<span class="c1"># Import user-defined classes, too.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">my_package.my_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyClass</span>
+
+<span class="c1"># ..................{              TYPEVARS               }..................</span>
+<span class="c1"># PEP 484 type variable. While @beartype only partially supports type</span>
+<span class="c1"># variables at the moment, @beartype 1.0.0.0.0.0.0.0 is expected to fully</span>
+<span class="c1"># support type variables.</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">typing</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s1">'T'</span><span class="p">)</span>
+
+<span class="c1"># ..................{              FUNCTIONS              }..................</span>
+<span class="c1"># Decorate functions with @beartype and...</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_function</span><span class="p">(</span>
+    <span class="c1"># Annotate builtin types as is.</span>
+    <span class="n">param_must_satisfy_builtin_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+
+    <span class="c1"># Annotate user-defined classes as is, too. Note this covariantly</span>
+    <span class="c1"># matches all instances of both this class and subclasses of this class.</span>
+    <span class="n">param_must_satisfy_user_type</span><span class="p">:</span> <span class="n">MyClass</span><span class="p">,</span>
+
+    <span class="c1"># Annotate PEP 604 type hint unions. Note this requires Python ≥ 3.10.</span>
+    <span class="n">param_must_satisfy_pep604_union</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+
+    <span class="c1"># Annotate PEP 484 type hint unions. All Python versions support this.</span>
+    <span class="n">param_must_satisfy_pep484_union</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span>
+        <span class="nb">dict</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">MyClass</span><span class="p">,</span> <span class="o">...</span><span class="p">]],</span>
+
+    <span class="c1"># Annotate PEP 593 metatypes, indexed by a type hint followed by zero or</span>
+    <span class="c1"># more arbitrary objects. See "VALIDATORS" below for real-world usage.</span>
+    <span class="n">param_must_satisfy_pep593</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">typing</span><span class="o">.</span><span class="n">Set</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="kc">True</span><span class="p">],</span>
+
+    <span class="c1"># Annotate PEP 586 literals, indexed by either a boolean, byte string,</span>
+    <span class="c1"># integer, string, "enum.Enum" member, or "None".</span>
+    <span class="n">param_must_satisfy_pep586</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span>
+        <span class="s1">'This parameter must equal this string.'</span><span class="p">],</span>
+
+    <span class="c1"># Annotate PEP 585 builtin container types, indexed by the types of items</span>
+    <span class="c1"># these containers are expected to contain.</span>
+    <span class="n">param_must_satisfy_pep585_builtin</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+
+    <span class="c1"># Annotate PEP 585 standard collection types, indexed too.</span>
+    <span class="n">param_must_satisfy_pep585_collection</span><span class="p">:</span> <span class="n">abc</span><span class="o">.</span><span class="n">MutableSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+
+    <span class="c1"># Annotate PEP 544 protocols, either unindexed or indexed by one or more</span>
+    <span class="c1"># type variables.</span>
+    <span class="n">param_must_satisfy_pep544</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">SupportsRound</span><span class="p">[</span><span class="n">T</span><span class="p">],</span>
+
+    <span class="c1"># Annotate PEP 484 non-standard container types defined by the "typing"</span>
+    <span class="c1"># module, optionally indexed and only usable as type hints. Note that</span>
+    <span class="c1"># these types have all been deprecated by PEP 585 under Python ≥ 3.9. See</span>
+    <span class="c1"># also: https://docs.python.org/3/library/typing.html</span>
+    <span class="n">param_must_satisfy_pep484_typing</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+
+    <span class="c1"># Annotate PEP 484 relative forward references dynamically resolved at</span>
+    <span class="c1"># call time as unqualified classnames relative to the current submodule.</span>
+    <span class="c1"># Note this class is defined below and that beartype-specific absolute</span>
+    <span class="c1"># forward references are also supported.</span>
+    <span class="n">param_must_satisfy_pep484_relative_forward_ref</span><span class="p">:</span> <span class="s1">'MyOtherClass'</span><span class="p">,</span>
+
+    <span class="c1"># Annotate PEP types indexed by relative forward references. Forward</span>
+    <span class="c1"># references are supported everywhere standard types are.</span>
+    <span class="n">param_must_satisfy_pep484_indexed_relative_forward_ref</span><span class="p">:</span> <span class="p">(</span>
+        <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s1">'MyPep484Generic'</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="s1">'MyPep585Generic'</span><span class="p">]]),</span>
+
+    <span class="c1"># Annotate beartype-specific types predefined by the beartype cave.</span>
+    <span class="n">param_must_satisfy_beartype_type_from_cave</span><span class="p">:</span> <span class="n">NoneType</span><span class="p">,</span>
+
+    <span class="c1"># Annotate beartype-specific unions of types as tuples.</span>
+    <span class="n">param_must_satisfy_beartype_union</span><span class="p">:</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="n">MyClass</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span>
+
+    <span class="c1"># Annotate beartype-specific unions predefined by the beartype cave.</span>
+    <span class="n">param_must_satisfy_beartype_union_from_cave</span><span class="p">:</span> <span class="n">ScalarTypes</span><span class="p">,</span>
+
+    <span class="c1"># Annotate beartype-specific unions concatenated together.</span>
+    <span class="n">param_must_satisfy_beartype_union_concatenated</span><span class="p">:</span> <span class="p">(</span>
+        <span class="n">abc</span><span class="o">.</span><span class="n">Iterator</span><span class="p">,)</span> <span class="o">+</span> <span class="n">ScalarTypes</span><span class="p">,</span>
+
+    <span class="c1"># Annotate beartype-specific absolute forward references dynamically</span>
+    <span class="c1"># resolved at call time as fully-qualified "."-delimited classnames.</span>
+    <span class="n">param_must_satisfy_beartype_absolute_forward_ref</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">'my_package.my_module.MyClass'</span><span class="p">),</span>
+
+    <span class="c1"># Annotate beartype-specific forward references in unions of types, too.</span>
+    <span class="n">param_must_satisfy_beartype_union_with_forward_ref</span><span class="p">:</span> <span class="p">(</span>
+        <span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">,</span> <span class="s1">'my_package.my_module.MyOtherClass'</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">),</span>
+
+    <span class="c1"># Annotate PEP 604 optional types. Note this requires Python ≥ 3.10.</span>
+    <span class="n">param_must_satisfy_pep604_optional</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+
+    <span class="c1"># Annotate PEP 484 optional types. All Python versions support this.</span>
+    <span class="n">param_must_satisfy_pep484_optional</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+
+    <span class="c1"># Annotate beartype-specific optional types.</span>
+    <span class="n">param_must_satisfy_beartype_type_optional</span><span class="p">:</span> <span class="n">NoneTypeOr</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+
+    <span class="c1"># Annotate beartype-specific optional unions of types.</span>
+    <span class="n">param_must_satisfy_beartype_tuple_optional</span><span class="p">:</span> <span class="n">NoneTypeOr</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+
+    <span class="c1"># Annotate variadic positional arguments as above, too.</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">ScalarTypes</span> <span class="o">+</span> <span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="s1">'my_package.my_module.MyScalarType'</span><span class="p">),</span>
+
+    <span class="c1"># Annotate keyword-only arguments as above, too.</span>
+    <span class="n">param_must_be_passed_by_keyword_only</span><span class="p">:</span> <span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span>
+        <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]],</span>
+
+<span class="c1"># Annotate return types as above, too.</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Integral</span><span class="p">,</span> <span class="s1">'MyPep585Generic'</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="mh">0xDEADBEEF</span>
+
+<span class="c1"># Decorate coroutines as above but returning a coroutine type.</span>
+<span class="nd">@beartype</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">my_coroutine</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">abc</span><span class="o">.</span><span class="n">Coroutine</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">asyncio</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+    <span class="k">await</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mh">0xDEFECA7E</span>
+
+<span class="c1"># ..................{              GENERATORS             }..................</span>
+<span class="c1"># Decorate synchronous generators as above but returning a synchronous</span>
+<span class="c1"># generator type.</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_sync_generator</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">abc</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="k">yield from</span> <span class="nb">range</span><span class="p">(</span><span class="mh">0xBEEFBABE</span><span class="p">,</span> <span class="mh">0xCAFEBABE</span><span class="p">)</span>
+
+<span class="c1"># Decorate asynchronous generators as above but returning an asynchronous</span>
+<span class="c1"># generator type.</span>
+<span class="nd">@beartype</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">my_async_generator</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">abc</span><span class="o">.</span><span class="n">AsyncGenerator</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">asyncio</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+    <span class="k">await</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">yield</span> <span class="mh">0x8BADF00D</span>
+
+<span class="c1"># ..................{              CLASSES                }..................</span>
+<span class="c1"># Decorate classes with @beartype – which then automatically decorates all</span>
+<span class="c1"># methods and properties of those classes with @beartype.</span>
+<span class="nd">@beartype</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyOtherClass</span><span class="p">:</span>
+    <span class="c1"># Annotate instance methods as above without annotating "self".</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scalar</span><span class="p">:</span> <span class="n">ScalarTypes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scalar</span> <span class="o">=</span> <span class="n">scalar</span>
+
+    <span class="c1"># Annotate class methods as above without annotating "cls".</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">my_classmethod</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">regex</span><span class="p">:</span> <span class="n">RegexTypes</span><span class="p">,</span> <span class="n">wut</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span>
+        <span class="n">Callable</span><span class="p">[[],</span> <span class="nb">str</span><span class="p">]):</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+        <span class="k">return</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="s1">'unbearable'</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_scalar</span><span class="p">)</span> <span class="o">+</span> <span class="n">wut</span><span class="p">)</span>
+
+    <span class="c1"># Annotate static methods as above, too.</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">my_staticmethod</span><span class="p">(</span><span class="nb">callable</span><span class="p">:</span> <span class="n">abc</span><span class="o">.</span><span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="n">T</span><span class="p">],</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">callable</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="c1"># Annotate property getter methods as above, too.</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">my_gettermethod</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">abc</span><span class="o">.</span><span class="n">Iterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">range</span><span class="p">(</span><span class="mh">0x0B00B135</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_scalar</span><span class="p">),</span> <span class="mh">0xB16B00B5</span><span class="p">)</span>
+
+    <span class="c1"># Annotate property setter methods as above, too.</span>
+    <span class="nd">@my_gettermethod</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">my_settermethod</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bad</span><span class="p">:</span> <span class="n">Integral</span> <span class="o">=</span> <span class="mh">0xBAAAAAAD</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scalar</span> <span class="o">=</span> <span class="n">bad</span> <span class="k">if</span> <span class="n">bad</span> <span class="k">else</span> <span class="mh">0xBADDCAFE</span>
+
+    <span class="c1"># Annotate methods accepting or returning instances of the class</span>
+    <span class="c1"># currently being declared with relative forward references.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">my_selfreferential_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="s1">'MyOtherClass'</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="p">]</span> <span class="o">*</span> <span class="mi">42</span>
+
+<span class="c1"># ..................{              GENERICS               }..................</span>
+<span class="c1"># Decorate PEP 585 generics with @beartype. Note this requires Python ≥ 3.9.</span>
+<span class="nd">@beartype</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPep585Generic</span><span class="p">(</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">integer</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">real</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="p">(</span><span class="n">integer</span><span class="p">,</span> <span class="n">real</span><span class="p">))</span>
+
+<span class="c1"># Decorate PEP 484 generics with @beartype, too.</span>
+<span class="nd">@beartype</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPep484Generic</span><span class="p">(</span><span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+
+<span class="c1"># ..................{              PROTOCOLS              }..................</span>
+<span class="c1"># PEP 544 protocol referenced below in type hints. Note this requires Python</span>
+<span class="c1"># ≥ 3.8 and that protocols *MUST* be explicitly decorated by the</span>
+<span class="c1"># @runtime_checkable decorator to be usable with @beartype.</span>
+<span class="nd">@typing</span><span class="o">.</span><span class="n">runtime_checkable</span>   <span class="c1"># &lt;---- mandatory boilerplate line. it is sad.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyProtocol</span><span class="p">(</span><span class="n">typing</span><span class="o">.</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">my_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s1">'Objects satisfy this protocol only if their classes '</span>
+            <span class="s1">'define a method with the same signature as this method.'</span>
+        <span class="p">)</span>
+
+<span class="c1"># ..................{              DATACLASSES            }..................</span>
+<span class="c1"># Import the requisite machinery. Note this requires Python ≥ 3.8.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">InitVar</span>
+
+<span class="c1"># Decorate dataclasses with @beartype, which then automatically decorates all</span>
+<span class="c1"># methods and properties of those dataclasses with @beartype – including the</span>
+<span class="c1"># __init__() constructors created by @dataclass. Fields are type-checked only</span>
+<span class="c1"># at instantiation time. Fields are *NOT* type-checked when reassigned.</span>
+<span class="c1">#</span>
+<span class="c1"># Decoration order is significant. List @beartype before @dataclass, please.</span>
+<span class="nd">@beartype</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyDataclass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># Annotate fields with type hints.</span>
+    <span class="n">field_must_satisfy_builtin_type</span><span class="p">:</span> <span class="n">InitVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">field_must_satisfy_pep604_union</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Annotate methods as above.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_must_satisfy_builtin_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_must_satisfy_pep604_union</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">field_must_satisfy_pep604_union</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">field_must_satisfy_builtin_type</span><span class="p">)</span>
+
+<span class="c1"># ..................{              NAMED TUPLES           }..................</span>
+<span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span>
+
+<span class="c1"># Decorate named tuples with @beartype.</span>
+<span class="nd">@beartype</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyNamedTuple</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="c1"># Annotate fields with type hints.</span>
+    <span class="n">field_must_satisfy_builtin_type</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="c1"># ..................{             CONFIGURATION           }..................</span>
+<span class="c1"># Import beartype's configuration API to configure runtime type-checking.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeConf</span><span class="p">,</span> <span class="n">BeartypeStrategy</span>
+
+<span class="c1"># Dynamically create your own @beartype decorator, configured for your needs.</span>
+<span class="n">bugbeartype</span> <span class="o">=</span> <span class="n">beartype</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">BeartypeConf</span><span class="p">(</span>
+    <span class="c1"># Optionally disable or enable output of colors (i.e., ANSI escape</span>
+    <span class="c1"># sequences) in type-checking violations via this tri-state boolean:</span>
+    <span class="c1"># * "None" conditionally enables colors when standard output is attached</span>
+    <span class="c1">#   to an interactive terminal. [DEFAULT]</span>
+    <span class="c1"># * "True" unconditionally enables colors.</span>
+    <span class="c1"># * "False" unconditionally disables colors.</span>
+    <span class="n">is_color</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># &lt;-- disable color entirely</span>
+
+    <span class="c1"># Optionally enable developer-friendly debugging.</span>
+    <span class="n">is_debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+
+    <span class="c1"># Optionally enable PEP 484's implicit numeric tower by:</span>
+    <span class="c1"># * Expanding all "float" type hints to "float | int".</span>
+    <span class="c1"># * Expanding all "complex" type hints to "complex | float | int".</span>
+    <span class="n">is_pep484_tower</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+
+    <span class="c1"># Optionally switch to a different type-checking strategy:</span>
+    <span class="c1"># * "BeartypeStrategy.O1" type-checks in O(1) constant time. [DEFAULT]</span>
+    <span class="c1"># * "BeartypeStrategy.On" type-checks in O(n) linear time.</span>
+    <span class="c1">#   (Currently unimplemented but roadmapped for a future release.)</span>
+    <span class="c1"># * "BeartypeStrategy.Ologn" type-checks in O(log n) logarithmic time.</span>
+    <span class="c1">#   (Currently unimplemented but roadmapped for a future release.)</span>
+    <span class="c1"># * "strategy=BeartypeStrategy.O0" disables type-checking entirely.</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">BeartypeStrategy</span><span class="o">.</span><span class="n">On</span><span class="p">,</span>  <span class="c1"># &lt;-- enable linear-time type-checking</span>
+<span class="p">))</span>
+
+<span class="c1"># Decorate with your decorator instead of the vanilla @beartype decorator.</span>
+<span class="nd">@bugbeartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">muh_configured_func</span><span class="p">(</span><span class="n">list_checked_in_On_time</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">list_checked_in_On_time</span><span class="p">)</span>
+
+<span class="c1"># ..................{             VALIDATORS              }..................</span>
+<span class="c1"># Import beartype's PEP 593 validator API to validate arbitrary constraints.</span>
+<span class="c1"># Note this requires either:</span>
+<span class="c1"># * Python ≥ 3.9.0.</span>
+<span class="c1"># * typing_extensions ≥ 3.9.0.0.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">Is</span><span class="p">,</span> <span class="n">IsAttr</span><span class="p">,</span> <span class="n">IsEqual</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>   <span class="c1"># &lt;--------------- if Python ≥ 3.9.0</span>
+<span class="c1">#from typing_extensions import Annotated   # &lt;--- if Python &lt; 3.9.0</span>
+
+<span class="c1"># Import third-party packages to validate.</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Validator matching only two-dimensional NumPy arrays of 64-bit floats,</span>
+<span class="c1"># specified with a single caller-defined lambda function.</span>
+<span class="n">NumpyArray2DFloat</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Is</span><span class="p">[</span>
+    <span class="k">lambda</span> <span class="n">arr</span><span class="p">:</span> <span class="n">arr</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">arr</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)]]</span>
+
+<span class="c1"># Validator matching only one-dimensional NumPy arrays of 64-bit floats,</span>
+<span class="c1"># specified with two declarative expressions. Although verbose, this</span>
+<span class="c1"># approach generates optimal reusable code that avoids function calls.</span>
+<span class="n">IsNumpyArray1D</span> <span class="o">=</span> <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'ndim'</span><span class="p">,</span> <span class="n">IsEqual</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">IsNumpyArrayFloat</span> <span class="o">=</span> <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'dtype'</span><span class="p">,</span> <span class="n">IsEqual</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)]]</span>
+<span class="n">NumpyArray1DFloat</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">IsNumpyArray1D</span><span class="p">,</span> <span class="n">IsNumpyArrayFloat</span><span class="p">]</span>
+
+<span class="c1"># Validator matching only empty NumPy arrays, equivalent to but faster than:</span>
+<span class="c1">#     NumpyArrayEmpty = Annotated[np.ndarray, Is[lambda arr: arr.size == 0]]</span>
+<span class="n">IsNumpyArrayEmpty</span> <span class="o">=</span> <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'size'</span><span class="p">,</span> <span class="n">IsEqual</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">NumpyArrayEmpty</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">IsNumpyArrayEmpty</span><span class="p">]</span>
+
+<span class="c1"># Validator composed with standard operators from the above validators,</span>
+<span class="c1"># permissively matching all of the following:</span>
+<span class="c1"># * Empty NumPy arrays of any dtype *except* 64-bit floats.</span>
+<span class="c1"># * Non-empty one- and two-dimensional NumPy arrays of 64-bit floats.</span>
+<span class="n">NumpyArrayEmptyNonFloatOrNonEmptyFloat1Or2D</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="c1"># "&amp;" creates a new validator matching when both operands match, while</span>
+    <span class="c1"># "|" creates a new validator matching when one or both operands match;</span>
+    <span class="c1"># "~" creates a new validator matching when its operand does not match.</span>
+    <span class="c1"># Group operands to enforce semantic intent and avoid precedence woes.</span>
+    <span class="p">(</span><span class="n">IsNumpyArrayEmpty</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">IsNumpyArrayFloat</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span>
+        <span class="o">~</span><span class="n">IsNumpyArrayEmpty</span> <span class="o">&amp;</span> <span class="n">IsNumpyArrayFloat</span> <span class="p">(</span>
+            <span class="n">IsNumpyArray1D</span> <span class="o">|</span> <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'ndim'</span><span class="p">,</span> <span class="n">IsEqual</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1"># Decorate functions accepting validators like usual and...</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_validated_function</span><span class="p">(</span>
+    <span class="c1"># Annotate validators just like standard type hints.</span>
+    <span class="n">param_must_satisfy_validator</span><span class="p">:</span> <span class="n">NumpyArrayEmptyOrNonemptyFloat1Or2D</span><span class="p">,</span>
+<span class="c1"># Combine validators with standard type hints, too.</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">NumpyArrayEmptyNonFloatOrNonEmptyFloat1Or2D</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="p">[</span><span class="n">param_must_satisfy_validator</span><span class="p">]</span> <span class="o">*</span> <span class="mh">0xFACEFEED</span>
+        <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">param_must_satisfy_validator</span><span class="p">)</span> <span class="k">else</span>
+        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mh">0xFEEDFACE</span><span class="p">)]</span>
+    <span class="p">)</span>
+
+<span class="c1"># ..................{             NUMPY                   }..................</span>
+<span class="c1"># Import NumPy-specific type hints validating NumPy array constraints. Note:</span>
+<span class="c1"># * These hints currently only validate array dtypes. To validate additional</span>
+<span class="c1">#   constraints like array shapes, prefer validators instead. See above.</span>
+<span class="c1"># * This requires NumPy ≥ 1.21.0 and either:</span>
+<span class="c1">#   * Python ≥ 3.9.0.</span>
+<span class="c1">#   * typing_extensions ≥ 3.9.0.0.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NDArray</span>
+
+<span class="c1"># NumPy type hint matching all NumPy arrays of 64-bit floats. Internally,</span>
+<span class="c1"># beartype reduces this to the equivalent validator:</span>
+<span class="c1">#     NumpyArrayFloat = Annotated[</span>
+<span class="c1">#         np.ndarray, IsAttr['dtype', IsEqual[np.dtype(np.float64)]]]</span>
+<span class="n">NumpyArrayFloat</span> <span class="o">=</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]</span>
+
+<span class="c1"># Decorate functions accepting NumPy type hints like usual and...</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_numerical_function</span><span class="p">(</span>
+    <span class="c1"># Annotate NumPy type hints just like standard type hints.</span>
+    <span class="n">param_must_satisfy_numpy</span><span class="p">:</span> <span class="n">NumpyArrayFloat</span><span class="p">,</span>
+<span class="c1"># Combine NumPy type hints with standard type hints, too.</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">NumpyArrayFloat</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">param_must_satisfy_numpy</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">param_must_satisfy_numpy</span><span class="p">))</span>
+</code></pre></div>
+<p>Beartype: <em>it just sorta works.</em></p>
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+URI repository (i.e., hidden Markdown document centralizing common URI links as
+Markdown reference-style link definitions, automatically appended to all other
+Markdown documents in this project via the "auto_append" option of the
+"pymdownx.snippets" extension in "zensical.toml").
+-->
+
+<!-- -------------( IMAGES ~ badge                           )-------------- -->
+
+<!-- -------------( IMAGES ~ downstream                      )-------------- -->
+<!-- Insert links to GitHub Sponsors funding at the icon level here, please! -->
+
+<!-- -------------( LINKS ~ beartype : maintainer            )-------------- -->
+<!-- -------------( LINKS ~ beartype : funding               )-------------- -->
+<!-- -------------( LINKS ~ beartype : github                )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : security     )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : time         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : user         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local        )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local : mod  )-------------- -->
+<!-- -------------( LINKS ~ beartype : api                   )-------------- -->
+<!-- -------------( LINKS ~ beartype : package               )-------------- -->
+<!-- -------------( LINKS ~ beartype : package : meta        )-------------- -->
+<!-- -------------( LINKS ~ beartype : plugin                )-------------- -->
+<!-- -------------( LINKS ~ beartype : social                )-------------- -->
+<!-- -------------( LINKS ~ author : kipling                 )-------------- -->
+<!-- -------------( LINKS ~ github                           )-------------- -->
+<!-- -------------( LINKS ~ concept                          )-------------- -->
+<!-- -------------( LINKS ~ math                             )-------------- -->
+<!-- -------------( LINKS ~ math : set                       )-------------- -->
+<!-- -------------( LINKS ~ math : type                      )-------------- -->
+<!-- -------------( LINKS ~ meme                             )-------------- -->
+<!-- -------------( LINKS ~ os : linux                       )-------------- -->
+<!-- -------------( LINKS ~ os : linux : arch                )-------------- -->
+<!-- -------------( LINKS ~ os : macos                       )-------------- -->
+<!-- -------------( LINKS ~ other                            )-------------- -->
+<!-- -------------( LINKS ~ py                               )-------------- -->
+<!-- -------------( LINKS ~ py : cli                         )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter                 )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter : cpython       )-------------- -->
+<!-- -------------( LINKS ~ py : lang                        )-------------- -->
+<!-- -------------( LINKS ~ py : misc                        )-------------- -->
+<!-- -------------( LINKS ~ py : package                     )-------------- -->
+<!-- -------------( LINKS ~ py : package : boto3             )-------------- -->
+<!-- -------------( LINKS ~ py : package : click             )-------------- -->
+<!-- -------------( LINKS ~ py : package : equinox           )-------------- -->
+<!-- -------------( LINKS ~ py : package : ipython           )-------------- -->
+<!-- -------------( LINKS ~ py : package : jax               )-------------- -->
+<!-- -------------( LINKS ~ py : package : numba             )-------------- -->
+<!-- -------------( LINKS ~ py : package : numpy             )-------------- -->
+<!-- -------------( LINKS ~ py : package : pandas            )-------------- -->
+<!-- Note that "pandas" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pandera           )-------------- -->
+<!-- Note that "pandera" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pydantic          )-------------- -->
+<!-- -------------( LINKS ~ py : package : redis             )-------------- -->
+<!-- ------------------( LINKS ~ py : package : redis        )------------------ -->
+<!-- -------------( LINKS ~ py : package : sphinx            )-------------- -->
+<!-- -------------( LINKS ~ py : package : test              )-------------- -->
+<!-- -------------( LINKS ~ py : package : zensical          )-------------- -->
+<!-- -------------( LINKS ~ py : pep                         )-------------- -->
+<!-- -------------( LINKS ~ py : 3119                        )-------------- -->
+<!-- -------------( LINKS ~ py : 484                         )-------------- -->
+<!-- -------------( LINKS ~ py : 560                         )-------------- -->
+<!-- -------------( LINKS ~ py : service                     )-------------- -->
+<!-- -------------( LINKS ~ py : service : pypi              )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib                      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : builtins           )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections        )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections.abc    )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : contextlib         )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : enum               )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : functools          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : inspect            )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : io                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : os                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : random             )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : re                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : threading          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : typing : attr      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : warnings           )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime              )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : dataclass  )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : typeguard  )-------------- -->
+<!-- -------------( LINKS ~ py : type : static               )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : pyright     )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : mypy        )-------------- -->
+<!-- -------------( LINKS ~ soft : ide                       )-------------- -->
+<!-- -------------( LINKS ~ soft : ide : vscode              )-------------- -->
+<!-- -------------( LINKS ~ soft : lang                      )-------------- -->
+<!-- -------------( LINKS ~ soft : license                   )-------------- -->
+<!-- -------------( LINKS ~ soft : web                       )-------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../install/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Install">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Install
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../eli5/" class="md-footer__link md-footer__link--next" aria-label="Next: ELI5">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                ELI5
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2014-2026 Beartype authors.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.expand","navigation.instant","navigation.instant.progress","navigation.footer","search.highlight","search.suggest"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../docs/js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

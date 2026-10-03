@@ -1,0 +1,1602 @@
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+MkDocs Material theme override injecting a site-wide announcement banner.
+Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
+-->
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unbearably fast near-real-time hybrid runtime-static type-checking in pure Python.">
+      
+      
+        <meta name="author" content="Beartype">
+      
+      
+        <link rel="canonical" href="https://beartype.github.io/beartype/latest/api_claw/">
+      
+      
+        <link rel="prev" href="../api_vale/">
+      
+      
+        <link rel="next" href="../api_door/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="https://raw.githubusercontent.com/beartype/beartype-assets/main/favicon.svg">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Claws - Beartype</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#beartype-import-hooks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  🐻 <strong>Upbear us</strong> at
+  <a href="https://github.com/sponsors/leycec">GitHub Sponsors</a> and
+  <a href="https://www.sonarsource.com/products/sonarqube/advanced-security">SonarQube Advanced Security (Tidelift)</a>.
+  <strong>Follow us</strong> <a href="https://leycec.bsky.social">on Bluesky</a>.
+  <strong>Friendzone us</strong> <a href="https://beartype.zulipchat.com">at Zulip</a>. 🐻
+  <br>
+  💗 Financially fueled by
+  <strong><a href="https://trymirai.com">ml (Mirai Labs)</a></strong> —
+  <em><a href="https://trymirai.com">On-device AI for Apple Silicon</a>, powered by bears.</em> 💗
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Beartype
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Claws
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Beartype
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Welcome
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Install
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tldr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  tl;dr
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eli5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  ELI5
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  API
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  API
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_decor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Decorators
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_vale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Validators
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Claws
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Claws
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#import-hooks-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Import Hooks Overview
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-hooks-overview-part-deux" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Import Hooks Overview, Part Deux
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Import Hooks Overview, Part Deux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-beartype_this_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What Is beartype_this_package()?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-is-beartype_this_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Why Is beartype_this_package()?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-hooks-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Import Hooks API
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Import Hooks API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-import-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Global Import Hooks
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Import Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beartype_this_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        beartype_this_package
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartype_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        beartype_package
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartype_packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        beartype_packages
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartype_all" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        beartype_all
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  DOOR
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_roar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exceptions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Features
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Math
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  FAQ
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  See Also
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#import-hooks-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Import Hooks Overview
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-hooks-overview-part-deux" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Import Hooks Overview, Part Deux
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Import Hooks Overview, Part Deux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-beartype_this_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What Is beartype_this_package()?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-is-beartype_this_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Why Is beartype_this_package()?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-hooks-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Import Hooks API
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Import Hooks API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-import-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Global Import Hooks
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Import Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beartype_this_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        beartype_this_package
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartype_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        beartype_package
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartype_packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        beartype_packages
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartype_all" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        beartype_all
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="beartype-import-hooks">Beartype Import Hooks<a class="headerlink" href="#beartype-import-hooks" title="Permanent link">&para;</a></h1>
+<p><strong>Beartype import hooks</strong> enforce type hints across your entire app in two lines of code with <em>no</em> runtime overhead. This is beartype import hooks in ten seconds. <sup>dyslexia notwithstanding</sup></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add *ONE* of the following semantically equivalent two-liners to the very</span>
+<span class="c1"># top of your "{your_package}.__init__" submodule. Start with *THE FAST WAY*.</span>
+
+<span class="c1"># ....................{ THE FAST WAY                    }....................</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.claw</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype_this_package</span>  <span class="c1"># &lt;-- this is boring, but...</span>
+<span class="n">beartype_this_package</span><span class="p">()</span>                          <span class="c1"># &lt;-- the fast way</span>
+
+<span class="c1"># ....................{ THE LESS FAST WAY               }....................</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.claw</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype_package</span>       <span class="c1"># &lt;-- still boring, but...</span>
+<span class="n">beartype_package</span><span class="p">(</span><span class="s1">'</span><span class="si">{your_package}</span><span class="s1">'</span><span class="p">)</span>               <span class="c1"># &lt;-- the less fast way</span>
+
+<span class="c1"># ....................{ THE MORE SLOW WAY               }....................</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.claw</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype_packages</span>      <span class="c1"># &lt;-- boring intensifies</span>
+<span class="n">beartype_packages</span><span class="p">((</span><span class="s1">'</span><span class="si">{your_package}</span><span class="s1">'</span><span class="p">,))</span>           <span class="c1"># &lt;-- the more slow way</span>
+</code></pre></div>
+<p>Beartype import hooks extend the surprisingly sharp claws of <code>beartype</code> to your full app stack, whether anyone else wanted you to do that or not. Claw your way to the top of the bug heap; then sit on that heap with a smug expression. Do it for the new guy sobbing quietly in his cubicle.</p>
+<h2 id="import-hooks-overview">Import Hooks Overview<a class="headerlink" href="#import-hooks-overview" title="Permanent link">&para;</a></h2>
+<p>Beartype import hooks implicitly perform both:</p>
+<ul>
+<li>Standard <strong>runtime type-checking</strong> (ala the <code>beartype.beartype</code> decorator).</li>
+<li>Standard <strong>static type-checking</strong> (ala <a href="http://mypy-lang.org">mypy</a> and <a href="https://github.com/Microsoft/pyright">pyright</a>) but <strong>at runtime</strong> – and that ain't standard.</li>
+</ul>
+<p>Automate the <code>beartype.beartype</code> decorator away today with magical import hooks published by the <code>beartype.claw</code> subpackage. When you install import hooks from beartype, you augment beartype from a <a href="../faq/#third-generation-type-checker-doesnt-mean-anything-does-it">pure-runtime
+second-generation type-checker</a> into a <a href="../faq/#what-does-hybrid-runtime-static-mean-pretty-sure-you-made-that-up-too">hybrid runtime-static
+third-generation type-checker</a>. That's right.</p>
+<p>Beartype is now a tentacular cyberpunk horror like that mutant brain baby from Katsuhiro Otomo's dystopian 80's masterpiece <em>Akira</em>. You can't look away!</p>
+<p><img src="https://user-images.githubusercontent.com/217028/272775190-8996c4a2-b320-4ca1-ba83-5c4dd36e6165.png" width="300" alt="mutant brain baby" /></p>
+<p><sup>May Neo-Tokyo have mercy on your codebase's soul.</sup></p>
+<h2 id="import-hooks-overview-part-deux">Import Hooks Overview, Part Deux<a class="headerlink" href="#import-hooks-overview-part-deux" title="Permanent link">&para;</a></h2>
+<p>Beartype import hooks is a hobbit hole so deep we had to deescalate it with decrepit manga panels from <em>Akira</em>. Prepare to enter that hole.</p>
+<h3 id="what-is-beartype_this_package">What Is beartype_this_package()?<a class="headerlink" href="#what-is-beartype_this_package" title="Permanent link">&para;</a></h3>
+<p>Let's begin by outlining exactly <strong>what</strong> <code>beartype_this_package</code> does.</p>
+<p>As the simplest and most convenient of several import hooks published by the <code>beartype.claw</code> subpackage, <code>beartype_this_package</code> type-checks <em>all</em> subsequently imported submodules of <code>{your_package}</code>. Notably, <code>beartype_this_package</code>:</p>
+<ul>
+<li>Implicitly decorates <em>all</em> callables and classes across <code>{your_package}</code> by the <code>beartype.beartype</code> decorator. Rejoice, fellow mammals! You no longer need to explicitly decorate anything by <code>beartype.beartype</code> ever again. Of course, you <em>can</em> if you want to – but there's no compelling reason to do so and many compelling reasons <em>not</em> to do so. You have probably just thought of five, but there are even more.</li>
+<li>Implicitly appends <em>every</em> <a href="https://peps.python.org/pep-0526">PEP 526</a>-compliant annotated variable assignment (e.g., <code>muh_int: int = 'Pretty sure this isn't an integer, but not sure.'</code>) across <code>{your_package}</code> by a new statement at the same indentation level calling the <code>beartype.door.die_if_unbearable</code> function passed both that variable and that type hint. Never do that manually. Now, you never do.</li>
+</ul>
+<p>Examples or we're lying again. <code>beartype_this_package</code> transforms your <code>{your_package}.{buggy_submodule}</code> from this quietly broken code that you insist you never knew about, you swear:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># This is "{your_package}.{buggy_submodule}". It is bad, but you never knew.</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">t</span>
+
+<span class="n">bad_global</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="s1">'My eyes! The goggles do nothing.'</span>  <span class="c1"># &lt;-- no exception</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bad_function</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="sa">b</span><span class="s2">"I could've been somebody, instead of a bum byte string."</span>
+<span class="n">bad_function</span><span class="p">()</span>  <span class="c1"># &lt;-- no exception</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BadClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bad_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">NoReturn</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'Nobody puts BadClass in the corner.'</span>
+<span class="n">BadClass</span><span class="p">()</span><span class="o">.</span><span class="n">bad_method</span><span class="p">()</span>  <span class="c1"># &lt;-- no exception</span>
+</code></pre></div>
+<p>...into this loudly broken code that even your unionized QA team can no longer ignore:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># This is "{your_package}.{buggy_submodule}" on beartype_this_package().</span>
+<span class="c1"># Any questions? Actually, that was rhetorical. No questions, please.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.door</span><span class="w"> </span><span class="kn">import</span> <span class="n">die_if_unbearable</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">t</span>
+
+<span class="n">bad_global</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="s1">'My eyes! The goggles do nothing.'</span>
+<span class="n">die_if_unbearable</span><span class="p">(</span><span class="n">bad_global</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>  <span class="c1"># &lt;-- raises exception</span>
+
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bad_function</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="sa">b</span><span class="s2">"I could've been somebody, instead of a bum byte string."</span>
+<span class="n">bad_function</span><span class="p">()</span>  <span class="c1"># &lt;-- raises exception</span>
+
+<span class="nd">@beartype</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BadClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bad_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">NoReturn</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'Nobody puts BadClass in the corner.'</span>
+<span class="n">BadClass</span><span class="p">()</span><span class="o">.</span><span class="n">bad_method</span><span class="p">()</span>  <span class="c1"># &lt;-- raises exception</span>
+</code></pre></div>
+<p>By doing nothing, you saved five lines of extraneous boilerplate you no longer need to maintain, preserved <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY (Don't Repeat Yourself)</a>, and mended your coworker's career, who you would have blamed for all this. You had nothing to do with that code. It's a nothingburger!</p>
+<p>Beartype believes you. This is why we <code>beartype_this_package</code>.</p>
+<p><img alt="looks kinda bad" src="https://user-images.githubusercontent.com/217028/272775040-9bf81c0b-3994-4420-a1d5-ac5835f0a0b2.png" /></p>
+<p><sup>This is what happens when we don't beartype_this_package().</sup></p>
+<h3 id="why-is-beartype_this_package">Why Is beartype_this_package()?<a class="headerlink" href="#why-is-beartype_this_package" title="Permanent link">&para;</a></h3>
+<p>Let's continue by justifying <strong>why</strong> you want to use <code>beartype_this_package</code>. Don't worry. The "why?" is easier than the "what?". It often is. The answer is: "Safety is my middle name." <sup>\&lt;-- more lies</sup></p>
+<p><code>beartype_this_package</code> isolates its bug-hunting action to the current package. This is what everyone wants to try first. Type-checking only <em>your</em> first-party package under <em>your</em> control is the safest course of action, because you rigorously stress-tested your package with beartype. You did, didn't you? You're not making us look bad here? Don't make us look bad. We already have GitHub and Reddit for that.</p>
+<p>Other beartype import hooks – like <code>beartype_packages</code> or <code>beartyping</code> – can be (mis)used to dangerously type-check <em>other</em> third-party packages outside your control that have probably never been stress-tested with beartype. Those packages could raise type-checking violations at runtime that you have no control over. If they don't now, they could later. Forward compatibility is out the window. <code>git blame</code> has things to say about that.</p>
+<p>If <code>beartype_this_package</code> fails, there is no hope for your package. Even though it might be beartype's fault, beartype will still blame you for its mistakes.</p>
+<h2 id="import-hooks-api">Import Hooks API<a class="headerlink" href="#import-hooks-api" title="Permanent link">&para;</a></h2>
+<p>Beartype import hooks come in two flavours:</p>
+<ul>
+<li><code>Global import hooks</code>, whose effects encompass <em>all</em> subsequently imported packages and modules matching various patterns.</li>
+<li><code>Local import hooks</code>, whose effects are isolated to only specific packages and modules imported inside specific blocks of code. Any subsequently imported packages and modules remain unaffected.</li>
+</ul>
+<h3 id="global-import-hooks">Global Import Hooks<a class="headerlink" href="#global-import-hooks" title="Permanent link">&para;</a></h3>
+<p>Global beartype import hooks are... well, <em>global</em>. Their claws extend to a horizontal slice of your full stack. These hooks globally type-check <em>all</em> annotated callables, classes, and variable assignments in <em>all</em> subsequently imported packages and modules matching various patterns.</p>
+<p>With great globality comes great responsibility.</p>
+<div id="beartype.claw.beartype_this_package"></div>
+
+<h4 id="beartype_this_package">beartype_this_package<a class="headerlink" href="#beartype_this_package" title="Permanent link">&para;</a></h4>
+<p><code>def beartype.claw.beartype_this_package(*, conf: beartype.BeartypeConf = beartype.BeartypeConf()) -&gt; None</code></p>
+<ul>
+<li><strong><code>conf</code></strong> (<code>beartype.BeartypeConf</code>): Beartype configuration. Defaults to the default configuration performing <span class="arithmatex">\(O(1)\)</span> type-checking.</li>
+<li><em>Raises</em> <code>beartype.roar.BeartypeClawHookException</code>: If either:<blockquote>
+<ul>
+<li>This function is <em>not</em> called from a module (i.e., this function is called directly from within a read–eval–print loop (REPL)).</li>
+<li><code>conf</code> is <em>not</em> a beartype configuration.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><strong>Self-package runtime-static type-checking import hook.</strong> This hook accepts <em>no</em> package or module names, instead type-checking <em>all</em> annotated callables, classes, and variable assignments across <em>all</em> submodules of the <strong>current package</strong> (i.e., the caller-defined package directly calling this function).</p>
+<p>This hook only applies to subsequent imports performed <em>after</em> this hook, as the term "import hook" implies; previously imported submodules and subpackages remain unaffected.</p>
+<p>This hook is typically called as the first statement in the <code>__init__</code> submodule of whichever (sub)package you would like to type-check. If you call this hook from:</p>
+<ul>
+<li>Your top-level <code>{your_package}.__init__</code> submodule, this hook type-checks your entire package. This includes <em>all</em> submodules and subpackages across your entire package.</li>
+<li>Some mid-level <code>{your_package}.{your_subpackage}.__init__</code> submodule, this hook type-checks only that subpackage. This includes <em>only</em> submodules and subsubpackages of that subpackage. All other submodules and subpackages of your package remain unaffected (i.e., will <em>not</em> be type-checked).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># At the top of your "{your_package}.__init__" submodule:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeConf</span>                <span class="c1"># &lt;-- boilerplate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.claw</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype_this_package</span>  <span class="c1"># &lt;-- boilerplate: the revenge</span>
+<span class="n">beartype_this_package</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">BeartypeConf</span><span class="p">(</span><span class="n">is_color</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>  <span class="c1"># &lt;-- no color is best color</span>
+</code></pre></div>
+<p>This hook is effectively syntactic sugar for the following idiomatic one-liners that are so cumbersome, fragile, and unreadable that no one should even be reading this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">beartype_this_package</span><span class="p">()</span>                            <span class="c1"># &lt;-- this...</span>
+<span class="n">beartype_package</span><span class="p">(</span><span class="vm">__name__</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>      <span class="c1"># &lt;-- ...is equivalent to this...</span>
+<span class="n">beartype_packages</span><span class="p">((</span><span class="vm">__name__</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">0</span><span class="p">],))</span>  <span class="c1"># &lt;-- ...is equivalent to this.</span>
+</code></pre></div>
+<p>When in doubt, have no doubt. Just call <code>beartype_this_package</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Added in 0.15.0</p>
+</div>
+<p><img alt="fierce determined face" src="https://user-images.githubusercontent.com/217028/272775398-761b9f11-95c2-4410-ad56-fd1ebe99bf04.png" /></p>
+<p><sup>beartype_this_package(): It do be like that.</sup></p>
+<div id="beartype.claw.beartype_package"></div>
+
+<h4 id="beartype_package">beartype_package<a class="headerlink" href="#beartype_package" title="Permanent link">&para;</a></h4>
+<p><code>def beartype.claw.beartype_package( package_name: str, *, conf: beartype.BeartypeConf = beartype.BeartypeConf() ) -&gt; None</code></p>
+<ul>
+<li><strong><code>package_name</code></strong> (<code>str</code>): Absolute name of the package or module to be type-checked.</li>
+<li><strong><code>conf</code></strong> (<code>beartype.BeartypeConf</code>): Beartype configuration. Defaults to the default configuration performing <span class="arithmatex">\(O(1)\)</span> type-checking.</li>
+<li><em>Raises</em> <code>beartype.roar.BeartypeClawHookException</code>: If either:<blockquote>
+<ul>
+<li><code>conf</code> is <em>not</em> a beartype configuration.</li>
+<li><code>package_name</code> is either:</li>
+<li><em>Not</em> a string.</li>
+<li>The empty string.</li>
+<li>A non-empty string that is <em>not</em> a valid <strong>package or module name</strong> (i.e., <code>"."</code>-delimited concatenation of valid Python identifiers).</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><strong>Uni-package runtime-static type-checking import hook.</strong> This hook accepts only a single package or single module name, type-checking <em>all</em> annotated callables, classes, and variable assignments across either:</p>
+<ul>
+<li>If the passed name is that of a (sub)package, <em>all</em> submodules of that (sub)package.</li>
+<li>If the passed name is that of a (sub)module, <em>only</em> that (sub)module.</li>
+</ul>
+<p>This hook should be called <em>before</em> that package or module is imported; when erroneously called <em>after</em> that package or module is imported, this hook silently reduces to a noop (i.e., does nothing regardless of how many times you squint at it suspiciously).</p>
+<p>This hook is typically called as the first statement in the <code>__init__</code> submodule of your top-level <code>{your_package}.__init__</code> submodule.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># At the top of your "{your_package}.__init__" submodule:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeConf</span>           <span class="c1"># &lt;-- &lt;Ctrl-c&gt; &lt;Ctrl-v&gt;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.claw</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype_package</span>  <span class="c1"># &lt;-- &lt;Ctrl-c&gt; &lt;Ctrl-v&gt; x 2</span>
+<span class="n">beartype_package</span><span class="p">(</span><span class="s1">'your_package'</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">BeartypeConf</span><span class="p">(</span><span class="n">is_debug</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+                <span class="c1"># ^-- they said explicit is better than implicit,</span>
+                <span class="c1">#     but all i got was this t-shirt and a hicky.</span>
+</code></pre></div>
+<p>Of course, that's fairly worthless. Just call <code>beartype_this_package</code>, right? But what if you want to type-check just <em>one</em> subpackage or submodule of your package rather than your <em>entire</em> package? In that case, <code>beartype_this_package</code> is overbearing. <sup>badum ching</sup> Enter <code>beartype_package</code>, the outer limits of QA where you control the horizontal and the vertical:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Just because you can do something, means you should do something.</span>
+<span class="n">beartype_package</span><span class="p">(</span><span class="s1">'good_package.m.A.A.d_submodule'</span><span class="p">)</span>  <span class="c1"># &lt;-- fine-grained precision strike</span>
+</code></pre></div>
+<p><code>beartype_package</code> shows it true worth, however, in type-checking <em>other</em> people's code. Because the <code>beartype.claw</code> API is a permissive Sarlacc pit, <code>beartype_package</code> happily accepts the absolute name of <em>any</em> package or module – whether they wanted you to do that or not:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Whenever you want to break something over your knee, never leave your</span>
+<span class="c1"># favorite IDE [read: Vim] without beartype_package().</span>
+<span class="n">beartype_package</span><span class="p">(</span><span class="s1">'somebody_elses_package'</span><span class="p">)</span>  <span class="c1"># &lt;-- blow it up like you just don't care</span>
+</code></pre></div>
+<p>This hook is effectively syntactic sugar for passing the <code>beartype_packages</code> function a 1-tuple containing only this package or module name.</p>
+<div class="highlight"><pre><span></span><code><span class="n">beartype_package</span><span class="p">(</span><span class="s1">'your_package'</span><span class="p">)</span>      <span class="c1"># &lt;-- this...</span>
+<span class="n">beartype_packages</span><span class="p">((</span><span class="s1">'your_package'</span><span class="p">,))</span>  <span class="c1"># &lt;-- ...is equivalent to this.</span>
+</code></pre></div>
+<p>Pretend you didn't see that. Just call <code>beartype_package</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Added in 0.15.0</p>
+</div>
+<p><img alt="wizened psychic baby lady" src="https://user-images.githubusercontent.com/217028/272775461-e5f62d59-9fe9-49e8-9904-47a1326d8695.png" /></p>
+<p><sup>Truer words were never spoken, wizened psychic baby lady.</sup></p>
+<div id="beartype.claw.beartype_packages"></div>
+
+<h4 id="beartype_packages">beartype_packages<a class="headerlink" href="#beartype_packages" title="Permanent link">&para;</a></h4>
+<p><code>def beartype.claw.beartype_packages( package_names: collections.abc.Iterable[str], *, conf: beartype.BeartypeConf = beartype.BeartypeConf() ) -&gt; None</code></p>
+<ul>
+<li><strong><code>package_name</code></strong> (<code>collections.abc.Iterable[str]</code>): Iterable of the absolute names of one or more packages or modules to be type-checked.</li>
+<li><strong><code>conf</code></strong> (<code>beartype.BeartypeConf</code>): Beartype configuration. Defaults to the default configuration performing <span class="arithmatex">\(O(1)\)</span> type-checking.</li>
+<li><em>Raises</em> <code>beartype.roar.BeartypeClawHookException</code>: If either:<blockquote>
+<ul>
+<li><code>conf</code> is <em>not</em> a beartype configuration.</li>
+<li><code>package_names</code> is either:</li>
+<li><em>Not</em> an iterable.</li>
+<li>The empty iterable.</li>
+<li>A non-empty iterable containing at least one item that is either:<ul>
+<li><em>Not</em> a string.</li>
+<li>The empty string.</li>
+<li>A non-empty string that is <em>not</em> a valid <strong>package or module name</strong> (i.e., <code>"."</code>-delimited concatenation of valid Python identifiers).</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><strong>Multi-package runtime-static type-checking import hook.</strong> This hook accepts one or more package and module names in any arbitrary order (i.e., order is insignificant), type-checking <em>all</em> annotated callables, classes, and variable assignments across:</p>
+<ul>
+<li>For each passed name that is a (sub)package, <em>all</em> submodules of that (sub)package.</li>
+<li>For each passed name that is a (sub)module, <em>only</em> that (sub)module.</li>
+</ul>
+<p>This hook should be called <em>before</em> those packages and modules are imported; when erroneously called <em>after</em> those packages and modules are imported, this hook silently reduces to a noop. Squinting still does nothing.</p>
+<p>This hook is typically called as the first statement in the <code>__init__</code> submodule of your top-level <code>{your_package}.__init__</code> submodule.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># At the top of your "{your_package}.__init__" submodule:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeConf</span>            <span class="c1"># &lt;-- copy-pasta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.claw</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype_packages</span>  <span class="c1"># &lt;-- copy-pasta intensifies</span>
+<span class="n">beartype_packages</span><span class="p">((</span>
+    <span class="s1">'your_package'</span><span class="p">,</span>
+    <span class="s1">'some_package.published_by.the_rogue_ai.Johnny_Twobits'</span><span class="p">,</span>  <span class="c1"># &lt;-- seems trustworthy</span>
+    <span class="s1">'numpy'</span><span class="p">,</span>  <span class="c1"># &lt;-- ...heh. no one knows what will happen here!</span>
+    <span class="s1">'scipy'</span><span class="p">,</span>  <span class="c1"># &lt;-- ...but we can guess, can't we? *sigh*</span>
+<span class="p">),</span> <span class="n">conf</span><span class="o">=</span><span class="n">BeartypeConf</span><span class="p">(</span><span class="n">is_pep484_tower</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># &lt;-- so. u 2 h8 precision.</span>
+</code></pre></div>
+<p>This hook is the penultimate force in <a href="#global-import-hooks">global import hooks</a>. The terser <code>beartype_this_package</code> and <code>beartype_package</code> hooks are effectively syntactic sugar for this verboser hook.</p>
+<blockquote>
+<p>One hook to QA them all, and in the darkness of your codebase bind them.</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Added in 0.15.0</p>
+</div>
+<p><sup>It’s almost as if we know what “penultimate” means.</sup></p>
+<div id="beartype.claw.beartype_all"></div>
+
+<h4 id="beartype_all">beartype_all<a class="headerlink" href="#beartype_all" title="Permanent link">&para;</a></h4>
+<p><code>def beartype.claw.beartype_all(*, conf: beartype.BeartypeConf = beartype.BeartypeConf()) -&gt; None</code></p>
+<ul>
+<li><strong><code>conf</code></strong> (<code>beartype.BeartypeConf</code>): Beartype configuration. Defaults to the default configuration performing <span class="arithmatex">\(O(1)\)</span> type-checking.</li>
+<li><em>Raises</em> <code>beartype.roar.BeartypeClawHookException</code>: If <code>conf</code> is <em>not</em> a beartype configuration.
+<strong>All-packages runtime-static type-checking import hook.</strong> This hook accepts <em>no</em> package or module names, instead type-checking <em>all</em> callables, classes, and variable assignments across <em>all</em> submodules of <em>all</em> packages.</li>
+</ul>
+<p>This hook should be called <em>before</em> those packages and modules are imported; when erroneously called <em>after</em> those packages and modules are imported, this hook silently reduces to a noop. Not even squinting can help you now.</p>
+<p>This hook is typically called as the first statement in the <code>__init__</code> submodule of your top-level <code>{your_package}.__init__</code> submodule.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># At the top of your "{your_package}.__init__" submodule,</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeConf</span>       <span class="c1"># &lt;-- @beartype seemed so innocent, once</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.claw</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype_all</span>  <span class="c1"># &lt;-- where did it all go wrong?</span>
+<span class="n">beartype_all</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">BeartypeConf</span><span class="p">(</span><span class="n">claw_is_pep526</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>  <span class="c1"># &lt;-- U WILL BE ASSIMILATE</span>
+</code></pre></div>
+<p>This hook is the ultimate import hook, spasmodically unleashing a wave of bug-defenestrating action over <strong>the entire Python ecosystem.</strong> After calling this hook, <em>any</em> package or module authored by <em>anybody</em> (including packages and modules in CPython's standard library) will be subject to the iron claw of <code>beartype.claw</code>. Its rule is law!</p>
+<p>This hook is the runtime equivalent of a full-blown <a href="../faq/#third-generation-type-checker-doesnt-mean-anything-does-it">pure-static</a> type-checker like mypy or pyright, enabling full-stack <a href="../faq/#what-does-hybrid-runtime-static-mean-pretty-sure-you-made-that-up-too">runtime-static</a> type-checking over your entire app. This includes submodules defined by both:</p>
+<ul>
+<li>First-party proprietary packages authored explicitly for this app.</li>
+<li>Third-party open-source packages authored and maintained elsewhere.</li>
+</ul>
+<p>Nothing is isolated. Everything is permanent. Do not trust this hook.</p>
+<h1 id="caveat-emptor-empty-promises-not-even-a-cat-would-eat">Caveat Emptor: Empty Promises Not Even a Cat Would Eat<a class="headerlink" href="#caveat-emptor-empty-promises-not-even-a-cat-would-eat" title="Permanent link">&para;</a></h1>
+<p>This hook imposes type-checking on <em>all</em> downstream packages importing your package, which may not necessarily want, expect, or tolerate type-checking. This hook is <em>not</em> intended to be called from intermediary APIs, libraries, frameworks, or other middleware. Packages imported by other packages should <em>not</em> call this hook. This hook is <em>only</em> intended to be called from full-stack end-user applications as a convenient alternative to manually passing the names of all packages to be type-checked to the more granular <code>beartype_packages</code> hook.</p>
+<p>This hook is the extreme QA nuclear option. Because this hook is the extreme QA nuclear option, <strong>most codebases should not call this hook.</strong></p>
+<p><code>beartype</code> cannot be held responsible for a sudden rupture in the plenæne of normalcy, the space-time continuum, or your once-stable job. Pour one out for those who are about to vitriolically explode their own code.</p>
+<blockquote>
+<p>Nuke Python from orbit. Because now you can.</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Added in 0.15.0</p>
+</div>
+<p><sup>The beartype_all() lifestyle. Short but sweet.</sup></p>
+<h2 id="import-hook-configuration">Import Hook Configuration<a class="headerlink" href="#import-hook-configuration" title="Permanent link">&para;</a></h2>
+<p>Beartype import hooks accept an optional keyword-only <code>conf</code> parameter whose value is a <strong>beartype configuration</strong> (i.e., <code>beartype.BeartypeConf</code> instance), defaulting to the default beartype configuration <code>BeartypeConf()</code>. Unsurprisingly, that configuration configures the behaviour of its hook: e.g.,</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In your "{your_package}.__init__" submodule, enable @beartype's support for</span>
+<span class="c1"># the PEP 484-compliant implicit numeric tower (i.e., expand "int" to "int |</span>
+<span class="c1"># float" and "complex" to "int | float | complex"):</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeConf</span>           <span class="c1"># &lt;-- it all seems so familiar</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.claw</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype_package</span>  <span class="c1"># &lt;-- boil it up, boilerplate</span>
+<span class="n">beartype_package</span><span class="p">(</span><span class="s1">'your_package'</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">BeartypeConf</span><span class="p">(</span><span class="n">is_pep484_tower</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># &lt;-- *UGH.*</span>
+</code></pre></div>
+<p>Equally unsurprisingly, <code>beartype.BeartypeConf</code> has been equipped with import hook-aware super powers. Fine-tune the behaviour of our import hooks for your exact needs, including:</p>
+<ul>
+<li><code>BeartypeConf(claw_is_pep526: bool = True)</code>. By default, <code>beartype.claw</code> type-checks annotated variable assignments like <code>muh_int: int = 'Pretty sure this isn't an integer.'</code>. Although this is <em>usually</em> what everyone wants, this may not be what someone suspicious wearing aviator goggles, a red velvet cape, and too-tight black leather wants. Nobody knows what those people want. If you are such a person, consider disabling this option to reduce type safety and destroy your code like Neo-Tokyo vs. Mecha-Baby-Godzilla: <sup>...who will win!?!?</sup></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># In your "{your_package}.__init__" submodule, disable PEP 526 support out</span>
+<span class="c1"># of spite. You cackle disturbingly as you do. Sanity crumbles. Python shrugs.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeConf</span>            <span class="c1"># &lt;-- boiling boilerplate...</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.claw</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype_packages</span>  <span class="c1"># &lt;-- ...boils plates, what?</span>
+<span class="n">beartype_packages</span><span class="p">(</span>
+    <span class="p">(</span><span class="s1">'your.subpackage'</span><span class="p">,</span> <span class="s1">'your.submodule'</span><span class="p">),</span>   <span class="c1"># &lt;-- pretend this makes sense</span>
+    <span class="n">conf</span><span class="o">=</span><span class="n">BeartypeConf</span><span class="p">(</span><span class="n">claw_is_pep526</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># &lt;-- *GAH!*</span>
+<span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>
+<p><code>BeartypeConf(warning_cls_on_decorator_exception: Optional[Type[Warning]] = None)</code>. By default, <code>beartype.claw</code> emits non-fatal warnings rather than fatal exceptions raised by the <code>beartype.beartype</code> decorator at decoration time. This is <em>usually</em> what everyone wants, because <code>beartype.beartype</code> currently fails to support all possible edge cases and is thus likely to raise at least one exception while decorating your entire package. To improve the resilience of <code>beartype.claw</code> against those edge cases, <code>beartype.beartype</code> emits one warning for each decoration exception and then simply continues to the next decoratable callable or class. This is occasionally unhelpful. What if you really <em>do</em> want <code>beartype.claw</code> to raise a fatal exception on the first such edge case in your codebase – perhaps because you want to either see the full exception traceback <em>or</em> punish your coworkers who are violating typing standards by trying to use an imported module as a type hint? <sup>...this actually happened</sup> In this case, consider:</p>
+</li>
+<li>
+<p>Passing <code>None</code> as the value of this parameter. Doing so forces <code>beartype.claw</code> to act strictly, inflexibly, and angrily. Expect spittle-flecked mouth frothing and claws all over the place:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># In your "{your_package}.__init__" submodule, raise exceptions because you</span>
+<span class="c1"># hate worky. The CI pipeline you break over your knee may just be your own.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeConf</span>                <span class="c1"># &lt;-- boiling boilerplate...</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.claw</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype_this_package</span>  <span class="c1"># &lt;-- ...ain't even lukewarm</span>
+<span class="n">beartype_this_package</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">BeartypeConf</span><span class="p">(</span><span class="n">warning_cls_on_decorator_exception</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>  <span class="c1"># &lt;-- *ohboy*</span>
+</code></pre></div>
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+URI repository (i.e., hidden Markdown document centralizing common URI links as
+Markdown reference-style link definitions, automatically appended to all other
+Markdown documents in this project via the "auto_append" option of the
+"pymdownx.snippets" extension in "zensical.toml").
+-->
+
+<!-- -------------( IMAGES ~ badge                           )-------------- -->
+
+<!-- -------------( IMAGES ~ downstream                      )-------------- -->
+<!-- Insert links to GitHub Sponsors funding at the icon level here, please! -->
+
+<!-- -------------( LINKS ~ beartype : maintainer            )-------------- -->
+<!-- -------------( LINKS ~ beartype : funding               )-------------- -->
+<!-- -------------( LINKS ~ beartype : github                )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : security     )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : time         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : user         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local        )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local : mod  )-------------- -->
+<!-- -------------( LINKS ~ beartype : api                   )-------------- -->
+<!-- -------------( LINKS ~ beartype : package               )-------------- -->
+<!-- -------------( LINKS ~ beartype : package : meta        )-------------- -->
+<!-- -------------( LINKS ~ beartype : plugin                )-------------- -->
+<!-- -------------( LINKS ~ beartype : social                )-------------- -->
+<!-- -------------( LINKS ~ author : kipling                 )-------------- -->
+<!-- -------------( LINKS ~ github                           )-------------- -->
+<!-- -------------( LINKS ~ concept                          )-------------- -->
+<!-- -------------( LINKS ~ math                             )-------------- -->
+<!-- -------------( LINKS ~ math : set                       )-------------- -->
+<!-- -------------( LINKS ~ math : type                      )-------------- -->
+<!-- -------------( LINKS ~ meme                             )-------------- -->
+<!-- -------------( LINKS ~ os : linux                       )-------------- -->
+<!-- -------------( LINKS ~ os : linux : arch                )-------------- -->
+<!-- -------------( LINKS ~ os : macos                       )-------------- -->
+<!-- -------------( LINKS ~ other                            )-------------- -->
+<!-- -------------( LINKS ~ py                               )-------------- -->
+<!-- -------------( LINKS ~ py : cli                         )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter                 )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter : cpython       )-------------- -->
+<!-- -------------( LINKS ~ py : lang                        )-------------- -->
+<!-- -------------( LINKS ~ py : misc                        )-------------- -->
+<!-- -------------( LINKS ~ py : package                     )-------------- -->
+<!-- -------------( LINKS ~ py : package : boto3             )-------------- -->
+<!-- -------------( LINKS ~ py : package : click             )-------------- -->
+<!-- -------------( LINKS ~ py : package : equinox           )-------------- -->
+<!-- -------------( LINKS ~ py : package : ipython           )-------------- -->
+<!-- -------------( LINKS ~ py : package : jax               )-------------- -->
+<!-- -------------( LINKS ~ py : package : numba             )-------------- -->
+<!-- -------------( LINKS ~ py : package : numpy             )-------------- -->
+<!-- -------------( LINKS ~ py : package : pandas            )-------------- -->
+<!-- Note that "pandas" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pandera           )-------------- -->
+<!-- Note that "pandera" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pydantic          )-------------- -->
+<!-- -------------( LINKS ~ py : package : redis             )-------------- -->
+<!-- ------------------( LINKS ~ py : package : redis        )------------------ -->
+<!-- -------------( LINKS ~ py : package : sphinx            )-------------- -->
+<!-- -------------( LINKS ~ py : package : test              )-------------- -->
+<!-- -------------( LINKS ~ py : package : zensical          )-------------- -->
+<!-- -------------( LINKS ~ py : pep                         )-------------- -->
+<!-- -------------( LINKS ~ py : 3119                        )-------------- -->
+<!-- -------------( LINKS ~ py : 484                         )-------------- -->
+<!-- -------------( LINKS ~ py : 560                         )-------------- -->
+<!-- -------------( LINKS ~ py : service                     )-------------- -->
+<!-- -------------( LINKS ~ py : service : pypi              )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib                      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : builtins           )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections        )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections.abc    )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : contextlib         )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : enum               )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : functools          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : inspect            )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : io                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : os                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : random             )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : re                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : threading          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : typing : attr      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : warnings           )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime              )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : dataclass  )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : typeguard  )-------------- -->
+<!-- -------------( LINKS ~ py : type : static               )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : pyright     )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : mypy        )-------------- -->
+<!-- -------------( LINKS ~ soft : ide                       )-------------- -->
+<!-- -------------( LINKS ~ soft : ide : vscode              )-------------- -->
+<!-- -------------( LINKS ~ soft : lang                      )-------------- -->
+<!-- -------------( LINKS ~ soft : license                   )-------------- -->
+<!-- -------------( LINKS ~ soft : web                       )-------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../api_vale/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Validators">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Validators
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../api_door/" class="md-footer__link md-footer__link--next" aria-label="Next: DOOR">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                DOOR
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2014-2026 Beartype authors.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.expand","navigation.instant","navigation.instant.progress","navigation.footer","search.highlight","search.suggest"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../docs/js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
