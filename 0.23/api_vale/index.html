@@ -1,0 +1,2148 @@
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+MkDocs Material theme override injecting a site-wide announcement banner.
+Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
+-->
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unbearably fast near-real-time hybrid runtime-static type-checking in pure Python.">
+      
+      
+        <meta name="author" content="Beartype">
+      
+      
+        <link rel="canonical" href="https://beartype.github.io/beartype/latest/api_vale/">
+      
+      
+        <link rel="prev" href="../api_decor/">
+      
+      
+        <link rel="next" href="../api_claw/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="https://raw.githubusercontent.com/beartype/beartype-assets/main/favicon.svg">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Validators - Beartype</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#beartype-validators" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  🐻 <strong>Upbear us</strong> at
+  <a href="https://github.com/sponsors/leycec">GitHub Sponsors</a> and
+  <a href="https://www.sonarsource.com/products/sonarqube/advanced-security">SonarQube Advanced Security (Tidelift)</a>.
+  <strong>Follow us</strong> <a href="https://leycec.bsky.social">on Bluesky</a>.
+  <strong>Friendzone us</strong> <a href="https://beartype.zulipchat.com">at Zulip</a>. 🐻
+  <br>
+  💗 Financially fueled by
+  <strong><a href="https://trymirai.com">ml (Mirai Labs)</a></strong> —
+  <em><a href="https://trymirai.com">On-device AI for Apple Silicon</a>, powered by bears.</em> 💗
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Beartype
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Validators
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Beartype
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Welcome
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Install
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tldr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  tl;dr
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eli5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  ELI5
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  API
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  API
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_decor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Decorators
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Validators
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Validators
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#validator-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator Overview
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator API
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validator API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Is
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isattr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IsAttr
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isequal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IsEqual
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isinstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IsInstance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issubclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IsSubclass
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator Syntax
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator Caveats
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-showcase" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator Showcase
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validator Showcase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-fat-on-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Full-Fat O(n) Matching
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trendy-string-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trendy String Matching
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-hint-arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Type Hint Arithmetic
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Hint Arithmetic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-hint-elision" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Type Hint Elision
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Hint Elision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#booleans-integers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Booleans ≠ Integers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Strings ≠ Sequences
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensor-property-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tensor Property Matching
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator Alternatives
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validator Alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numpy-type-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NumPy Type Hints
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NumPy Type Hints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typed-numpy-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Typed NumPy Arrays
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_claw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Claws
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  DOOR
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_roar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exceptions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Features
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Math
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  FAQ
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  See Also
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#validator-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator Overview
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator API
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validator API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Is
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isattr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IsAttr
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isequal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IsEqual
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isinstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IsInstance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issubclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IsSubclass
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator Syntax
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator Caveats
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-showcase" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator Showcase
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validator Showcase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-fat-on-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Full-Fat O(n) Matching
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trendy-string-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trendy String Matching
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-hint-arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Type Hint Arithmetic
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Hint Arithmetic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-hint-elision" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Type Hint Elision
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Hint Elision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#booleans-integers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Booleans ≠ Integers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Strings ≠ Sequences
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensor-property-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tensor Property Matching
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validator Alternatives
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validator Alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numpy-type-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NumPy Type Hints
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NumPy Type Hints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typed-numpy-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Typed NumPy Arrays
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="beartype-validators">Beartype Validators<a class="headerlink" href="#beartype-validators" title="Permanent link">&para;</a></h1>
+<pre><code>Validate anything with two-line type hints
+       designed by you ⇄ built by beartype
+</code></pre>
+<p>When standards fail, do what you want anyway. When official type hints fail to scale to your validation use case, design your own PEP-compliant type hints with compact <strong>beartype validators:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">Is</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Type hint matching any two-dimensional NumPy array of floats of arbitrary</span>
+<span class="c1"># precision. Aye, typing matey. Beartype validators a-hoy!</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">Numpy2DFloatArray</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">array</span><span class="p">:</span>
+    <span class="n">array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">)]]</span>
+
+<span class="c1"># Annotate @beartype-decorated callables with beartype validators.</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">polygon_area</span><span class="p">(</span><span class="n">polygon</span><span class="p">:</span> <span class="n">Numpy2DFloatArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    Area of a two-dimensional polygon of floats defined as a set of</span>
+<span class="sd">    counter-clockwise points, calculated via Green's theorem.</span>
+
+<span class="sd">    *Don't ask.*</span>
+<span class="sd">    '''</span>
+
+    <span class="c1"># Calculate and return the desired area. Pretend we understand this.</span>
+    <span class="n">polygon_rolled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">polygon</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+        <span class="n">polygon</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">polygon_rolled</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span>
+        <span class="n">polygon_rolled</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">polygon</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></div>
+<p>Validators enforce arbitrary runtime constraints on the internal structure and contents of parameters and returns with user-defined lambda functions and nestable declarative expressions leveraging familiar <code>typing</code> syntax – all seamlessly composable with <a href="../eli5/#standard-hints">standard type hints</a> via an <a href="#validator-syntax">expressive domain-specific language (DSL)</a>.</p>
+<p>Validate custom project constraints <em>now</em> without waiting for the open-source community to officially standardize, implement, and publish those constraints. Filling in the Titanic-sized gaps between <a href="../pep/">Python's patchwork quilt of
+PEPs</a>, validators accelerate your QA workflow with your greatest asset.</p>
+<blockquote>
+<p>Yup. It's your brain.</p>
+</blockquote>
+<p>See <a href="#validator-showcase">Validator Showcase</a> for comforting examples – or blithely continue for uncomfortable details you may regret reading.</p>
+<h2 id="validator-overview">Validator Overview<a class="headerlink" href="#validator-overview" title="Permanent link">&para;</a></h2>
+<p>Beartype validators are <strong>zero-cost code generators.</strong> Like the rest of beartype (but unlike other validation frameworks), beartype validators generate optimally efficient pure-Python type-checking logic with <em>no</em> hidden function or method calls, undocumented costs, or runtime overhead.</p>
+<p>Beartype validator code is thus <strong>call-explicit.</strong> Since pure-Python function and method calls are notoriously slow in <a href="https://github.com/python/cpython">CPython</a>, the code we generate only calls the pure-Python functions and methods you specify when you subscript <code>beartype.vale.Is*</code> classes with those functions and methods. That's it. We <em>never</em> call anything without your permission. For example:</p>
+<ul>
+<li>The declarative validator <code>Annotated[np.ndarray, IsAttr['dtype', IsAttr['type', IsEqual[np.float64]]]]</code> detects NumPy arrays of 64-bit floating-point precision by generating the fastest possible inline expression for doing so:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">isinstance</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span>
+</code></pre></div>
+<ul>
+<li>The functional validator <code>Annotated[np.ndarray, Is[lambda array: array.dtype.type == np.float64]]</code> also detects the same arrays by generating a slightly slower inline expression calling the lambda function you define:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">isinstance</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="n">your_lambda_function</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+</code></pre></div>
+<p>Beartype validators thus come in two flavours – each with attendant tradeoffs:</p>
+<ul>
+<li><strong>Functional validators,</strong> created by subscripting the <code>beartype.vale.Is</code> factory with a function accepting a single parameter and returning <code>True</code> only when that parameter satisfies a caller-defined constraint. Each functional validator incurs the cost of calling that function for each call to each <code>beartype.beartype</code>-decorated callable annotated by that validator, but is Turing-complete and thus supports all possible validation scenarios.</li>
+<li><strong>Declarative validators,</strong> created by subscripting any <em>other</em> class in the <code>beartype.vale</code> subpackage (e.g., <code>beartype.vale.IsEqual</code>) with arguments specific to that class. Each declarative validator generates efficient inline code calling <em>no</em> hidden functions and thus incurring no function costs, but is special-purpose and thus supports only a narrow band of validation scenarios.</li>
+</ul>
+<p>Wherever you can, prefer <em>declarative</em> validators for efficiency.</p>
+<p>Everywhere else, fallback to <em>functional</em> validators for generality.</p>
+<h2 id="validator-api">Validator API<a class="headerlink" href="#validator-api" title="Permanent link">&para;</a></h2>
+<div id="beartype.vale.Is"></div>
+
+<h3 id="is">Is<a class="headerlink" href="#is" title="Permanent link">&para;</a></h3>
+<p><em>Subscription API:</em> <code>beartype.vale.Is[collections.abc.Callable[[object], bool]]</code></p>
+<p><strong>Functional validator.</strong> A PEP-compliant type hint enforcing any arbitrary runtime constraint – created by subscripting (indexing) the <code>Is</code> type hint factory with a function accepting a single parameter and returning either:</p>
+<ul>
+<li><code>True</code> if that parameter satisfies that constraint.</li>
+<li><code>False</code> otherwise.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">Is</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Type hint matching only strings with lengths ranging [4, 40].</span>
+<span class="n">LengthyString</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="mi">4</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">40</span><span class="p">]]</span>
+</code></pre></div>
+<p>Functional validators are caller-defined and may thus validate the internal integrity, consistency, and structure of arbitrary objects ranging from simple builtin scalars like integers and strings to complex data structures defined by third-party packages like NumPy arrays and Pandas DataFrames.</p>
+<div id="beartype.vale.IsAttr"></div>
+
+<h3 id="isattr">IsAttr<a class="headerlink" href="#isattr" title="Permanent link">&para;</a></h3>
+<p><em>Subscription API:</em> <code>beartype.vale.IsAttr[str, beartype.vale.*]</code></p>
+<p><strong>Declarative attribute validator.</strong> A PEP-compliant type hint enforcing any arbitrary runtime constraint on any named object attribute – created by subscripting (indexing) the <code>IsAttr</code> type hint factory with (in order):</p>
+<ol>
+<li>The unqualified name of that attribute.</li>
+<li>Any other beartype validator enforcing that constraint.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsAttr</span><span class="p">,</span> <span class="n">IsEqual</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Type hint matching only two-dimensional NumPy arrays. Given this,</span>
+<span class="c1"># @beartype generates efficient validation code resembling:</span>
+<span class="c1">#     isinstance(array, np.ndarray) and array.ndim == 2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">Numpy2DArray</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'ndim'</span><span class="p">,</span> <span class="n">IsEqual</span><span class="p">[</span><span class="mi">2</span><span class="p">]]]</span>
+</code></pre></div>
+<p>The first argument subscripting this class <em>must</em> be a syntactically valid unqualified Python identifier string containing only alphanumeric and underscore characters (e.g., <code>"dtype"</code>, <code>"ndim"</code>). Fully-qualified attributes comprising two or more dot-delimited identifiers (e.g., <code>"dtype.type"</code>) may be validated by nesting successive <code>IsAttr</code> subscriptions:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Type hint matching only NumPy arrays of 64-bit floating-point numbers.</span>
+<span class="c1"># From this, @beartype generates an efficient expression resembling:</span>
+<span class="c1">#     isinstance(array, np.ndarray) and array.dtype.type == np.float64</span>
+<span class="n">NumpyFloat64Array</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'dtype'</span><span class="p">,</span> <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'type'</span><span class="p">,</span> <span class="n">IsEqual</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]]]]</span>
+</code></pre></div>
+<p>The second argument subscripting this class <em>must</em> be a beartype validator. This includes:</p>
+<ul>
+<li><code>beartype.vale.Is</code>, in which case this parent <code>IsAttr</code> class validates the desired object attribute to satisfy the caller-defined function subscripting that child <code>Is</code> class.</li>
+<li><code>beartype.vale.IsAttr</code>, in which case this parent <code>IsAttr</code> class validates the desired object attribute to contain a nested object attribute satisfying the child <code>IsAttr</code> class. See above example.</li>
+<li><code>beartype.vale.IsEqual</code>, in which case this <code>IsAttr</code> class validates the desired object attribute to be equal to the object subscripting that <code>IsEqual</code> class. See above example.</li>
+</ul>
+<div id="beartype.vale.IsEqual"></div>
+
+<h3 id="isequal">IsEqual<a class="headerlink" href="#isequal" title="Permanent link">&para;</a></h3>
+<p><em>Subscription API:</em> <code>beartype.vale.IsEqual[object]</code></p>
+<p><strong>Declarative equality validator.</strong> A PEP-compliant type hint enforcing equality against any object – created by subscripting (indexing) the <code>IsEqual</code> type hint factory with that object:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsEqual</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Type hint matching only lists equal to [0, 1, 2, ..., 40, 41, 42].</span>
+<span class="n">AnswerToTheUltimateQuestion</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="n">IsEqual</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">42</span><span class="p">))]]</span>
+</code></pre></div>
+<p><code>IsEqual</code> generalizes the comparable <a href="https://peps.python.org/pep-0586">PEP 586</a>-compliant <code>typing.Literal</code> type hint. Both check equality against user-defined objects. Despite the differing syntax, these two type hints enforce the same semantics:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># This beartype validator enforces the same semantics as...</span>
+<span class="n">IsStringEqualsWithBeartype</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span>
+    <span class="n">IsEqual</span><span class="p">[</span><span class="s1">'Don’t you envy our pranceful bands?'</span><span class="p">]</span> <span class="o">|</span>
+    <span class="n">IsEqual</span><span class="p">[</span><span class="s1">'Don’t you wish you had extra hands?'</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="c1"># This PEP 586-compliant type hint.</span>
+<span class="n">IsStringEqualsWithPep586</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
+    <span class="s1">'Don’t you envy our pranceful bands?'</span><span class="p">,</span>
+    <span class="s1">'Don’t you wish you had extra hands?'</span><span class="p">,</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>The similarities end there, of course:</p>
+<ul>
+<li><code>IsEqual</code> permissively validates equality against objects that are instances of <strong>any arbitrary type.</strong> <code>IsEqual</code> doesn't care what the types of your objects are. <code>IsEqual</code> will test equality against everything you tell it to, because you know best.</li>
+<li>
+<p><code>typing.Literal</code> rigidly validates equality against objects that are instances of <strong>only six predefined types:</strong></p>
+</li>
+<li>
+<p>Booleans (i.e., <code>bool</code> objects).</p>
+</li>
+<li>Byte strings (i.e., <code>bytes</code> objects).</li>
+<li>Integers (i.e., <code>int</code> objects).</li>
+<li>Unicode strings (i.e., <code>str</code> objects).</li>
+<li><code>enum.Enum</code> members.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>The <code>None</code> singleton.</li>
+</ul>
+<p>Wherever you can (which is mostly nowhere), prefer <code>typing.Literal</code>. Sure, <code>typing.Literal</code> is mostly useless, but it's standardized across type checkers in a mostly useless way. Everywhere else, default to <code>IsEqual</code>.</p>
+<div id="beartype.vale.IsInstance"></div>
+
+<h3 id="isinstance">IsInstance<a class="headerlink" href="#isinstance" title="Permanent link">&para;</a></h3>
+<p><em>Subscription API:</em> <code>beartype.vale.IsInstance[type, ...]</code></p>
+<p><strong>Declarative instance validator.</strong> A PEP-compliant type hint enforcing instancing of one or more classes – created by subscripting (indexing) the <code>IsInstance</code> type hint factory with those classes:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsInstance</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Type hint matching only string and byte strings, equivalent to:</span>
+<span class="c1">#     StrOrBytesInstance = Union[str, bytes]</span>
+<span class="n">StrOrBytesInstance</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="n">IsInstance</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]]</span>
+</code></pre></div>
+<p><code>IsInstance</code> generalizes <strong>isinstanceable type hints</strong> (i.e., normal pure-Python or C-based classes that can be passed as the second parameter to the <code>isinstance</code> builtin). Both check instancing of classes. Despite the differing syntax, the following hints all enforce the same semantics:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># This beartype validator enforces the same semantics as...</span>
+<span class="n">IsUnicodeStrWithBeartype</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="n">IsInstance</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+
+<span class="c1"># ...this PEP 484-compliant type hint.</span>
+<span class="n">IsUnicodeStrWithPep484</span> <span class="o">=</span> <span class="nb">str</span>
+
+<span class="c1"># Likewise, this beartype validator enforces the same semantics as...</span>
+<span class="n">IsStrWithWithBeartype</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="n">IsInstance</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]]</span>
+
+<span class="c1"># ...this PEP 484-compliant type hint.</span>
+<span class="n">IsStrWithWithPep484</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]</span>
+</code></pre></div>
+<p>The similarities end there, of course:</p>
+<ul>
+<li><code>IsInstance</code> permissively validates type instancing of <strong>arbitrary objects</strong> (including possibly nested attributes of parameters and returns when combined with <code>beartype.vale.IsAttr</code>) against <strong>one or more classes.</strong></li>
+<li>Isinstanceable classes rigidly validate type instancing of only <strong>parameters and returns</strong> against only <strong>one class.</strong></li>
+</ul>
+<p>Unlike isinstanceable type hints, instance validators support various <a href="#validator-syntax">set theoretic operators</a>. Critically, this includes negation. Instance validators prefixed by the negation operator <code>~</code> match all objects that are <em>not</em> instances of the classes subscripting those validators. Wait. Wait just a hot minute there. Doesn't a <code>typing.Annotated</code> type hint necessarily match instances of the class subscripting that type hint? Yup. This means type hints of the form <code>typing.Annotated[{superclass}, ~IsInstance[{subclass}]</code> match all instances of a superclass that are <em>not</em> also instances of a subclass. And... pretty sure we just invented <a href="#type-hint-elision">type hint arithmetic</a> right there.</p>
+<p>That sounded intellectual and thus boring. Yet, the disturbing fact that Python booleans are integers <sup>...yup</sup> while Python strings are infinitely recursive sequences of strings <sup>...yup</sup> means that <a href="#type-hint-elision">type hint arithmetic</a> can save your codebase from Guido's younger self. Consider this instance validator matching only non-boolean integers, which <em>cannot</em> be expressed with any isinstanceable type hint (e.g., <code>int</code>) or other combination of standard off-the-shelf type hints (e.g., unions):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Type hint matching any non-boolean integer. Never fear integers again.</span>
+<span class="n">IntNonbool</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">~</span><span class="n">IsInstance</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span>   <span class="c1"># &lt;--- bruh</span>
+</code></pre></div>
+<p>Wherever you can, prefer isinstanceable type hints. Sure, they're inflexible, but they're inflexibly standardized across type checkers. Everywhere else, default to <code>IsInstance</code>.</p>
+<div id="beartype.vale.IsSubclass"></div>
+
+<h3 id="issubclass">IsSubclass<a class="headerlink" href="#issubclass" title="Permanent link">&para;</a></h3>
+<p><em>Subscription API:</em> <code>beartype.vale.IsSubclass[type, ...]</code></p>
+<p><strong>Declarative inheritance validator.</strong> A PEP-compliant type hint enforcing subclassing of one or more superclasses (base classes) – created by subscripting (indexing) the <code>IsSubclass</code> type hint factory with those superclasses:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsSubclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Type hint matching only string and byte string subclasses.</span>
+<span class="n">StrOrBytesSubclass</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="n">IsSubclass</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]]</span>
+</code></pre></div>
+<p><code>IsSubclass</code> generalizes the comparable <a href="https://peps.python.org/pep-0484">PEP 484</a>-compliant <code>typing.Type</code> and <a href="https://peps.python.org/pep-0585">PEP 585</a>-compliant <code>type</code> type hint factories. All three check subclassing of arbitrary superclasses. Despite the differing syntax, the following hints all enforce the same semantics:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># This beartype validator enforces the same semantics as...</span>
+<span class="n">IsStringSubclassWithBeartype</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="n">IsSubclass</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+
+<span class="c1"># ...this PEP 484-compliant type hint as well as...</span>
+<span class="n">IsStringSubclassWithPep484</span> <span class="o">=</span> <span class="n">Type</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+<span class="c1"># ...this PEP 585-compliant type hint.</span>
+<span class="n">IsStringSubclassWithPep585</span> <span class="o">=</span> <span class="nb">type</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+</code></pre></div>
+<p>The similarities end there, of course:</p>
+<ul>
+<li><code>IsSubclass</code> permissively validates type inheritance of <strong>arbitrary classes</strong> (including possibly nested attributes of parameters and returns when combined with <code>beartype.vale.IsAttr</code>) against <strong>one or more superclasses.</strong></li>
+<li><code>typing.Type</code> and <code>type</code> rigidly validates type inheritance of only <strong>parameters and returns</strong> against only <strong>one superclass.</strong></li>
+</ul>
+<p>Consider this subclass validator, which validates type inheritance of a deeply nested attribute and thus <em>cannot</em> be expressed with <code>typing.Type</code> or <code>type</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Type hint matching only NumPy arrays of reals (i.e., either integers</span>
+<span class="c1"># or floats) of arbitrary precision, generating code resembling:</span>
+<span class="c1">#    (isinstance(array, np.ndarray) and</span>
+<span class="c1">#     issubclass(array.dtype.type, (np.floating, np.integer)))</span>
+<span class="n">NumpyRealArray</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'dtype'</span><span class="p">,</span> <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'type'</span><span class="p">,</span> <span class="n">IsSubclass</span><span class="p">[</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">]]]]</span>
+</code></pre></div>
+<p>Wherever you can, prefer <code>type</code> and <code>typing.Type</code>. Sure, they're inflexible, but they're inflexibly standardized across type checkers. Everywhere else, default to <code>IsSubclass</code>.</p>
+<h2 id="validator-syntax">Validator Syntax<a class="headerlink" href="#validator-syntax" title="Permanent link">&para;</a></h2>
+<p>Beartype validators support a rich domain-specific language (DSL) leveraging familiar Python operators. Dynamically create new validators on-the-fly from existing validators, fueling reuse and preserving <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>:</p>
+<ul>
+<li><strong>Negation</strong> (i.e., <code>not</code>). Negating any validator with the <code>~</code> operator creates a new validator returning <code>True</code> only when the negated validator returns <code>False</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Type hint matching only strings containing *no* periods, semantically</span>
+<span class="c1"># equivalent to this type hint:</span>
+<span class="c1">#     PeriodlessString = Annotated[str, Is[lambda text: '.' not in text]]</span>
+<span class="n">PeriodlessString</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">~</span><span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="s1">'.'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]]</span>
+</code></pre></div>
+<ul>
+<li><strong>Conjunction</strong> (i.e., <code>and</code>). And-ing two or more validators with the <code>&amp;</code> operator creates a new validator returning <code>True</code> only when <em>all</em> of the and-ed validators return <code>True</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Type hint matching only non-empty strings containing *no* periods,</span>
+<span class="c1"># semantically equivalent to this type hint:</span>
+<span class="c1">#     NonemptyPeriodlessString = Annotated[</span>
+<span class="c1">#         str, Is[lambda text: text and '.' not in text]]</span>
+<span class="n">SentenceFragment</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="p">(</span>
+     <span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">text</span><span class="p">)]</span> <span class="o">&amp;</span>
+    <span class="o">~</span><span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="s1">'.'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
+<span class="p">)]</span>
+</code></pre></div>
+<ul>
+<li><strong>Disjunction</strong> (i.e., <code>or</code>). Or-ing two or more validators with the <code>|</code> operator creates a new validator returning <code>True</code> only when at least one of the or-ed validators returns <code>True</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Type hint matching only empty strings *and* non-empty strings containing</span>
+<span class="c1"># one or more periods, semantically equivalent to this type hint:</span>
+<span class="c1">#     EmptyOrPeriodfullString = Annotated[</span>
+<span class="c1">#         str, Is[lambda text: not text or '.' in text]]</span>
+<span class="n">EmptyOrPeriodfullString</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="p">(</span>
+    <span class="o">~</span><span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">text</span><span class="p">)]</span> <span class="o">|</span>
+     <span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="s1">'.'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
+<span class="p">)]</span>
+</code></pre></div>
+<ul>
+<li><strong>Enumeration</strong> (i.e., <code>,</code>). Delimiting two or or more validators with commas at the top level of a <code>typing.Annotated</code> type hint is an alternate syntax for and-ing those validators with the <code>&amp;</code> operator, creating a new validator returning <code>True</code> only when <em>all</em> of those delimited validators return <code>True</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Type hint matching only non-empty strings containing *no* periods,</span>
+<span class="c1"># semantically equivalent to the "SentenceFragment" defined above.</span>
+<span class="n">SentenceFragment</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span>
+     <span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">text</span><span class="p">)],</span>
+    <span class="o">~</span><span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="s1">'.'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">],</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Since the <code>&amp;</code> operator is more explicit <em>and</em> usable in a wider variety of syntactic contexts, the <code>&amp;</code> operator is generally preferable to enumeration (all else being equal).</p>
+<ul>
+<li><strong>Interoperability.</strong> As PEP-compliant type hints, validators are safely interoperable with other PEP-compliant type hints and usable wherever other PEP-compliant type hints are usable. Standard type hints are subscriptable with validators, because validators <em>are</em> standard type hints:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Type hint matching only sentence fragments defined as either Unicode or</span>
+<span class="c1"># byte strings, generalizing "SentenceFragment" type hints defined above.</span>
+<span class="n">SentenceFragment</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span>
+    <span class="n">Annotated</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="sa">b</span><span class="s1">'.'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]],</span>
+    <span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span>   <span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="sa">u</span><span class="s1">'.'</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]],</span>
+<span class="p">]</span>
+</code></pre></div>
+<p><a href="https://docs.python.org/3/reference/expressions.html#operator-precedence">Standard Python precedence rules</a> may apply.</p>
+<p>DSL: <em>it's not just a telecom acronym anymore.</em></p>
+<h2 id="validator-caveats">Validator Caveats<a class="headerlink" href="#validator-caveats" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Validators require:</strong></p>
+<ul>
+<li><strong>Beartype.</strong> Currently, all <em>other</em> static and runtime type checkers silently ignore beartype validators during type-checking. This includes <a href="http://mypy-lang.org">mypy</a> – which we could possibly solve by bundling a <a href="https://mypy.readthedocs.io/en/stable/extending_mypy.html">mypy plugin</a> with beartype that extends <a href="http://mypy-lang.org">mypy</a> to statically analyze declarative beartype validators (e.g., <code>beartype.vale.IsAttr</code>, <code>beartype.vale.IsEqual</code>). We leave this as an exercise to the idealistic doctoral thesis candidate. <sup>Please do this for us, someone who is not us.</sup></li>
+<li>Either <strong>Python ≥ 3.9</strong> <em>or</em> <a href="https://pypi.org/project/typing-extensions">typing_extensions ≥ 3.9.0.0</a>. Validators piggyback onto the <code>typing.Annotated</code> class first introduced with Python 3.9.0 and since backported to older Python versions by the <a href="https://pypi.org/project/typing-extensions">third-party "typing_extensions" package</a>, which beartype also transparently supports.</li>
+</ul>
+</div>
+<h2 id="validator-showcase">Validator Showcase<a class="headerlink" href="#validator-showcase" title="Permanent link">&para;</a></h2>
+<p>Observe the disturbing (yet alluring) utility of beartype validators in action as they unshackle type hints from the fetters of PEP compliance. Begone, foulest standards!</p>
+<h3 id="full-fat-on-matching">Full-Fat O(n) Matching<a class="headerlink" href="#full-fat-on-matching" title="Permanent link">&para;</a></h3>
+<p>Let's validate <strong>all integers in a list of integers in O(n) time</strong>, because validators mean you no longer have to accept the QA scraps we feed you:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">Is</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Type hint matching all integers in a list of integers in O(n) time. Please</span>
+<span class="c1"># never do this. You now want to, don't you? Why? You know the price! Why?!?</span>
+<span class="n">IntList</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">lst</span><span class="p">:</span> <span class="nb">all</span><span class="p">(</span>
+    <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">)]]</span>
+
+<span class="c1"># Type-check all integers in a list of integers in O(n) time. How could you?</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sum_intlist</span><span class="p">(</span><span class="n">my_list</span><span class="p">:</span> <span class="n">IntList</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    The slowest possible integer summation over the passed list of integers.</span>
+
+<span class="sd">    There goes your whole data science pipeline. Yikes! So much cringe.</span>
+<span class="sd">    '''</span>
+
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>  <span class="c1"># oh, gods what have you done</span>
+</code></pre></div>
+<p>Welcome to <strong>full-fat type-checking.</strong> In <a href="https://github.com/beartype/beartype/issues/7">our disastrous roadmap to beartype 1.0.0</a>, we reluctantly admit that we'd like to augment the <code>beartype.beartype</code> decorator with a new parameter enabling full-fat type-checking. But don't wait for us. Force the issue now by just doing it yourself and then mocking us all over Gitter! <em>Fight the bear, man.</em></p>
+<p><code>There are good reasons to believe that O(1) type-checking is preferable
+&lt;faq:O1&gt;</code>. Violating that core precept exposes your codebase to scalability and security concerns. But you're the Big Boss, you swear you know best, and (in any case) we can't stop you because we already let the unneutered tomcat out of his trash bin by <a href="https://pypi.org/project/beartype">publishing this API into the badlands of PyPI</a>.</p>
+<h3 id="trendy-string-matching">Trendy String Matching<a class="headerlink" href="#trendy-string-matching" title="Permanent link">&para;</a></h3>
+<p>Let's accept strings either at least 80 characters long <em>or</em> both quoted and suffixed by a period. Look, it doesn't matter. Just do it already, beartype!</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">Is</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Validator matching only strings at least 80 characters in length.</span>
+<span class="n">IsLengthy</span> <span class="o">=</span> <span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">]</span>
+
+<span class="c1"># Validator matching only strings suffixed by a period.</span>
+<span class="n">IsSentence</span> <span class="o">=</span> <span class="n">Is</span><span class="p">[</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="n">text</span> <span class="ow">and</span> <span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'.'</span><span class="p">]</span>
+
+<span class="c1"># Validator matching only single- or double-quoted strings.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_is_quoted</span><span class="p">(</span><span class="n">text</span><span class="p">):</span> <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">'"'</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">text</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"'"</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span>
+<span class="n">IsQuoted</span> <span class="o">=</span> <span class="n">Is</span><span class="p">[</span><span class="n">_is_quoted</span><span class="p">]</span>
+
+<span class="c1"># Combine multiple validators by just listing them sequentially.</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">desentence_lengthy_quoted_sentence</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">IsLengthy</span><span class="p">,</span> <span class="n">IsSentence</span><span class="p">,</span> <span class="n">IsQuoted</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    Strip the suffixing period from a lengthy quoted sentence... 'cause.</span>
+<span class="sd">    '''</span>
+
+    <span class="k">return</span> <span class="n">text</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># this is horrible</span>
+
+<span class="c1"># Combine multiple validators by just "&amp;"-ing them sequentially. Yes, this</span>
+<span class="c1"># is exactly identical to the prior function. We do this because we can.</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">desentence_lengthy_quoted_sentence_part_deux</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">IsLengthy</span> <span class="o">&amp;</span> <span class="n">IsSentence</span> <span class="o">&amp;</span> <span class="n">IsQuoted</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    Strip the suffixing period from a lengthy quoted sentence... again.</span>
+<span class="sd">    '''</span>
+
+    <span class="k">return</span> <span class="n">text</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># this is still horrible</span>
+
+<span class="c1"># Combine multiple validators with as many "&amp;", "|", and "~" operators as</span>
+<span class="c1"># you can possibly stuff into a module that your coworkers can stomach.</span>
+<span class="c1"># (They will thank you later. Possibly much later.)</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">strip_lengthy_or_quoted_sentence</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">IsLengthy</span> <span class="o">|</span> <span class="p">(</span><span class="n">IsSentence</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">IsQuoted</span><span class="p">)]])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    Strip the suffixing character from a string that is lengthy and/or a</span>
+<span class="sd">    quoted sentence, because your web app deserves only the best data.</span>
+<span class="sd">    '''</span>
+
+    <span class="k">return</span> <span class="n">text</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># this is frankly outrageous</span>
+</code></pre></div>
+<h3 id="type-hint-arithmetic">Type Hint Arithmetic<a class="headerlink" href="#type-hint-arithmetic" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Subtitle:</strong> <em>From Set Theory They Shall Grow</em></p>
+</blockquote>
+<p><a href="https://peps.python.org/pep-0484">PEP 484</a> standardized the <code>typing.Union</code> factory <a href="https://en.wikipedia.org/wiki/Logical_disjunction">disjunctively</a> matching any of several equally permissible type hints ala Python's builtin <code>or</code> operator or the overloaded <code>|</code> operator for sets. That's great, because set theory is the beating heart behind type theory.</p>
+<p>But that's just <a href="https://en.wikipedia.org/wiki/Logical_disjunction">disjunction</a>. What about <a href="https://en.wikipedia.org/wiki/Intersection_(set_theory)">intersection</a> (e.g., <code>and</code>, <code>&amp;</code>), <a href="https://en.wikipedia.org/wiki/Complement_(set_theory)#Relative_complement">complementation</a> (e.g., <code>not</code>, <code>~</code>), or any of the vast multitude of <em>other</em> set theoretic operations? Can we logically connect simple type hints validating trivial constraints into complex type hints validating non-trivial constraints via PEP-standardized analogues of unary and binary operators?</p>
+<p><strong>Nope.</strong> They don't exist yet. But that's okay. You use beartype, which means you don't have to wait for official Python developers to get there first. You're already there. <sup>...woah</sup></p>
+<h4 id="type-hint-elision">Type Hint Elision<a class="headerlink" href="#type-hint-elision" title="Permanent link">&para;</a></h4>
+<p>Python's core type hierarchy conceals an ugly history of secretive backward compatibility. In this subsection, we uncover the two filthiest, flea-infested, backwater corners of the otherwise well-lit atrium that is the Python language – and how exactly you can finalize them. Both obstruct type-checking, readable APIs, and quality assurance in the post-Python 2.7 era.</p>
+<p>Guido doesn't want you to know. But you want to know, don't you? You are about to enter another dimension, a dimension not only of syntax and semantics but of shame. A journey into a hideous land of annotation wrangling. Next stop... <em>the Beartype Zone.</em> Because guess what?</p>
+<ul>
+<li><strong>Booleans are integers.</strong> They shouldn't be. Booleans aren't integers in most high-level languages. Wait. Are you telling me booleans are literally integers in Python? Surely you jest. That can't be. You can't <em>add</em> booleans, can you? What would that even mean if you could? Observe and cower, rigorous data scientists.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span> <span class="o">+</span> <span class="mf">3.1415</span>
+<span class="mf">4.141500000000001</span>  <span class="c1"># &lt;-- oh. by. god.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="kc">True</span>               <span class="c1"># &lt;-- when nothing is true, everything is true</span>
+</code></pre></div>
+<ul>
+<li><strong>Strings are infinitely recursive sequences of...</strong> yup, it's strings. They shouldn't be. Strings aren't infinitely recursive data structures in any other language devised by incautious mortals – high-level or not. Wait. Are you telling me strings are both indistinguishable from full-blown immutable sequences containing arbitrary items <em>and</em> infinitely recurse into themselves like that sickening non-Euclidean Hall of Mirrors I puked all over when I was a kid? Surely you kid. That can't be. You can't infinitely index into strings <em>and</em> pass and return the results to and from callables expecting either <code>Sequence[Any]</code> or <code>Sequence[str]</code> type hints, can you? Witness and tremble, stricter-than-thou QA evangelists.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="s1">'yougottabekiddi—'</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="s1">'y'</span>   <span class="c1"># &lt;-- pretty sure we just broke the world</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="s2">"Ph'nglui mglw'nafh Cthu—"</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">)</span>
+<span class="kc">True</span>  <span class="c1"># &lt;-- ...curse you, curse you to heck and back</span>
+</code></pre></div>
+<p>When we annotate a callable as accepting an <code>int</code>, we <em>never</em> want that callable to also silently accept a <code>bool</code>. Likewise, when we annotate another callable as accepting a <code>Sequence[Any]</code> or <code>Sequence[str]</code>, we <em>never</em> want that callable to also silently accept a <code>str</code>. These are sensible expectations – just not in Python, where madness prevails.</p>
+<p>To resolve these counter-intuitive concerns, we need the equivalent of the <a href="https://en.wikipedia.org/wiki/Complement_(set_theory)#Relative_complement">relative set complement (or difference)</a>. We now call this thing... <strong>type elision!</strong> Sounds pretty hot, right? We know.</p>
+<h5 id="booleans-integers">Booleans ≠ Integers<a class="headerlink" href="#booleans-integers" title="Permanent link">&para;</a></h5>
+<p>Let's first validate <strong>non-boolean integers</strong> with a beartype validator effectively declaring a new <code>int - bool</code> class (i.e., the subclass of all integers that are <em>not</em> booleans):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsInstance</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Type hint matching any non-boolean integer. This day all errata die.</span>
+<span class="n">IntNonbool</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">~</span><span class="n">IsInstance</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span>   <span class="c1"># &lt;--- bruh</span>
+
+<span class="c1"># Type-check zero or more non-boolean integers summing to a non-boolean</span>
+<span class="c1"># integer. Beartype wills it. So it shall be.</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sum_ints</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">IntNonbool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IntNonbool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    I cast thee out, mangy booleans!</span>
+
+<span class="sd">    You plague these shores no more.</span>
+<span class="sd">    '''</span>
+
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</code></pre></div>
+<h5 id="strings-sequences">Strings ≠ Sequences<a class="headerlink" href="#strings-sequences" title="Permanent link">&para;</a></h5>
+<p>Let's next validate <strong>non-string sequences</strong> with beartype validators effectively declaring a new <code>Sequence - str</code> class (i.e., the subclass of all sequences that are <em>not</em> strings):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsInstance</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Type hint matching any non-string sequence. Your day has finally come.</span>
+<span class="n">SequenceNonstr</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">Sequence</span><span class="p">,</span> <span class="o">~</span><span class="n">IsInstance</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>   <span class="c1"># &lt;--- we doin this</span>
+
+<span class="c1"># Type hint matching any non-string sequence *WHOSE ITEMS ARE ALL STRINGS.*</span>
+<span class="n">SequenceNonstrOfStr</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="o">~</span><span class="n">IsInstance</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+
+<span class="c1"># Type-check a non-string sequence of arbitrary items coerced into strings</span>
+<span class="c1"># and then joined on newline to a new string. (Beartype got your back, bro.)</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">join_objects</span><span class="p">(</span><span class="n">my_sequence</span><span class="p">:</span> <span class="n">SequenceNonstr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    Your tide of disease ends here, :class:`str` class!</span>
+<span class="sd">    '''</span>
+
+    <span class="k">return</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">my_sequence</span><span class="p">))</span>  <span class="c1"># &lt;-- no idea how that works</span>
+
+<span class="c1"># Type-check a non-string sequence whose items are all strings joined on</span>
+<span class="c1"># newline to a new string. It isn't much, but it's all you ask.</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">join_strs</span><span class="p">(</span><span class="n">my_sequence</span><span class="p">:</span> <span class="n">SequenceNonstrOfStr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    I expectorate thee up, sequence of strings.</span>
+<span class="sd">    '''</span>
+
+    <span class="k">return</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">my_sequence</span><span class="p">)</span>  <span class="c1"># &lt;-- do *NOT* do this to a string</span>
+</code></pre></div>
+<h3 id="tensor-property-matching">Tensor Property Matching<a class="headerlink" href="#tensor-property-matching" title="Permanent link">&para;</a></h3>
+<p>Let's validate <a href="#beartype-validators">the same two-dimensional NumPy array of floats of arbitrary precision as in the lead example above</a> with an efficient declarative validator avoiding the additional stack frame imposed by the functional validator in that example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsAttr</span><span class="p">,</span> <span class="n">IsEqual</span><span class="p">,</span> <span class="n">IsSubclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Type hint matching only two-dimensional NumPy arrays of floats of</span>
+<span class="c1"># arbitrary precision. This time, do it faster than anyone has ever</span>
+<span class="c1"># type-checked NumPy arrays before. (Cue sonic boom, Chuck Yeager.)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">Numpy2DFloatArray</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'ndim'</span><span class="p">,</span> <span class="n">IsEqual</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">&amp;</span>
+    <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'dtype'</span><span class="p">,</span> <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'type'</span><span class="p">,</span> <span class="n">IsSubclass</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">]]]</span>
+<span class="p">]</span>
+
+<span class="c1"># Annotate @beartype-decorated callables with beartype validators.</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">polygon_area</span><span class="p">(</span><span class="n">polygon</span><span class="p">:</span> <span class="n">Numpy2DFloatArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    Area of a two-dimensional polygon of floats defined as a set of</span>
+<span class="sd">    counter-clockwise points, calculated via Green's theorem.</span>
+
+<span class="sd">    *Don't ask.*</span>
+<span class="sd">    '''</span>
+
+    <span class="c1"># Calculate and return the desired area. Pretend we understand this.</span>
+    <span class="n">polygon_rolled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">polygon</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+        <span class="n">polygon</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">polygon_rolled</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span>
+        <span class="n">polygon_rolled</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">polygon</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></div>
+<h2 id="validator-alternatives">Validator Alternatives<a class="headerlink" href="#validator-alternatives" title="Permanent link">&para;</a></h2>
+<p>If the unbridled power of beartype validators leaves you variously queasy, uneasy, and suspicious of our core worldview, beartype also supports third-party type hints like <a href="#numpy-type-hints">typed NumPy arrays</a>.</p>
+<p>Whereas beartype validators are verbose, expressive, and general-purpose, the following hints are terse, inexpressive, and domain-specific. Since beartype internally converts these hints to their equivalent validators, <a href="#validator-caveats">similar caveats apply</a>. Notably, these hints require:</p>
+<ul>
+<li>Either <strong>Python ≥ 3.9</strong> <em>or</em> <a href="https://pypi.org/project/typing-extensions">typing_extensions ≥ 3.9.0.0</a>.</li>
+<li><strong>Beartype,</strong> which hopefully goes without saying.</li>
+</ul>
+<h3 id="numpy-type-hints">NumPy Type Hints<a class="headerlink" href="#numpy-type-hints" title="Permanent link">&para;</a></h3>
+<p>Beartype conditionally supports <a href="https://numpy.org/devdocs/reference/typing.html">NumPy type hints (i.e., annotations created by subscripting (indexing) various attributes of the "numpy.typing" subpackage)</a> when these optional runtime dependencies are <em>all</em> satisfied:</p>
+<ul>
+<li>Python ≥ 3.8.0.</li>
+<li>beartype ≥ 0.8.0.</li>
+<li><a href="https://numpy.org">NumPy ≥ 1.21.0</a>.</li>
+<li>Either <strong>Python ≥ 3.9</strong> <em>or</em> <a href="https://pypi.org/project/typing-extensions">typing_extensions ≥ 3.9.0.0</a>.</li>
+</ul>
+<p>Beartype internally converts <a href="https://numpy.org/devdocs/reference/typing.html">NumPy type hints</a> into <a href="#beartype-validators">equivalent beartype validators</a> at decoration time. <a href="https://numpy.org/devdocs/reference/typing.html">NumPy type hints currently only validate dtypes</a>, a common but limited use case. <a href="#beartype-validators">Beartype validators</a> validate <em>any</em> arbitrary combinations of array constraints – including dtypes, shapes, contents, and... well, <em>anything.</em> Which is alot. <a href="https://numpy.org/devdocs/reference/typing.html#ndarray">NumPy type hints</a> are thus just syntactic sugar for <a href="#beartype-validators">beartype validators</a> – albeit quasi-portable syntactic sugar also supported by <a href="http://mypy-lang.org">mypy</a>.</p>
+<p>Wherever you can, prefer <a href="https://numpy.org/devdocs/reference/typing.html">NumPy type hints</a> for portability. Everywhere else, default to <a href="#beartype-validators">beartype validators</a> for generality. Combine them for the best of all possible worlds:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.vale</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsAttr</span><span class="p">,</span> <span class="n">IsEqual</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">floating</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NDArray</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="c1"># Beartype validator + NumPy type hint matching all two-dimensional NumPy</span>
+<span class="c1"># arrays of floating-point numbers of any arbitrary precision.</span>
+<span class="n">NumpyFloat64Array</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">NDArray</span><span class="p">[</span><span class="n">floating</span><span class="p">],</span> <span class="n">IsAttr</span><span class="p">[</span><span class="s1">'ndim'</span><span class="p">,</span> <span class="n">IsEqual</span><span class="p">[</span><span class="mi">2</span><span class="p">]]]</span>
+</code></pre></div>
+<p>Rejoice! A one-liner solves everything yet again.</p>
+<h4 id="typed-numpy-arrays">Typed NumPy Arrays<a class="headerlink" href="#typed-numpy-arrays" title="Permanent link">&para;</a></h4>
+<p>Type NumPy arrays by subscripting (indexing) the <a href="https://numpy.org/doc/stable/reference/typing.html#numpy.typing.NDArray">numpy.typing.NDArray</a> class with one of three possible types of objects:</p>
+<ul>
+<li>An <strong>array dtype</strong> (i.e., instance of the <a href="https://numpy.org/doc/stable/reference/arrays.dtypes.html">numpy.dtype</a> class).</li>
+<li>A <strong>scalar dtype</strong> (i.e., concrete subclass of the <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html?highlight=numpy%20generic#numpy.generic">numpy.generic</a> abstract base class (ABC)).</li>
+<li>A <strong>scalar dtype ABC</strong> (i.e., abstract subclass of the <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html?highlight=numpy%20generic#numpy.generic">numpy.generic</a> ABC).</li>
+</ul>
+<p>Beartype generates fundamentally different type-checking code for these types, complying with both <a href="http://mypy-lang.org">mypy</a> semantics (which behaves similarly) and our userbase (which demands this behaviour). May there be hope for our collective future.</p>
+<p><code>class numpy.typing.NDArray[</code><a href="https://numpy.org/doc/stable/reference/arrays.dtypes.html"><code>numpy.dtype</code></a><code>]</code></p>
+<blockquote>
+<p><strong>NumPy array typed by array dtype.</strong> A PEP-noncompliant type hint enforcing object equality against any <strong>array dtype</strong> (i.e., <a href="https://numpy.org/doc/stable/reference/arrays.dtypes.html">numpy.dtype</a> instance), created by subscripting (indexing) the <a href="https://numpy.org/devdocs/reference/typing.html#ndarray">numpy.typing.NDArray</a> class with that array dtype.</p>
+<p>Prefer this variant when validating the exact data type of an array:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">dtype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NDArray</span>
+
+<span class="c1"># NumPy type hint matching all NumPy arrays of 32-bit big-endian integers,</span>
+<span class="c1"># semantically equivalent to this beartype validator:</span>
+<span class="c1">#     NumpyInt32BigEndianArray = Annotated[</span>
+<span class="c1">#         np.ndarray, IsAttr['dtype', IsEqual[dtype('&gt;i4')]]]</span>
+<span class="n">NumpyInt32BigEndianArray</span> <span class="o">=</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">dtype</span><span class="p">(</span><span class="s1">'&gt;i4'</span><span class="p">)]</span>
+</code></pre></div>
+</blockquote>
+<p><code>class numpy.typing.NDArray[</code><a href="https://numpy.org/doc/stable/reference/arrays.dtypes.html"><code>numpy.dtype.type</code></a><code>]</code></p>
+<blockquote>
+<p><strong>NumPy array typed by scalar dtype.</strong> A PEP-noncompliant type hint enforcing object equality against any <strong>scalar dtype</strong> (i.e., concrete subclass of the <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html?highlight=numpy%20generic#numpy.generic">numpy.generic</a> ABC), created by subscripting (indexing) the <a href="https://numpy.org/devdocs/reference/typing.html#ndarray">numpy.typing.NDArray</a> class with that scalar dtype.</p>
+<p>Prefer this variant when validating the exact scalar precision of an array:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">float64</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NDArray</span>
+
+<span class="c1"># NumPy type hint matching all NumPy arrays of 64-bit floats, semantically</span>
+<span class="c1"># equivalent to this beartype validator:</span>
+<span class="c1">#     NumpyFloat64Array = Annotated[</span>
+<span class="c1">#         np.ndarray, IsAttr['dtype', IsAttr['type', IsEqual[float64]]]]</span>
+<span class="n">NumpyFloat64Array</span> <span class="o">=</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">float64</span><span class="p">]</span>
+</code></pre></div>
+<p>Common scalar dtypes include:</p>
+<ul>
+<li><strong>Fixed-precision integer dtypes</strong> (e.g., <code>numpy.int32</code>, <code>numpy.int64</code>).</li>
+<li><strong>Fixed-precision floating-point dtypes</strong> (e.g., <code>numpy.float32</code>, <code>numpy.float64</code>).</li>
+</ul>
+</blockquote>
+<p><code>class numpy.typing.NDArray[</code><a href="https://docs.python.org/3/library/stdtypes.html#bltin-type-objects"><code>type</code></a><code>[</code><a href="https://numpy.org/doc/stable/reference/arrays.dtypes.html"><code>numpy.dtype.type</code></a><code>]]</code></p>
+<blockquote>
+<p><strong>NumPy array typed by scalar dtype ABC.</strong> A PEP-noncompliant type hint enforcing type inheritance against any <strong>scalar dtype ABC</strong> (i.e., abstract subclass of the <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html?highlight=numpy%20generic#numpy.generic">numpy.generic</a> ABC), created by subscripting (indexing) the <a href="https://numpy.org/devdocs/reference/typing.html#ndarray">numpy.typing.NDArray</a> class with that ABC.</p>
+<p>Prefer this variant when validating only the <em>kind</em> of scalars (without reference to exact precision) in an array:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">floating</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NDArray</span>
+
+<span class="c1"># NumPy type hint matching all NumPy arrays of floats of arbitrary</span>
+<span class="c1"># precision, equivalent to this beartype validator:</span>
+<span class="c1">#     NumpyFloatArray = Annotated[</span>
+<span class="c1">#         np.ndarray, IsAttr['dtype', IsAttr['type', IsSubclass[floating]]]]</span>
+<span class="n">NumpyFloatArray</span> <span class="o">=</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">floating</span><span class="p">]</span>
+</code></pre></div>
+<p>Common scalar dtype ABCs include:</p>
+<ul>
+<li><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html?highlight=numpy%20generic#numpy.integer">numpy.integer</a>, the superclass of all fixed-precision integer dtypes.</li>
+<li><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html?highlight=numpy%20generic#numpy.floating">numpy.floating</a>, the superclass of all fixed-precision floating-point dtypes.</li>
+</ul>
+</blockquote>
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+URI repository (i.e., hidden Markdown document centralizing common URI links as
+Markdown reference-style link definitions, automatically appended to all other
+Markdown documents in this project via the "auto_append" option of the
+"pymdownx.snippets" extension in "zensical.toml").
+-->
+
+<!-- -------------( IMAGES ~ badge                           )-------------- -->
+
+<!-- -------------( IMAGES ~ downstream                      )-------------- -->
+<!-- Insert links to GitHub Sponsors funding at the icon level here, please! -->
+
+<!-- -------------( LINKS ~ beartype : maintainer            )-------------- -->
+<!-- -------------( LINKS ~ beartype : funding               )-------------- -->
+<!-- -------------( LINKS ~ beartype : github                )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : security     )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : time         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : user         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local        )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local : mod  )-------------- -->
+<!-- -------------( LINKS ~ beartype : api                   )-------------- -->
+<!-- -------------( LINKS ~ beartype : package               )-------------- -->
+<!-- -------------( LINKS ~ beartype : package : meta        )-------------- -->
+<!-- -------------( LINKS ~ beartype : plugin                )-------------- -->
+<!-- -------------( LINKS ~ beartype : social                )-------------- -->
+<!-- -------------( LINKS ~ author : kipling                 )-------------- -->
+<!-- -------------( LINKS ~ github                           )-------------- -->
+<!-- -------------( LINKS ~ concept                          )-------------- -->
+<!-- -------------( LINKS ~ math                             )-------------- -->
+<!-- -------------( LINKS ~ math : set                       )-------------- -->
+<!-- -------------( LINKS ~ math : type                      )-------------- -->
+<!-- -------------( LINKS ~ meme                             )-------------- -->
+<!-- -------------( LINKS ~ os : linux                       )-------------- -->
+<!-- -------------( LINKS ~ os : linux : arch                )-------------- -->
+<!-- -------------( LINKS ~ os : macos                       )-------------- -->
+<!-- -------------( LINKS ~ other                            )-------------- -->
+<!-- -------------( LINKS ~ py                               )-------------- -->
+<!-- -------------( LINKS ~ py : cli                         )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter                 )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter : cpython       )-------------- -->
+<!-- -------------( LINKS ~ py : lang                        )-------------- -->
+<!-- -------------( LINKS ~ py : misc                        )-------------- -->
+<!-- -------------( LINKS ~ py : package                     )-------------- -->
+<!-- -------------( LINKS ~ py : package : boto3             )-------------- -->
+<!-- -------------( LINKS ~ py : package : click             )-------------- -->
+<!-- -------------( LINKS ~ py : package : equinox           )-------------- -->
+<!-- -------------( LINKS ~ py : package : ipython           )-------------- -->
+<!-- -------------( LINKS ~ py : package : jax               )-------------- -->
+<!-- -------------( LINKS ~ py : package : numba             )-------------- -->
+<!-- -------------( LINKS ~ py : package : numpy             )-------------- -->
+<!-- -------------( LINKS ~ py : package : pandas            )-------------- -->
+<!-- Note that "pandas" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pandera           )-------------- -->
+<!-- Note that "pandera" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pydantic          )-------------- -->
+<!-- -------------( LINKS ~ py : package : redis             )-------------- -->
+<!-- ------------------( LINKS ~ py : package : redis        )------------------ -->
+<!-- -------------( LINKS ~ py : package : sphinx            )-------------- -->
+<!-- -------------( LINKS ~ py : package : test              )-------------- -->
+<!-- -------------( LINKS ~ py : package : zensical          )-------------- -->
+<!-- -------------( LINKS ~ py : pep                         )-------------- -->
+<!-- -------------( LINKS ~ py : 3119                        )-------------- -->
+<!-- -------------( LINKS ~ py : 484                         )-------------- -->
+<!-- -------------( LINKS ~ py : 560                         )-------------- -->
+<!-- -------------( LINKS ~ py : service                     )-------------- -->
+<!-- -------------( LINKS ~ py : service : pypi              )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib                      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : builtins           )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections        )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections.abc    )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : contextlib         )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : enum               )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : functools          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : inspect            )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : io                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : os                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : random             )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : re                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : threading          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : typing : attr      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : warnings           )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime              )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : dataclass  )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : typeguard  )-------------- -->
+<!-- -------------( LINKS ~ py : type : static               )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : pyright     )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : mypy        )-------------- -->
+<!-- -------------( LINKS ~ soft : ide                       )-------------- -->
+<!-- -------------( LINKS ~ soft : ide : vscode              )-------------- -->
+<!-- -------------( LINKS ~ soft : lang                      )-------------- -->
+<!-- -------------( LINKS ~ soft : license                   )-------------- -->
+<!-- -------------( LINKS ~ soft : web                       )-------------- -->
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>You don't want to know the type of <code>enum.Enum</code> members. Srsly. You don't. Okay... you do? Very well. It's <code>enum.Enum</code>. <sup>mic drop</sup>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../api_decor/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Decorators">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Decorators
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../api_claw/" class="md-footer__link md-footer__link--next" aria-label="Next: Claws">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Claws
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2014-2026 Beartype authors.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.expand","navigation.instant","navigation.instant.progress","navigation.footer","search.highlight","search.suggest"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../docs/js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

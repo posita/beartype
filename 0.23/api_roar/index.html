@@ -1,0 +1,1622 @@
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+MkDocs Material theme override injecting a site-wide announcement banner.
+Mirrors the "rst_prolog" tip admonition from the legacy Sphinx configuration.
+-->
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unbearably fast near-real-time hybrid runtime-static type-checking in pure Python.">
+      
+      
+        <meta name="author" content="Beartype">
+      
+      
+        <link rel="canonical" href="https://beartype.github.io/beartype/latest/api_roar/">
+      
+      
+        <link rel="prev" href="../api_door/">
+      
+      
+        <link rel="next" href="../pep/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="https://raw.githubusercontent.com/beartype/beartype-assets/main/favicon.svg">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Exceptions - Beartype</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#beartype-errors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  🐻 <strong>Upbear us</strong> at
+  <a href="https://github.com/sponsors/leycec">GitHub Sponsors</a> and
+  <a href="https://www.sonarsource.com/products/sonarqube/advanced-security">SonarQube Advanced Security (Tidelift)</a>.
+  <strong>Follow us</strong> <a href="https://leycec.bsky.social">on Bluesky</a>.
+  <strong>Friendzone us</strong> <a href="https://beartype.zulipchat.com">at Zulip</a>. 🐻
+  <br>
+  💗 Financially fueled by
+  <strong><a href="https://trymirai.com">ml (Mirai Labs)</a></strong> —
+  <em><a href="https://trymirai.com">On-device AI for Apple Silicon</a>, powered by bears.</em> 💗
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Beartype" class="md-header__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Beartype
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Exceptions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Beartype" class="md-nav__button md-logo" aria-label="Beartype" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Beartype
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/beartype/beartype" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Welcome
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Install
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tldr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  tl;dr
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eli5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  ELI5
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  API
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  API
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_decor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Decorators
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_vale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Validators
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_claw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Claws
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  DOOR
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exceptions
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exceptions
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exception-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exception API
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exception API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beartypeexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeException
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartypedecorexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeDecorException
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartypecallexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeCallException
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartypecallhintexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeCallHintException
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartypecallhintforwardrefexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeCallHintForwardRefException
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartypecallhintviolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeCallHintViolation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BeartypeCallHintViolation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#culprits" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        culprits
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warning-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Warning API
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Warning API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pep-585-deprecations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PEP 585 Deprecations
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PEP 585 Deprecations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-does-this-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What Does This Mean?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-we-on-the-worst-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Are We on the Worst Timeline?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Features
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Math
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  FAQ
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  See Also
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exception-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exception API
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exception API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beartypeexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeException
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartypedecorexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeDecorException
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartypecallexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeCallException
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartypecallhintexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeCallHintException
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartypecallhintforwardrefexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeCallHintForwardRefException
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beartypecallhintviolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BeartypeCallHintViolation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BeartypeCallHintViolation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#culprits" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        culprits
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warning-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Warning API
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Warning API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pep-585-deprecations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PEP 585 Deprecations
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PEP 585 Deprecations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-does-this-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What Does This Mean?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-we-on-the-worst-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Are We on the Worst Timeline?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="beartype-errors">Beartype Errors<a class="headerlink" href="#beartype-errors" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>...is that bear growling or is it just me?
+        — common last words in rural Canada</p>
+</blockquote>
+<p>Beartype only raises:</p>
+<ul>
+<li><strong>Beartype-specific exceptions.</strong> For your safety and ours, exceptions raised beartype are easily distinguished from exceptions raised by everybody else. <em>All</em> exceptions raised by beartype are instances of:</li>
+<li>Public types importable from the <code>beartype.roar</code> subpackage.</li>
+<li>The <code>beartype.roar.BeartypeException</code> abstract base class (ABC).</li>
+<li><strong>Disambiguous exceptions.</strong> For your sanity and ours, <em>every</em> exception raised by beartype means one thing and one thing only. Beartype <em>never</em> reuses the same exception class to mean two different things – allowing you to trivially catch and handle the exact exception you're interested in.</li>
+</ul>
+<p>Likewise, beartype only emits beartype-specific warnings and disambiguous warnings. Beartype is fastidious to a fault. Error handling is no... <em>exception</em>. <sup>punny *or* funny? you decide.</sup></p>
+<h2 id="exception-api">Exception API<a class="headerlink" href="#exception-api" title="Permanent link">&para;</a></h2>
+<p>Beartype raises fatal exceptions whenever something explodes. Most are self-explanatory – but some assume prior knowledge of arcane type-hinting standards <em>or</em> require non-trivial resolutions warranting further discussion.</p>
+<p>When that happens, don't be the guy that ignores this chapter.</p>
+<div id="beartype.roar.BeartypeException"></div>
+
+<h3 id="beartypeexception">BeartypeException<a class="headerlink" href="#beartypeexception" title="Permanent link">&para;</a></h3>
+<p><em>Superclasses:</em> <code>Exception</code></p>
+<p><strong>Beartype exception root superclass.</strong> <em>All</em> exceptions raised by beartype are guaranteed to be instances of concrete subclasses of this abstract base class (ABC) whose class names strictly match either:</p>
+<ul>
+<li><code>Beartype{subclass_name}Violation</code> for type-checking violations (e.g., <code>BeartypeCallHintReturnViolation</code>).</li>
+<li><code>Beartype{subclass_name}Exception</code> for non-type-checking violations (e.g., <code>BeartypeDecorHintPep3119Exception</code>).</li>
+</ul>
+<div id="beartype.roar.BeartypeDecorException"></div>
+
+<h3 id="beartypedecorexception">BeartypeDecorException<a class="headerlink" href="#beartypedecorexception" title="Permanent link">&para;</a></h3>
+<p><em>Superclasses:</em> <code>BeartypeException</code></p>
+<p><strong>Beartype decorator exception superclass.</strong> <em>All</em> exceptions raised by the <code>@beartype</code> decorator at decoration time (i.e., while dynamically generating type-checking wrappers for decorated callables and classes) are guaranteed to be instances of concrete subclasses of this abstract base class (ABC). Since decoration-time exceptions are typically raised from module scope early in the lifetime of a Python process, you are unlikely to manually catch and handle decorator exceptions.</p>
+<p>A detailed list of subclasses of this ABC is quite inconsequential. Very well. <a href="https://github.com/leycec">@leycec</a> admits he was too tired to type it all out. <a href="https://github.com/leycec">@leycec</a> also admits he played exploitative video games all night instead... <em>again</em>. <a href="https://github.com/leycec">@leycec</a> is grateful nobody reads these API notes. <sup>checkmate, readthedocs.</sup></p>
+<div id="beartype.roar.BeartypeCallException"></div>
+
+<h3 id="beartypecallexception">BeartypeCallException<a class="headerlink" href="#beartypecallexception" title="Permanent link">&para;</a></h3>
+<p><em>Superclasses:</em> <code>BeartypeException</code></p>
+<p><strong>Beartype call-time exception superclass.</strong> Beartype type-checkers (including <code>beartype.door.die_if_unbearable</code> and <code>beartype.beartype</code>-decorated callables) raise instances of concrete subclasses of this abstract base class (ABC) at call-time – typically when failing a type-check.</p>
+<p><em>All</em> exceptions raised by beartype type-checkers are guaranteed to be instances of this ABC. Since type-checking exceptions are typically raised from function and method scopes later in the lifetime of a Python process, you are <em>much</em> more likely to manually catch and handle instances of this exception type than other types of beartype exceptions. This includes the pivotal <code>BeartypeCallHintViolation</code> type, which subclasses this type.</p>
+<p>In fact, you're encouraged to do so. Repeat after Kermode Bear:</p>
+<p>"Exceptions are fun, everybody."</p>
+<p><em>Gotta catch 'em all!</em></p>
+<div id="beartype.roar.BeartypeCallHintException"></div>
+
+<h3 id="beartypecallhintexception">BeartypeCallHintException<a class="headerlink" href="#beartypecallhintexception" title="Permanent link">&para;</a></h3>
+<p><em>Superclasses:</em> <code>BeartypeCallException</code></p>
+<p><strong>Beartype type-checking exception superclass.</strong> Beartype type-checkers (including <code>beartype.door.die_if_unbearable</code> and <code>beartype.beartype</code>-decorated callables) raise instances of concrete subclasses of this abstract base class (ABC) when failing a type-check at call time – typically due to you passing a parameter or returning a value violating a type hint annotating that parameter or return.</p>
+<p>For once, we're not the ones to blame. The relief in our cubicle is palpable.</p>
+<div id="beartype.roar.BeartypeCallHintForwardRefException"></div>
+
+<h3 id="beartypecallhintforwardrefexception">BeartypeCallHintForwardRefException<a class="headerlink" href="#beartypecallhintforwardrefexception" title="Permanent link">&para;</a></h3>
+<p><em>Superclasses:</em> <code>BeartypeCallHintException</code></p>
+<p><strong>Beartype type-checking forward reference exception.</strong> Beartype type-checkers raise instances of this exception type when a <strong>forward reference type hint</strong> (i.e., string referring to a class that has yet to be defined) erroneously references either:</p>
+<ul>
+<li>An attribute that does <em>not</em> exist.</li>
+<li>An attribute that exists but whose value is <em>not</em> actually a class.</li>
+</ul>
+<p>As we gaze forward in time, so too do we glimpse ourselves – unshaven and shabbily dressed – in the rear-view mirror.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">beartype.roar</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeCallHintForwardRefException</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@beartype</span>
+<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">i_am_spirit_bear</span><span class="p">(</span><span class="n">favourite_foodstuff</span><span class="p">:</span> <span class="s1">'salmon.of.course'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">i_am_spirit_bear</span><span class="p">(</span><span class="s1">'Why do you eat all my salmon, Spirit Bear?'</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="n">BeartypeCallHintForwardRefException</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span>
+<span class="go">Forward reference "salmon.of.course" unimportable.</span>
+</code></pre></div>
+<div id="beartype.roar.BeartypeCallHintViolation"></div>
+
+<h3 id="beartypecallhintviolation">BeartypeCallHintViolation<a class="headerlink" href="#beartypecallhintviolation" title="Permanent link">&para;</a></h3>
+<p><em>Superclasses:</em> <code>BeartypeCallHintException</code></p>
+<p><strong>Beartype type-checking violation.</strong> This is the most important beartype exception you never hope to see – and thus the beartype exception you are most likely to see. When your code explodes at midnight, instances of this exception class were lighting the fuse behind your back.</p>
+<p>Beartype type-checkers raise an instance of this exception class when an object to be type-checked violates the type hint annotating that object. Beartype type-checkers include:</p>
+<ul>
+<li>The <code>beartype.door.die_if_unbearable</code> function.</li>
+<li>
+<p>The <code>beartype.door.TypeHint.die_if_unbearable</code> method.</p>
+</li>
+<li>
+<p>User-defined functions and methods decorated by the <code>beartype.beartype</code> decorator, which then themselves become beartype type-checkers.</p>
+</li>
+</ul>
+<p>Because type-checking violations are why we are all here, instances of this exception class offer additional read-only public properties to assist you in debugging. Inspect these properties at runtime to resolve any lingering doubts about which coworker(s) you intend to blame in your next twenty Git commits:</p>
+<div id="beartype.roar.BeartypeCallHintViolation.culprits"></div>
+
+<h4 id="culprits">culprits<a class="headerlink" href="#culprits" title="Permanent link">&para;</a></h4>
+<p><em>Type:</em> <code>tuple[object, ...]</code></p>
+<p>Tuple of one or more <strong>culprits</strong> (i.e., irresponsible objects that violated the type hints annotating those objects during a recent type-check).</p>
+<p>Specifically, this property returns either:</p>
+<ul>
+<li>If a standard slow Python container (e.g., <code>dict</code>, <code>list</code>, <code>set</code>, <code>tuple</code>) is responsible for this violation, the 2-tuple <code>(root_culprit, leaf_culprit)</code> where:</li>
+<li><code>root_culprit</code> is the outermost such container. This is usually the passed parameter or returned value indirectly violating this type hint.</li>
+<li><code>leaf_culprit</code> is the innermost item nested in <code>root_culprit</code> directly violating this type hint.</li>
+<li>If a non-container (e.g., scalar, class instance) is responsible for this violation, the 1-tuple <code>(culprit,)</code> where <code>culprit</code> is that non-container.</li>
+</ul>
+<p>Let us examine what the latter means for your plucky intern who will do this after fetching more pumpkin spice lattes for The Team™ (currently engrossed in a critical morale-building "Best of 260" Atari 2600 <em>Pong</em> competition):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.roar</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeCallHintViolation</span>
+
+<span class="c1"># Arbitrary user-defined classes.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SpiritBearIGiveYouSalmonToGoAway</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SpiritBearIGiftYouHoneyNotToStay</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="c1"># Arbitrary instance of one of these classes.</span>
+<span class="n">SPIRIT_BEAR_REFUSE_TO_GO_AWAY</span> <span class="o">=</span> <span class="n">SpiritBearIGiftYouHoneyNotToStay</span><span class="p">()</span>
+
+<span class="c1"># Callable annotated to accept instances of the *OTHER* class.</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">when_spirit_bear_hibernates_in_your_bed</span><span class="p">(</span>
+    <span class="n">best_bear_den</span><span class="p">:</span> <span class="n">SpiritBearIGiveYouSalmonToGoAway</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="k">pass</span>
+
+<span class="c1"># Call this callable with this invalid instance.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">when_spirit_bear_hibernates_in_your_bed</span><span class="p">(</span>
+        <span class="n">SPIRIT_BEAR_REFUSE_TO_GO_AWAY</span><span class="p">)</span>
+<span class="c1"># *MAGIC HAPPENS HERE*. Catch violations and inspect their "culprits"!</span>
+<span class="k">except</span> <span class="n">BeartypeCallHintViolation</span> <span class="k">as</span> <span class="n">violation</span><span class="p">:</span>
+    <span class="c1"># Assert that one culprit was responsible for this violation.</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">violation</span><span class="o">.</span><span class="n">culprits</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+
+    <span class="c1"># The one culprit: don't think we don't see you hiding there!</span>
+    <span class="n">culprit</span> <span class="o">=</span> <span class="n">violation</span><span class="o">.</span><span class="n">culprits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Assert that this culprit is the same instance passed above.</span>
+    <span class="k">assert</span> <span class="n">culprit</span> <span class="ow">is</span> <span class="n">SPIRIT_BEAR_REFUSE_TO_GO_AWAY</span>
+</code></pre></div>
+<p><strong>Caveats apply.</strong> This property makes a good-faith effort to list the most significant culprits responsible for this type-checking violation. In two edge cases beyond our control, this property falls back to listing truncated snapshots of the machine-readable representations of those culprits (e.g., the first 10,000 characters or so of their <code>repr</code> strings). This safe fallback is triggered for each culprit that:</p>
+<ul>
+<li>Has <strong>already been garbage-collected.</strong> To avoid memory leaks, this property only weakly (rather than strongly) refers to these culprits and is thus best accessed only where these culprits are accessible. Technically, this property is safely accessible from any context. Practically, this property is most usefully accessed from the <code>except ...:</code> block directly catching this violation. Since these culprits may be garbage-collected at any time thereafter, this property <em>cannot</em> be guaranteed to refer to these culprits outside that block. If this property is accessed from any other context and one or more of these culprits have sadly passed away, this property dynamically reduces the corresponding items of this tuple to only the machine-readable representations of those culprits.<sup id="fnref:the-haunting"><a class="footnote-ref" href="#fn:the-haunting">1</a></sup></li>
+<li>Is a <strong>builtin variable-sized C-based object</strong> (e.g., <code>dict</code>, <code>int</code>, <code>list</code>, <code>str</code>). Long-standing limitations within CPython itself prevent beartype from weakly referring to those objects. Openly riot on the <a href="https://github.com/python/cpython/issues">CPython bug tracker</a> if this displeases you as much as it does us.</li>
+</ul>
+<p>Let us examine what this means for your malding CTO:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import the requisite machinery.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">beartype</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.roar</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeCallHintViolation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+
+<span class="c1"># Callable annotated to accept a standard container.</span>
+<span class="nd">@beartype</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">we_are_all_spirit_bear</span><span class="p">(</span>
+    <span class="n">best_bear_dens</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="k">pass</span>
+
+<span class="c1"># Standard container deeply violating the above type hint.</span>
+<span class="n">SPIRIT_BEAR_DO_AS_HE_PLEASE</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="sa">b</span><span class="s1">'Why do you sleep in my pinball room, Spirit Bear?'</span><span class="p">]]</span>
+
+<span class="c1"># Call this callable with this invalid container.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">we_are_all_spirit_bear</span><span class="p">(</span><span class="n">SPIRIT_BEAR_DO_AS_HE_PLEASE</span><span class="p">)</span>
+<span class="c1"># Shoddy magic happens here. Catch violations and try (but fail) to</span>
+<span class="c1"># inspect the original culprits, because they were containers!</span>
+<span class="k">except</span> <span class="n">BeartypeCallHintViolation</span> <span class="k">as</span> <span class="n">violation</span><span class="p">:</span>
+    <span class="c1"># Assert that two culprits were responsible for this violation.</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">violation</span><span class="o">.</span><span class="n">culprits</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+
+    <span class="c1"># Root and leaf culprits. We just made these words up, people.</span>
+    <span class="n">root_culprit</span> <span class="o">=</span> <span class="n">violation</span><span class="o">.</span><span class="n">culprits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">leaf_culprit</span> <span class="o">=</span> <span class="n">violation</span><span class="o">.</span><span class="n">culprits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Assert that these culprits are, in fact, just repr() strings.</span>
+    <span class="k">assert</span> <span class="n">root_culprit</span> <span class="o">==</span> <span class="nb">repr</span><span class="p">(</span><span class="n">SPIRIT_BEAR_DO_AS_HE_PLEASE</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">leaf_culprit</span> <span class="o">==</span> <span class="nb">repr</span><span class="p">(</span><span class="n">SPIRIT_BEAR_DO_AS_HE_PLEASE</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div>
+<p>We see that beartype correctly identified the root culprit as the passed list of lists of byte-strings (rather than strings) <em>and</em> the leaf culprit as that byte-string. We also see that beartype only returned the <code>repr</code> of both culprits rather than those culprits. Why? Because CPython prohibits weak references to both lists <em>and</em> byte-strings.</p>
+<p>This is why we facepalm ourselves in the morning. We did it this morning. We'll do it next morning, too. Until the <code>weakref</code> module improves, <a href="https://github.com/leycec">@leycec</a>'s forehead <em>will</em> be swollen with an angry mass of unsightly red welts that are now festering unbeknownst to his wife.</p>
+<div class="admonition note">
+<p class="admonition-title">Added in 0.12.0</p>
+</div>
+<h2 id="warning-api">Warning API<a class="headerlink" href="#warning-api" title="Permanent link">&para;</a></h2>
+<p>Beartype emits non-fatal warnings whenever something looks it might explode in your lap later... <em>but has yet to do so.</em> Since it is dangerous to go alone, let beartype's words of anxiety-provoking wisdom be your guide. The codebase you save might be your own.</p>
+<h3 id="pep-585-deprecations">PEP 585 Deprecations<a class="headerlink" href="#pep-585-deprecations" title="Permanent link">&para;</a></h3>
+<p>Beartype may occasionally emit non-fatal <a href="https://peps.python.org/pep-0585">PEP 585</a> deprecation warnings under Python ≥ 3.9 resembling:</p>
+<pre><code>/home/kumamon/beartype/_util/hint/pep/utilpeptest.py:377:
+BeartypeDecorHintPep585DeprecationWarning: PEP 484 type hint
+typing.List[int] deprecated by PEP 585 scheduled for removal in the first
+Python version released after October 5th, 2025. To resolve this, import
+this hint from "beartype.typing" rather than "typing". See this discussion
+for further details and alternatives:
+    https://github.com/beartype/beartype#pep-585-deprecations
+</code></pre>
+<p>This is that discussion topic. Let's dissect this like a mantis shrimp repeatedly punching out giant kraken.</p>
+<h4 id="what-does-this-mean">What Does This Mean?<a class="headerlink" href="#what-does-this-mean" title="Permanent link">&para;</a></h4>
+<p>The <a href="https://peps.python.org/pep-0585">PEP 585</a> standard first introduced by Python 3.9.0 deprecated (obsoleted) <em>most</em> of the <a href="https://peps.python.org/pep-0484">PEP 484</a> standard first introduced by Python 3.5.0 in the official <code>typing</code> module. All deprecated type hints are slated to "be removed from the <code>typing</code> module in the first Python version released 5 years after the release of Python 3.9.0." Spoiler: Python 3.9.0 was released on October 5th, 2020. Altogether, this means that:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Most of the "typing" module will be removed in 2025 or 2026.</strong></p>
+</div>
+<p>If your codebase currently imports from the <code>typing</code> module, <em>most</em> of those imports will break under an upcoming Python release. This is what beartype is shouting about. Bad changes are coming to dismantle your working code.</p>
+<h4 id="are-we-on-the-worst-timeline">Are We on the Worst Timeline?<a class="headerlink" href="#are-we-on-the-worst-timeline" title="Permanent link">&para;</a></h4>
+<p>Season Eight of <em>Game of Thrones</em> previously answered this question, but let's try again. You have three options to avert the looming disaster that threatens to destroy everything you hold dear (in ascending order of justice):</p>
+<ol>
+<li>
+<p><strong>Import from</strong> <code>beartype.typing</code> <strong>instead.</strong> The easiest (and best) solution is to globally replace all imports from the standard <code>typing</code> module with equivalent imports from our <code>beartype.typing</code> module. So:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># If you prefer attribute imports, just do this...</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">FrozenSet</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Type</span>
+
+<span class="c1"># ...instead of this.</span>
+<span class="c1">#from typing import Dict, FrozenSet, List, Set, Tuple, Type</span>
+
+<span class="c1"># Or if you prefer module imports, just do this...</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype</span><span class="w"> </span><span class="kn">import</span> <span class="n">typing</span>
+
+<span class="c1"># ...instead of this.</span>
+<span class="c1">#import typing</span>
+</code></pre></div>
+<p>The public <code>beartype.typing</code> API is a <a href="http://mypy-lang.org">mypy</a>-compliant replacement for the <code>typing</code> API offering improved forward compatibility with future Python releases. For example:</p>
+<ul>
+<li><code>beartype.typing.Set is set</code> under Python ≥ 3.9 for <a href="https://peps.python.org/pep-0585">PEP 585</a> compliance.</li>
+<li><code>beartype.typing.Set is typing.Set</code> under Python \&lt; 3.9 for <a href="https://peps.python.org/pep-0484">PEP 484</a> compliance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Drop Python \&lt; 3.9.</strong> The next easiest (but worst) solution is to brutally drop support for Python \&lt; 3.9 by globally replacing all deprecated <a href="https://peps.python.org/pep-0484">PEP 484</a>-compliant type hints with equivalent <a href="https://peps.python.org/pep-0585">PEP 585</a>-compliant type hints (e.g., <code>typing.List[int]</code> with <code>list[int]</code>). This is really only ideal for closed-source proprietary projects with a limited userbase. All other projects should prefer saner solutions outlined below.</p>
+</li>
+<li>
+<p><strong>Hide warnings.</strong> The reprehensible (but understandable) middle-finger way is to just squelch all deprecation warnings with an ignore warning filter targeting the <code>BeartypeDecorHintPep585DeprecationWarning</code> category. On the one hand, this will still fail in 2025 or 2026 with fiery explosions and thus only constitutes a temporary workaround at best. On the other hand, this has the obvious advantage of preserving Python \&lt; 3.9 support with minimal to no refactoring costs. The two ways to do this have differing tradeoffs depending on who you want to suffer most – your developers or your userbase:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Do it globally for everyone, whether they want you to or not!</span>
+<span class="c1"># This is the "Make Users Suffer" option.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.roar</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeDecorHintPep585DeprecationWarning</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="kn">import</span> <span class="n">filterwarnings</span>
+<span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">BeartypeDecorHintPep585DeprecationWarning</span><span class="p">)</span>
+<span class="o">...</span>
+
+<span class="c1"># Do it locally only for you! (Hope you like increasing your</span>
+<span class="c1"># indentation level in every single codebase module.)</span>
+<span class="c1"># This is the "Make Yourself Suffer" option.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">beartype.roar</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeartypeDecorHintPep585DeprecationWarning</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="kn">import</span> <span class="n">catch_warnings</span><span class="p">,</span> <span class="n">filterwarnings</span>
+<span class="k">with</span> <span class="n">catch_warnings</span><span class="p">():</span>
+    <span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">BeartypeDecorHintPep585DeprecationWarning</span><span class="p">)</span>
+    <span class="o">...</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Type aliases.</strong> The hardest (but best) solution is to use <a href="https://peps.python.org/pep-0484/#type-aliases">type aliases</a> to conditionally annotate callables with either <a href="https://peps.python.org/pep-0484">PEP 484</a> <em>or</em> <a href="https://peps.python.org/pep-0585">PEP 585</a> type hints depending on the major version of the current Python interpreter. Since this is life, the hard way is also the best way – but also hard. Unlike the <strong>drop Python \&lt; 3.9</strong> approach, this approach preserves backward compatibility with Python \&lt; 3.9. Unlike the <strong>hide warnings</strong> approach, this approach also preserves forward compatibility with Python ≥ 3.14159265. <a href="https://peps.python.org/pep-0484/#type-aliases">Type aliases</a> means defining a new private <code>{your_package}._typing</code> submodule resembling:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In "{your_package}._typing":</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sys</span><span class="w"> </span><span class="kn">import</span> <span class="n">version_info</span>
+
+<span class="k">if</span> <span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">):</span>
+    <span class="n">List</span> <span class="o">=</span> <span class="nb">list</span>
+    <span class="n">Tuple</span> <span class="o">=</span> <span class="nb">tuple</span>
+    <span class="o">...</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="o">...</span>
+</code></pre></div>
+<p>Then globally refactor all deprecated <a href="https://peps.python.org/pep-0484">PEP 484</a> imports from <code>typing</code> to <code>{your_package}._typing</code> instead:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Instead of this...</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="c1"># ...just do this.</span>
+<span class="kn">from</span><span class="w"> </span><span class="p">{</span><span class="n">your_package</span><span class="p">}</span><span class="o">.</span><span class="n">_typing</span> <span class="kn">import</span><span class="w"> </span><span class="nn">List</span><span class="o">,</span><span class="w"> </span><span class="nn">Tuple</span>
+</code></pre></div>
+<p>What could be simpler? <sup>...gagging noises faintly heard</sup></p>
+</li>
+</ol>
+<!--
+------------------( LICENSE                                  )------------------
+Copyright (c) 2014-2026 Beartype authors.
+See "LICENSE" for further details.
+
+------------------( SYNOPSIS                                 )------------------
+URI repository (i.e., hidden Markdown document centralizing common URI links as
+Markdown reference-style link definitions, automatically appended to all other
+Markdown documents in this project via the "auto_append" option of the
+"pymdownx.snippets" extension in "zensical.toml").
+-->
+
+<!-- -------------( IMAGES ~ badge                           )-------------- -->
+
+<!-- -------------( IMAGES ~ downstream                      )-------------- -->
+<!-- Insert links to GitHub Sponsors funding at the icon level here, please! -->
+
+<!-- -------------( LINKS ~ beartype : maintainer            )-------------- -->
+<!-- -------------( LINKS ~ beartype : funding               )-------------- -->
+<!-- -------------( LINKS ~ beartype : github                )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : security     )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : time         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : user         )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local        )-------------- -->
+<!-- -------------( LINKS ~ beartype : github : local : mod  )-------------- -->
+<!-- -------------( LINKS ~ beartype : api                   )-------------- -->
+<!-- -------------( LINKS ~ beartype : package               )-------------- -->
+<!-- -------------( LINKS ~ beartype : package : meta        )-------------- -->
+<!-- -------------( LINKS ~ beartype : plugin                )-------------- -->
+<!-- -------------( LINKS ~ beartype : social                )-------------- -->
+<!-- -------------( LINKS ~ author : kipling                 )-------------- -->
+<!-- -------------( LINKS ~ github                           )-------------- -->
+<!-- -------------( LINKS ~ concept                          )-------------- -->
+<!-- -------------( LINKS ~ math                             )-------------- -->
+<!-- -------------( LINKS ~ math : set                       )-------------- -->
+<!-- -------------( LINKS ~ math : type                      )-------------- -->
+<!-- -------------( LINKS ~ meme                             )-------------- -->
+<!-- -------------( LINKS ~ os : linux                       )-------------- -->
+<!-- -------------( LINKS ~ os : linux : arch                )-------------- -->
+<!-- -------------( LINKS ~ os : macos                       )-------------- -->
+<!-- -------------( LINKS ~ other                            )-------------- -->
+<!-- -------------( LINKS ~ py                               )-------------- -->
+<!-- -------------( LINKS ~ py : cli                         )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter                 )-------------- -->
+<!-- -------------( LINKS ~ py : interpreter : cpython       )-------------- -->
+<!-- -------------( LINKS ~ py : lang                        )-------------- -->
+<!-- -------------( LINKS ~ py : misc                        )-------------- -->
+<!-- -------------( LINKS ~ py : package                     )-------------- -->
+<!-- -------------( LINKS ~ py : package : boto3             )-------------- -->
+<!-- -------------( LINKS ~ py : package : click             )-------------- -->
+<!-- -------------( LINKS ~ py : package : equinox           )-------------- -->
+<!-- -------------( LINKS ~ py : package : ipython           )-------------- -->
+<!-- -------------( LINKS ~ py : package : jax               )-------------- -->
+<!-- -------------( LINKS ~ py : package : numba             )-------------- -->
+<!-- -------------( LINKS ~ py : package : numpy             )-------------- -->
+<!-- -------------( LINKS ~ py : package : pandas            )-------------- -->
+<!-- Note that "pandas" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pandera           )-------------- -->
+<!-- Note that "pandera" is officially lowercase. -->
+<!-- -------------( LINKS ~ py : package : pydantic          )-------------- -->
+<!-- -------------( LINKS ~ py : package : redis             )-------------- -->
+<!-- ------------------( LINKS ~ py : package : redis        )------------------ -->
+<!-- -------------( LINKS ~ py : package : sphinx            )-------------- -->
+<!-- -------------( LINKS ~ py : package : test              )-------------- -->
+<!-- -------------( LINKS ~ py : package : zensical          )-------------- -->
+<!-- -------------( LINKS ~ py : pep                         )-------------- -->
+<!-- -------------( LINKS ~ py : 3119                        )-------------- -->
+<!-- -------------( LINKS ~ py : 484                         )-------------- -->
+<!-- -------------( LINKS ~ py : 560                         )-------------- -->
+<!-- -------------( LINKS ~ py : service                     )-------------- -->
+<!-- -------------( LINKS ~ py : service : pypi              )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib                      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : builtins           )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections        )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : collections.abc    )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : abc                )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : contextlib         )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : enum               )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : functools          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : inspect            )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : io                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : os                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : random             )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : re                 )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : threading          )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : typing : attr      )-------------- -->
+<!-- -------------( LINKS ~ py : stdlib : warnings           )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime              )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : dataclass  )-------------- -->
+<!-- -------------( LINKS ~ py : type : runtime : typeguard  )-------------- -->
+<!-- -------------( LINKS ~ py : type : static               )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : pyright     )-------------- -->
+<!-- -------------( LINKS ~ py : type : static : mypy        )-------------- -->
+<!-- -------------( LINKS ~ soft : ide                       )-------------- -->
+<!-- -------------( LINKS ~ soft : ide : vscode              )-------------- -->
+<!-- -------------( LINKS ~ soft : lang                      )-------------- -->
+<!-- -------------( LINKS ~ soft : license                   )-------------- -->
+<!-- -------------( LINKS ~ soft : web                       )-------------- -->
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:the-haunting">
+<p>This exception stores the representations of these culprits inside itself when first raised. Like a gruesome time capsule, they return to haunt you.&#160;<a class="footnote-backref" href="#fnref:the-haunting" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../api_door/" class="md-footer__link md-footer__link--prev" aria-label="Previous: DOOR">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                DOOR
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../pep/" class="md-footer__link md-footer__link--next" aria-label="Next: Features">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Features
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2014-2026 Beartype authors.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.expand","navigation.instant","navigation.instant.progress","navigation.footer","search.highlight","search.suggest"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../docs/js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
